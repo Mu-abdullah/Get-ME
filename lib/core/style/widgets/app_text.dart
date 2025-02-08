@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/style/font/fonts_helper.dart';
 
 class AppText extends StatelessWidget {
   const AppText(
@@ -28,6 +29,8 @@ class AppText extends StatelessWidget {
             ? Theme.of(context).textTheme.titleLarge!.fontSize
             : Theme.of(context).textTheme.bodyLarge!.fontSize,
         color: color,
+        fontFamily: FontsHelper.fontFamily,
+        fontWeight: isTitle ? FontWeight.bold : FontWeight.normal,
       ),
       overflow: textOverflow,
       maxLines: maxLines,
