@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:getme/features/main_app/main_app.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'core/app/env_variable.dart';
+import 'core/routes/bloc_observer.dart';
+import 'core/services/get_it/git_it.dart';
+import 'features/main_app/main_app.dart';
+
+Future<void> main() async {
+  await EnvVariable.instance.init(envType: EnvTypeEnum.prod);
+  Bloc.observer = AppBlocObserver();
+  setupLocator();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]).then((_) {
+    runApp(const MainApp());
+  });
 }
-

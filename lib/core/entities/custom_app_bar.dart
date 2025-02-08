@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,6 +18,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor;
   @override
   Widget build(BuildContext context) {
+    var dispalayTitle =
+        translatedTitle != null ? context.translate(translatedTitle!) : title;
     return AppBar(
       leading: isBack
           ? Icon(
@@ -24,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               color: Colors.black,
             )
           : null,
-      title: AppText(translatedTitle ?? title, isBold: true),
+      title: AppText(dispalayTitle, isTitle: true),
       actions: actions,
       backgroundColor: backgroundColor,
     );

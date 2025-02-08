@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/language/app_localizations_setup.dart';
-import 'package:getme/features/home/presentation/views/home_screen.dart';
+
+import '../policy/policy_screen.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -9,7 +10,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const PolicyScreen(),
       locale: Locale('ar'),
       supportedLocales: AppLocalizationsSetup.supportedLocales,
       localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
