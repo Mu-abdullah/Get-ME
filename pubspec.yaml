@@ -62,7 +62,6 @@ flutter:
     - assets/fonts/
     - lang/ar.json
     - lang/en.json
-    - .env.dev
     - .env.prod
     
     # assets:
