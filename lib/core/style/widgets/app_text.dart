@@ -6,6 +6,7 @@ class AppText extends StatelessWidget {
     this.text, {
     super.key,
     this.isTitle = false,
+    this.isBold = false,
     this.softWrap = true,
     this.color,
     this.maxLines = 1,
@@ -14,6 +15,7 @@ class AppText extends StatelessWidget {
   });
   final String text;
   final bool isTitle;
+  final bool isBold;
   final bool softWrap;
   final Color? color;
   final int maxLines;
@@ -30,7 +32,7 @@ class AppText extends StatelessWidget {
             : Theme.of(context).textTheme.bodyLarge!.fontSize,
         color: color,
         fontFamily: FontsHelper.fontFamily,
-        fontWeight: isTitle ? FontWeight.bold : FontWeight.normal,
+        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
       ),
       overflow: textOverflow,
       maxLines: maxLines,
