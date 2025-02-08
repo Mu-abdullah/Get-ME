@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/language/app_localizations.dart';
 
 extension ContextExt on BuildContext {
   //Media Query methods
@@ -38,4 +39,9 @@ extension ContextExt on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+
+  // translations
+  String translate(String langkey) {
+    return AppLocalizations.of(this)!.translate(langkey).toString();
+  }
 }

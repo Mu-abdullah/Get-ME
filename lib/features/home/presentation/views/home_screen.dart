@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/entities/custom_app_bar.dart';
+import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/language/lang_keys.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +9,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'الصفحة الرئيسية'),
+      appBar: CustomAppBar(
+        isBack: false,
+        translatedTitle: context.translate(LangKeys.homeScreen),
+      ),
     );
   }
 }

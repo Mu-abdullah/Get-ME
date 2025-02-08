@@ -8,11 +8,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title = '',
     this.isBack = true,
     this.actions,
+    this.backgroundColor = Colors.white,
   });
   final String? translatedTitle;
   final String title;
   final bool isBack;
   final List<Widget>? actions;
+  final Color backgroundColor;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -24,6 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       title: AppText(translatedTitle ?? title, isBold: true),
       actions: actions,
+      backgroundColor: backgroundColor,
     );
   }
 
