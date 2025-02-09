@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:getme/core/extextions/extentions.dart';
+
+import '../../core/extextions/extentions.dart';
+import '../../core/style/widgets/app_button.dart';
 import '../../core/entities/custom_app_bar.dart';
 import '../../core/language/lang_keys.dart';
 import '../../core/style/color/color_light.dart';
-
 import '../../core/style/widgets/app_text.dart';
 
 class PolicyScreen extends StatelessWidget {
@@ -75,13 +76,10 @@ class PolicyScreen extends StatelessWidget {
                 ],
               ),
               _customSpace(),
-              // CustomButton(
-              //   backGroundColor: ColorsLight.black,
-              //   onTap: () {
-              //     Navigator.pop(context);
-              //   },
-              //   text: context.translate(LangKeys.done),
-              // ),
+              AppButton(
+                text: LangKeys.acceptPolicy,
+                onTap: () {},
+              )
             ],
           ),
         ),
@@ -135,7 +133,7 @@ class PolicyScreen extends StatelessWidget {
         AppText(
           title,
           maxLines: 5,
-          color: ColorsLight.gray,
+          color: ColorsLight.black,
           isTitle: true,
         ),
         _customSpace(height: 8),
@@ -144,7 +142,7 @@ class PolicyScreen extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: AppText(
               text,
-              color: ColorsLight.black,
+              color: ColorsLight.gray,
               maxLines: 5,
             ),
           );

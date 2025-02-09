@@ -1,5 +1,12 @@
 {
+    
     "appName":"GetMe",
+    
     "homeScreen":"الصفحة الرئيسية",
-    "policy":"سياسة الخصوصية"
+    
+    "policy":"سياسة الخصوصية",
+    "acceptPolicy":"قبول السياسة",
+    
+    "login":"تسجيل الدخول",
+    "register":"التسجيل"
 }
