@@ -1,8 +1,13 @@
 {   
     "appName":"GetMe",
-    "homeScreen":"Home Screen",
+
+    "home":"Home",
+    "search":"Search",
+    "account":"Account",
+    
     "policy":"Privacy Policy",
     "acceptPolicy":"Accept Policy",
+    
     "login":"Login",
     "register":"Register"
 }

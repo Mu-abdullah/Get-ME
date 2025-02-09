@@ -10,5 +10,7 @@ class LangKeys {
   static const String register = 'register';
 
   // Home Keys
-  static const String homeScreen = 'homeScreen';
+  static const String home = 'home';
+  static const String search = 'search';
+  static const String account = 'account';
 }

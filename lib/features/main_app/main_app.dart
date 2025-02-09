@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
       localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
       theme: ThemeData(primarySwatch: Colors.blue),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: RoutesNames.bloggerScreen,
+      initialRoute: RoutesNames.homeScreen,
     );
   }
 }

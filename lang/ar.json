@@ -2,7 +2,9 @@
     
     "appName":"GetMe",
     
-    "homeScreen":"الصفحة الرئيسية",
+    "home":"الرئيسية",
+    "search":"بحث",
+    "account":"حسابي",
     
     "policy":"سياسة الخصوصية",
     "acceptPolicy":"قبول السياسة",
