@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/color/color_light.dart';
 import 'package:getme/core/style/font/fonts_helper.dart';
 
@@ -7,6 +8,7 @@ class AppText extends StatelessWidget {
     this.text, {
     super.key,
     this.isTitle = false,
+    this.translated = true,
     this.isUpperCase = false,
     this.isBold = false,
     this.isUnderline = false,
@@ -24,6 +26,7 @@ class AppText extends StatelessWidget {
   final Color? color;
   final Color? lineColor;
   final double fontSize;
+  final bool translated;
   final bool isUpperCase;
   final bool isTitle;
   final bool isBold;
@@ -33,8 +36,16 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var displayText = context.translate(text);
+
     return Text(
-      isUpperCase ? text.toUpperCase() : text,
+      translated
+          ? isUpperCase
+              ? displayText.toUpperCase()
+              : displayText
+          : isUpperCase
+              ? text.toUpperCase()
+              : text,
       style: customTextStyle(
         context,
         color: color!,

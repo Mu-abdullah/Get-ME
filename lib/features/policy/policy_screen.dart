@@ -15,7 +15,7 @@ class PolicyScreen extends StatelessWidget {
     var appName = context.translate(LangKeys.appName);
     return Scaffold(
       appBar: CustomAppBar(
-        translatedTitle: LangKeys.policy,
+        LangKeys.policy,
       ),
       body: SingleChildScrollView(
         child: Padding(
