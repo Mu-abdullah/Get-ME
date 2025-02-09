@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getme/features/home/presentation/views/home_screen.dart';
+import 'package:getme/features/blogger_screen/presentation/views/blogger_screen.dart';
 import 'package:getme/features/policy/policy_screen.dart';
 
 import 'base_routes.dart';
@@ -9,9 +9,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   // final args = settings.arguments as Map<String, dynamic>?;
 
   switch (settings.name) {
-    case RoutesNames.homeScreen:
+    case RoutesNames.bloggerScreen:
       return BaseRoute(
-        page: HomeScreen(),
+        page: BloggerScreen(),
       );
 
     case RoutesNames.policyScreen:
