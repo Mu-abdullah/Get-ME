@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/style/color/color_light.dart';
 import '../../../../core/style/widgets/app_text.dart';
 
-class BloggerSliverAppBar extends StatelessWidget {
-  const BloggerSliverAppBar({
+class CitySliverAppBar extends StatelessWidget {
+  const CitySliverAppBar({
     super.key,
     required this.imageUrl,
     required this.name,
@@ -17,9 +17,12 @@ class BloggerSliverAppBar extends StatelessWidget {
       expandedHeight: 300,
       floating: true,
       pinned: true,
-      leading: Icon(
-        Icons.arrow_back_ios_new_outlined,
-        color: ColorsLight.white,
+      leading: InkWell(
+        onTap: () => Navigator.pop(context),
+        child: Icon(
+          Icons.arrow_back_ios_new_outlined,
+          color: ColorsLight.white,
+        ),
       ),
       backgroundColor: ColorsLight.black,
       flexibleSpace: FlexibleSpaceBar(

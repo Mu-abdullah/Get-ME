@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
 
-import '../../../../../core/language/lang_keys.dart';
-import '../../../../../core/style/color/color_light.dart';
-import '../../../../../core/style/statics/app_statics.dart';
-import '../../../../../core/style/widgets/app_text.dart';
+import '../../../../core/language/lang_keys.dart';
+import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/statics/app_statics.dart';
+import '../../../../core/style/widgets/app_text.dart';
 
 class HomeQuote extends StatelessWidget {
   const HomeQuote({

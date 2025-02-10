@@ -2,12 +2,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/repo/bottom_item.dart';
 
-part 'home_state.dart';
+part 'bottom_bar_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeInitial());
+class BottomBarCubit extends Cubit<BottomBarState> {
+  BottomBarCubit() : super(HomeInitial());
 
-  static HomeCubit get(context) => BlocProvider.of(context);
+  static BottomBarCubit get(context) => BlocProvider.of(context);
   var currentIndex = 0;
 
   var items = BottomItem.items;

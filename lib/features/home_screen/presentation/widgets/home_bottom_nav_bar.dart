@@ -1,7 +1,7 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 
-import '../cubits/cubit/home_cubit.dart';
+import '../cubits/bottom_bar_cubit/bottom_bar_cubit.dart';
 
 class HomeBottomNavigationBar extends StatelessWidget {
   const HomeBottomNavigationBar({
@@ -9,7 +9,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
     required this.cubit,
   });
 
-  final HomeCubit cubit;
+  final BottomBarCubit cubit;
 
   @override
   Widget build(BuildContext context) {

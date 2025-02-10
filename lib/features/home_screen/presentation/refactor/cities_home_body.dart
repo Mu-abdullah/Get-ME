@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/city_home/cities.dart';
-import '../widgets/city_home/home_quote.dart';
-import '../widgets/city_home/places.dart';
+import '../widgets/home/cities/cities_body.dart';
+import '../widgets/home_quote.dart';
+import '../widgets/home/places/places.dart';
 
 class CitiesHomeBody extends StatelessWidget {
   const CitiesHomeBody({super.key});

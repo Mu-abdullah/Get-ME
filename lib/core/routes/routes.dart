@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:getme/features/account_screen/presentation/views/account_screen.dart';
 
-import '../../features/blogger_screen/presentation/views/blogger_screen.dart';
+import '../../features/city_screen/presentation/views/city_screen.dart';
+import '../../features/home_screen/data/model/city_model.dart';
 import '../../features/home_screen/presentation/views/home_screen.dart';
 import '../../features/policy/policy_screen.dart';
 import 'base_routes.dart';
 import 'routes_name.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
-  // final args = settings.arguments as Map<String, dynamic>?;
+  final args = settings.arguments as Map<String, dynamic>?;
 
   switch (settings.name) {
-    case RoutesNames.bloggerScreen:
+    case RoutesNames.cityScreen:
       return BaseRoute(
-        page: BloggerScreen(),
+        page: CityScreen(
+          city: args!['city'] as CityModel,
+        ),
       );
 
     case RoutesNames.policyScreen:

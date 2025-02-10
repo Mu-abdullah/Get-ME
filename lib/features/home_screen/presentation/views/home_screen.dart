@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:getme/features/home_screen/presentation/cubits/city_cubit/city_cubit.dart';
 
-import '../cubits/cubit/home_cubit.dart';
+import '../../../../core/services/get_it/git_it.dart';
+import '../../data/repo/get_cities_repo.dart';
+import '../cubits/bottom_bar_cubit/bottom_bar_cubit.dart';
 import '../refactor/home_body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,8 +12,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    final lactor = locator<GetCitiesRepo>();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BottomBarCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CityCubit(lactor),
+        ),
+      ],
       child: HomeBody(),
     );
   }
