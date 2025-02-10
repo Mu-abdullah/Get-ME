@@ -12,7 +12,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   var items = BottomItem.items;
   var screens = BottomItem.screenItems;
-
+  var title = BottomItem.titles;
   void changeIndex(int index) {
     currentIndex = index;
     emit(ChangeIndex());

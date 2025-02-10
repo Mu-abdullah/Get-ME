@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/extextions/extentions.dart';
 import '../../core/style/widgets/app_button.dart';
-import '../../core/entities/custom_app_bar.dart';
+import '../../core/style/widgets/custom_app_bar.dart';
 import '../../core/language/lang_keys.dart';
 import '../../core/style/color/color_light.dart';
 import '../../core/style/widgets/app_text.dart';

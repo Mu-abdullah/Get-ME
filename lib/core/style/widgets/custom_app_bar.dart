@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/style/color/color_light.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -9,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title = '',
     this.isBack = true,
     this.actions,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor = ColorsLight.white,
   });
   final String? translatedTitle;
   final String title;
@@ -21,10 +22,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     var dispalayTitle =
         translatedTitle != null ? context.translate(translatedTitle!) : title;
     return AppBar(
+      automaticallyImplyLeading: isBack,
       leading: isBack
-          ? Icon(
-              Icons.arrow_back_ios_new_outlined,
-              color: Colors.black,
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back_ios_new_outlined),
+              onPressed: () => Navigator.pop(context),
             )
           : null,
       title: AppText(dispalayTitle, isTitle: true),

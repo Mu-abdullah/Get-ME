@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/style/color/color_light.dart';
 
 import '../../core/routes/routes.dart';
 import '../../core/routes/routes_name.dart';
@@ -15,7 +16,10 @@ class MainApp extends StatelessWidget {
       supportedLocales: AppLocalizationsSetup.supportedLocales,
       localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
       localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: ColorsLight.scaffoldBackground,
+      ),
       onGenerateRoute: onGenerateRoute,
       initialRoute: RoutesNames.homeScreen,
     );
