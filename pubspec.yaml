@@ -31,6 +31,7 @@ dependencies:
   animate_do: ^3.3.7
   bloc: ^9.0.0
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
   flashy_tab_bar2: ^0.0.10
   flutter:
     sdk: flutter

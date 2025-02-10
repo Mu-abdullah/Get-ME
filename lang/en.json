@@ -12,5 +12,8 @@
     "acceptPolicy":"Accept Policy",
     
     "login":"Login",
-    "register":"Register"
+    "register":"Register",
+
+    "noDataFound":"No data",
+    "error":"Error"
 }

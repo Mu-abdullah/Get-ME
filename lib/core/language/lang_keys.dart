@@ -4,6 +4,8 @@ class LangKeys {
   static const String policy = 'policy';
   static const String acceptPolicy = 'acceptPolicy';
   static const String done = 'done';
+  static const String error = 'error';
+  static const String noDataFound = 'noDataFound';
 
   // Auth Keys
   static const String login = 'login';

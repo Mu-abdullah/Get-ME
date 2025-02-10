@@ -1,5 +1,9 @@
 import 'package:get_it/get_it.dart';
 
+import '../supabase/data_services.dart';
+import '../supabase/supabase_services.dart';
+import '../supabase/supabase_services_repo.dart';
+
 final GetIt locator = GetIt.instance;
 void setupLocator() {
   _registerRepositories();
@@ -11,8 +15,7 @@ void _registerRepositories() {
 }
 
 void _registerServices() {
-  // locator.registerLazySingleton(() => SupabaseServicesRepo());
-  // locator
-  //     .registerLazySingleton<DataService>(() => SupabaseDataService(locator()));
-  // locator.registerLazySingleton(() => AuthServices());
+  locator.registerLazySingleton(() => SupabaseServicesRepo());
+  locator
+      .registerLazySingleton<DataService>(() => SupabaseDataService(locator()));
 }

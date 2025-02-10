@@ -13,5 +13,8 @@
     "acceptPolicy":"قبول السياسة",
     
     "login":"تسجيل الدخول",
-    "register":"التسجيل"
+    "register":"التسجيل",
+
+    "noDataFound":"لا يوجد بيانات",
+    "error":"خطأ"
 }
