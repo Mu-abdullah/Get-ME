@@ -43,6 +43,8 @@ dependencies:
   intl: ^0.19.0
   shimmer: ^3.0.0
   smooth_page_indicator: ^1.2.0+3
+  supabase: ^2.6.2
+  supabase_flutter: ^2.8.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -65,7 +67,6 @@ flutter:
     - lang/ar.json
     - lang/en.json
     - .env.prod
-    
     # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

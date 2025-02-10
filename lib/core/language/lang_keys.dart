@@ -14,4 +14,6 @@ class LangKeys {
   static const String search = 'search';
   static const String account = 'account';
   static const String travelQuote = 'travelQuote';
+  static const String cities = 'cities';
+  static const String places = 'places';
 }
