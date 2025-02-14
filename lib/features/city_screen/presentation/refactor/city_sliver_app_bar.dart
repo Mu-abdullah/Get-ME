@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/routes/routes_name.dart';
 
 import '../../../../core/style/color/color_light.dart';
 import '../../../../core/style/widgets/app_text.dart';
@@ -30,11 +32,15 @@ class CitySliverAppBar extends StatelessWidget {
           name,
           color: ColorsLight.white,
         ),
-        background: Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
-          colorBlendMode: BlendMode.colorBurn,
-          color: Colors.black.withValues(alpha: 0.5),
+        background: InkWell(
+          onTap: () => context.pushNamed(RoutesNames.imagePreview,
+              arguments: {'imageUrl': imageUrl, 'title': name}),
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+            colorBlendMode: BlendMode.colorBurn,
+            color: Colors.black.withValues(alpha: 0.5),
+          ),
         ),
         centerTitle: true,
         collapseMode: CollapseMode.pin,

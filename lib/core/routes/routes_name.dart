@@ -1,4 +1,5 @@
 class RoutesNames {
+  static const String imagePreview = '/imagePreview';
   static const String homeScreen = '/homeScreen';
   static const String cityScreen = '/cityScreen';
   static const String policyScreen = '/policyScreen';
