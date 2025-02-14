@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/features/account_screen/presentation/views/account_screen.dart';
+import 'package:getme/features/add_new_place/presentation/views/add_new_place.dart';
 
 import '../../features/city_screen/presentation/views/city_screen.dart';
 import '../../features/home_screen/data/model/city_model.dart';
@@ -30,6 +31,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.policyScreen:
       return BaseRoute(
         page: PolicyScreen(),
+      );
+    case RoutesNames.addPlaceScreen:
+      return BaseRoute(
+        page: AddNewPlace(),
       );
 
     case RoutesNames.homeScreen:

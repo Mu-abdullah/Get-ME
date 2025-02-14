@@ -6,6 +6,7 @@
     "error":"Error",
     "noDataFound":"No data",
     "loading":"loading",    
+    "tryAgain":"Try again",    
 
     "######################################Login":"",
     "login":"Login",
@@ -20,5 +21,7 @@
     "places":"Places",
     
     "######################################City":"",
-    "addNewPlace":"Add New Place"
+    "addNewPlace":"Add New Place",
+    "noPhotos":"No photos added yet",
+    "addPhotosToPalace":"Add Photos to the place"
 }

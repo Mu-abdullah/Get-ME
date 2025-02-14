@@ -7,6 +7,7 @@ class LangKeys {
   static const String error = 'error';
   static const String noDataFound = 'noDataFound';
   static const String loading = 'loading';
+  static const String tryAgain = 'tryAgain';
 
 
   // Auth Keys
@@ -23,5 +24,7 @@ class LangKeys {
 
   // Cities Keys
   static const String addNewPlace = 'addNewPlace';
+  static const String addPhotosToPalace = 'addPhotosToPalace';
+  static const String noPhotos = 'noPhotos';
  
 }

@@ -12,7 +12,9 @@ class AccountListview {
       AccountButtonModel(
         icon: HugeIcons.strokeRoundedImageAdd02,
         title: LangKeys.addNewPlace,
-        onTap: () {},
+        onTap: () {
+          context.pushNamed(RoutesNames.addPlaceScreen);
+        },
       ),
       AccountButtonModel(
         icon: HugeIcons.strokeRoundedNotebook02,
