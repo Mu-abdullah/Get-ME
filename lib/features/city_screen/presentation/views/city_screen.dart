@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:getme/core/extextions/extentions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/style/widgets/app_text.dart';
 import '../../../home_screen/data/model/city_model.dart';
-import '../refactor/blogger_sliver_app_bar.dart';
+import '../cubits/cubit/city_bio_creator_cubit.dart';
+import '../refactor/city_bio.dart';
+import '../refactor/city_sliver_app_bar.dart';
 
 class CityScreen extends StatelessWidget {
   const CityScreen({
@@ -13,24 +14,21 @@ class CityScreen extends StatelessWidget {
   final CityModel city;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          CitySliverAppBar(imageUrl: city.image!, name: city.nameAr!),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: AppText(
-                city.aboutCity!,
-                maxLines: 20,
-                textAlign: TextAlign.justify,
-                height: 2,
-                fontSize: context.bodySmall!.fontSize,
-              ),
-            ),
-          ),
-          // SliverFillRemaining(child: Container()),
-        ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              CityBioCreatorCubit()..generateCityBio(city.name!),
+        ),
+      ],
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            CitySliverAppBar(imageUrl: city.image!, name: city.nameAr!),
+            CityBio(),
+            SliverToBoxAdapter(child: Divider()),
+          ],
+        ),
       ),
     );
   }

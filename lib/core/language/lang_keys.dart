@@ -6,6 +6,8 @@ class LangKeys {
   static const String done = 'done';
   static const String error = 'error';
   static const String noDataFound = 'noDataFound';
+  static const String loading = 'loading';
+
 
   // Auth Keys
   static const String login = 'login';

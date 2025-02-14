@@ -1,5 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../language/lang_keys.dart';
+import 'app_text.dart';
+
+class ShimmerLoadingText extends StatelessWidget {
+  const ShimmerLoadingText({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: CustomShimmer(
+        child: AppText(
+          context.translate(LangKeys.loading),
+          maxLines: 20,
+          textAlign: TextAlign.center,
+          height: 2,
+          fontSize: context.bodySmall!.fontSize,
+        ),
+      ),
+    );
+  }
+}
 
 class CustomShimmer extends StatelessWidget {
   const CustomShimmer({
