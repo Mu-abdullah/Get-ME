@@ -94,7 +94,6 @@ class AppButton extends StatelessWidget {
   Widget _buildText(BuildContext context, Color textColor) {
     return AppText(
       context.translate(text!),
-      fontSize: fontSize,
       isUpperCase: true,
       color: textColor,
       isBold: true,

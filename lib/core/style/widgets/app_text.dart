@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/color/color_light.dart';
 import 'package:getme/core/style/font/fonts_helper.dart';
 
@@ -16,15 +17,17 @@ class AppText extends StatelessWidget {
     this.maxLines = 1,
     this.color = ColorsLight.black,
     this.lineColor = ColorsLight.black,
-    this.fontSize = 18,
     this.height = 1.5,
+    this.fontSize,
+    this.fontWeight,
+    this.fontFamily,
   });
+
   final String text;
   final TextAlign? textAlign;
   final int maxLines;
   final Color? color;
   final Color? lineColor;
-  final double fontSize;
   final double height;
   final bool isUpperCase;
   final bool isTitle;
@@ -32,6 +35,9 @@ class AppText extends StatelessWidget {
   final bool isUnderline;
   final bool isOverLine;
   final bool isLineThrough;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  final String? fontFamily;
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +54,9 @@ class AppText extends StatelessWidget {
         lineColor: lineColor,
         textAlign: textAlign,
         height: height,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontFamily: fontFamily,
       ),
       overflow: TextOverflow.ellipsis,
       textAlign: textAlign,
@@ -67,15 +76,16 @@ TextStyle customTextStyle(
   bool isOverLine = false,
   bool isLineThrough = false,
   double height = 1.5,
+  double? fontSize,
+  FontWeight? fontWeight,
+  String? fontFamily,
 }) {
   return TextStyle(
-    fontFamily: FontsHelper.fontFamily,
-    fontSize: isTitle
-        ? Theme.of(context).textTheme.titleMedium!.fontSize
-        : Theme.of(context).textTheme.bodyMedium!.fontSize,
+    fontFamily: fontFamily ?? FontsHelper.fontFamily,
+    fontSize: fontSize ??
+        (isTitle ? context.titleLarge?.fontSize : context.bodySmall?.fontSize),
     color: color,
-    fontWeight:
-        _isBoldText(isTitle || isBold) ? FontWeight.bold : FontWeight.normal,
+    fontWeight: fontWeight ?? (isBold ? FontWeight.bold : FontWeight.normal),
     decoration: _textDecoration(
       isUnderline: isUnderline,
       isOverLine: isOverLine,
@@ -88,21 +98,17 @@ TextStyle customTextStyle(
 }
 
 TextDecoration _textDecoration({
-  bool? isUnderline,
-  bool? isOverLine,
-  bool? isLineThrough,
+  bool isUnderline = false,
+  bool isOverLine = false,
+  bool isLineThrough = false,
 }) {
-  if (isUnderline! == true) {
+  if (isUnderline) {
     return TextDecoration.underline;
-  } else if (isOverLine! == true) {
+  } else if (isOverLine) {
     return TextDecoration.overline;
-  } else if (isLineThrough! == true) {
+  } else if (isLineThrough) {
     return TextDecoration.lineThrough;
   } else {
     return TextDecoration.none;
   }
-}
-
-bool _isBoldText(bool value) {
-  return value;
 }

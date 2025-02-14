@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../home_screen/data/model/city_model.dart';
@@ -22,6 +23,9 @@ class CityScreen extends StatelessWidget {
               child: AppText(
                 city.aboutCity!,
                 maxLines: 20,
+                textAlign: TextAlign.justify,
+                height: 2,
+                fontSize: context.bodySmall!.fontSize,
               ),
             ),
           ),
