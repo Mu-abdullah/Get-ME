@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../home_screen/data/model/city_model.dart';
 import '../cubits/cubit/city_bio_creator_cubit.dart';
-import '../refactor/city_bio.dart';
-import '../refactor/city_sliver_app_bar.dart';
+import '../refactor/city_body.dart';
+import '../widgets/add_new_palce_floating_button.dart';
 
 class CityScreen extends StatelessWidget {
   const CityScreen({
@@ -12,6 +12,7 @@ class CityScreen extends StatelessWidget {
     required this.city,
   });
   final CityModel city;
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -22,14 +23,10 @@ class CityScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            CitySliverAppBar(imageUrl: city.image!, name: city.nameAr!),
-            CityBio(),
-            SliverToBoxAdapter(child: Divider()),
-          ],
-        ),
+        floatingActionButton: AddNewPlaceFloatingButton(),
+        body: CityBody(city: city),
       ),
     );
   }
 }
+

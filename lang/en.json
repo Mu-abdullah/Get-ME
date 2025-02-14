@@ -1,20 +1,24 @@
-{   
-    "appName":"GetMe",
+{   "######################################Genral":"",
+    "appName":"GetMe",    
+    "policy":"Privacy Policy",
+    "acceptPolicy":"Accept Policy",
+    "done":"Done",
+    "error":"Error",
+    "noDataFound":"No data",
+    "loading":"loading",    
 
+    "######################################Login":"",
+    "login":"Login",
+    "register":"Register",
+
+    "######################################HomeScreen":"",
     "home":"Home",
     "search":"Search",
     "account":"Account",
     "travelQuote":"The travel quote is the real exchange between human and time and place",
     "cities":"Cities",
     "places":"Places",
-    "loading":"loading",
     
-    "policy":"Privacy Policy",
-    "acceptPolicy":"Accept Policy",
-    
-    "login":"Login",
-    "register":"Register",
-
-    "noDataFound":"No data",
-    "error":"Error"
+    "######################################City":"",
+    "addNewPlace":"Add New Place"
 }

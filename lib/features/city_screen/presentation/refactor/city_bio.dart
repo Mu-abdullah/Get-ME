@@ -33,7 +33,7 @@ class CityBio extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: AppText(
-          state.bio,
+          state.bio.trim(),
           maxLines: 20,
           textAlign: TextAlign.justify,
           height: 2,

@@ -93,11 +93,6 @@ class CityItem extends StatelessWidget {
             color: ColorsLight.white,
             isTitle: true,
           ),
-          AppText(
-            city.aboutCity!,
-            color: ColorsLight.gray,
-            maxLines: 3,
-          ),
         ],
       ),
     );

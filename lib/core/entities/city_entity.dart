@@ -5,7 +5,6 @@ class CityEntity {
   final String? nameAr;
   final String? country;
   final String? image;
-  final String? aboutCity;
 
   CityEntity({
     this.id,
@@ -14,6 +13,5 @@ class CityEntity {
     this.nameAr,
     this.country,
     this.image,
-    this.aboutCity,
   });
 }

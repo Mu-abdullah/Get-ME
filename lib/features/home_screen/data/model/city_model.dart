@@ -8,7 +8,6 @@ class CityModel extends CityEntity {
     required super.nameAr,
     required super.image,
     required super.country,
-    required super.aboutCity,
   });
 
   factory CityModel.fromJson(Map<String, dynamic> json) => CityModel(
@@ -18,7 +17,6 @@ class CityModel extends CityEntity {
         nameAr: json['name_ar'],
         image: json['image'],
         country: json['country'],
-        aboutCity: json['about_city'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -28,6 +26,5 @@ class CityModel extends CityEntity {
         'name_ar': nameAr,
         'image': image,
         'country': country,
-        'about_city': aboutCity,
       };
 }

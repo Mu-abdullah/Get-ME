@@ -20,4 +20,8 @@ class LangKeys {
   static const String travelQuote = 'travelQuote';
   static const String cities = 'cities';
   static const String places = 'places';
+
+  // Cities Keys
+  static const String addNewPlace = 'addNewPlace';
+ 
 }

@@ -13,9 +13,13 @@ class CityBioCreatorCubit extends Cubit<CityBioCreatorState> {
     emit(LoadingCityBio());
     try {
       String bio = await cityBioCreator.generateCityBio(city);
-      emit(CityBioGenerated(bio));
+      if (!isClosed) {
+        emit(CityBioGenerated(bio));
+      }
     } catch (e) {
-      emit(CityBioError(e.toString()));
+      if (!isClosed) {
+        emit(CityBioError(e.toString()));
+      }
     }
   }
 }
