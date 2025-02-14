@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../cubits/cubit/image_upload_cubit.dart';
+import '../../cubits/cubit/image_upload_cubit.dart';
 import 'empty_state.dart';
 import 'error_state.dart';
 import 'image_grid_item.dart';

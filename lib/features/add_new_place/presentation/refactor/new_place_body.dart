@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/images_sections.dart';
+import '../widgets/add_images/images_sections.dart';
 
 class NewPlaceBody extends StatelessWidget {
   const NewPlaceBody({super.key});

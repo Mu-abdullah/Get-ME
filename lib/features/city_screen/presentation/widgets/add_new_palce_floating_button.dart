@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:hugeicons/hugeicons.dart';
 
+import '../../../../core/routes/routes_name.dart';
 import '../../../../core/style/widgets/app_button.dart';
 
 class AddNewPlaceFloatingButton extends StatelessWidget {
@@ -14,7 +16,9 @@ class AddNewPlaceFloatingButton extends StatelessWidget {
       isCircle: true,
       icon: HugeIcons.strokeRoundedImageAdd02,
       backGroundColor: Colors.lightBlueAccent,
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(RoutesNames.addPlaceScreen);
+      },
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:getme/core/style/widgets/custom_app_bar.dart';
 
 import '../cubits/cubit/image_upload_cubit.dart';
 import '../refactor/new_place_body.dart';
-import '../widgets/image_upload_fab.dart';
+import '../widgets/add_images/image_upload_fab.dart';
 
 class AddNewPlace extends StatelessWidget {
   const AddNewPlace({super.key});

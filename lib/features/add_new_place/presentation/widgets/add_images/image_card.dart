@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../../core/style/color/color_light.dart';
-import '../cubits/cubit/image_upload_cubit.dart';
+import '../../../../../core/style/color/color_light.dart';
+import '../../cubits/cubit/image_upload_cubit.dart';
 
 class ImageCard extends StatelessWidget {
   final File image;
