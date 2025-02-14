@@ -4,7 +4,7 @@ import 'package:getme/features/account_screen/presentation/views/account_screen.
 import '../../features/city_screen/presentation/views/city_screen.dart';
 import '../../features/home_screen/data/model/city_model.dart';
 import '../../features/home_screen/presentation/views/home_screen.dart';
-import '../../features/policy/policy_screen.dart';
+import '../../features/policy/presentation/views/policy_screen.dart';
 import 'base_routes.dart';
 import 'routes_name.dart';
 

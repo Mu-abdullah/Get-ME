@@ -17,6 +17,7 @@ class AppText extends StatelessWidget {
     this.color = ColorsLight.black,
     this.lineColor = ColorsLight.black,
     this.fontSize = 18,
+    this.height = 1.5,
   });
   final String text;
   final TextAlign? textAlign;
@@ -24,6 +25,7 @@ class AppText extends StatelessWidget {
   final Color? color;
   final Color? lineColor;
   final double fontSize;
+  final double height;
   final bool isUpperCase;
   final bool isTitle;
   final bool isBold;
@@ -45,6 +47,7 @@ class AppText extends StatelessWidget {
         isUnderline: isUnderline,
         lineColor: lineColor,
         textAlign: textAlign,
+        height: height,
       ),
       overflow: TextOverflow.ellipsis,
       textAlign: textAlign,
@@ -63,6 +66,7 @@ TextStyle customTextStyle(
   bool isUnderline = false,
   bool isOverLine = false,
   bool isLineThrough = false,
+  double height = 1.5,
 }) {
   return TextStyle(
     fontFamily: FontsHelper.fontFamily,
@@ -77,6 +81,7 @@ TextStyle customTextStyle(
       isOverLine: isOverLine,
       isLineThrough: isLineThrough,
     ),
+    height: height,
     decorationColor: lineColor,
     decorationStyle: TextDecorationStyle.solid,
   );
