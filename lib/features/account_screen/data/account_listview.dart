@@ -10,6 +10,11 @@ class AccountListview {
   static List<AccountButtonModel> accountList(BuildContext context) {
     return [
       AccountButtonModel(
+        icon: HugeIcons.strokeRoundedImageAdd02,
+        title: LangKeys.addNewPlace,
+        onTap: () {},
+      ),
+      AccountButtonModel(
         icon: HugeIcons.strokeRoundedNotebook02,
         title: LangKeys.policy,
         onTap: () {
