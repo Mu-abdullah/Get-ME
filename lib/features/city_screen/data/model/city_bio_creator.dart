@@ -5,7 +5,6 @@ class CityBioCreator {
     var response = await AiSetup.aiGenerate(
       promot: "short description about $city with 100 words in arabic language",
     );
-
     return response;
   }
 }
