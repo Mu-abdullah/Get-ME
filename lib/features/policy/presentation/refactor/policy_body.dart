@@ -53,6 +53,7 @@ class PolicyBody extends StatelessWidget {
         AppText(
           'سياسة الخصوصية لتطبيق "$appName"',
           isTitle: true,
+          maxLines: 3,
         ),
         const SizedBox(height: 8),
         RichText(
