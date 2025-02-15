@@ -8,7 +8,8 @@ class LangKeys {
   static const String noDataFound = 'noDataFound';
   static const String loading = 'loading';
   static const String tryAgain = 'tryAgain';
-
+  static const String requiredValue = 'requiredValue';
+  static const String save = 'save';
 
   // Auth Keys
   static const String login = 'login';
@@ -26,5 +27,7 @@ class LangKeys {
   static const String addNewPlace = 'addNewPlace';
   static const String addPhotosToPalace = 'addPhotosToPalace';
   static const String noPhotos = 'noPhotos';
- 
+  static const String placeName = 'placeName';
+  static const String placelocation = 'placelocation';
+  static const String placeDescription = 'placeDescription';
 }

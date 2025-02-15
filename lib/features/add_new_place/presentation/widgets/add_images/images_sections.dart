@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubits/cubit/image_upload_cubit.dart';
+import '../../cubits/images_cubit/image_upload_cubit.dart';
+import '../place_info.dart';
 import 'empty_state.dart';
 import 'error_state.dart';
 import 'image_grid_item.dart';
@@ -14,9 +15,15 @@ class ImageGridSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ImageUploadCubit, ImageUploadState>(
       builder: (context, state) {
+        var cubit = ImageUploadCubit.get(context);
         if (state is ImageUploadLoading) return const LoadingIndicator();
         if (state is ImageUploadSuccess) {
-          return ImageGrid(images: state.images);
+          return Column(
+            children: [
+              Expanded(child: ImageGrid(images: state.images)),
+              cubit.images.isEmpty ? Container() : PlaceInfo(cubit: cubit)
+            ],
+          );
         }
         if (state is ImageUploadFailure) {
           return ErrorState(error: state.error);
@@ -26,3 +33,4 @@ class ImageGridSection extends StatelessWidget {
     );
   }
 }
+

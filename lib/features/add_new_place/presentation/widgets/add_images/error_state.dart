@@ -6,7 +6,7 @@ import 'package:hugeicons/hugeicons.dart';
 import '../../../../../core/language/lang_keys.dart';
 import '../../../../../core/style/color/color_light.dart';
 import '../../../../../core/style/widgets/app_text.dart';
-import '../../cubits/cubit/image_upload_cubit.dart';
+import '../../cubits/images_cubit/image_upload_cubit.dart';
 
 class ErrorState extends StatelessWidget {
   final String error;

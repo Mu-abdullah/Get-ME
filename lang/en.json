@@ -7,6 +7,8 @@
     "noDataFound":"No data",
     "loading":"loading",    
     "tryAgain":"Try again",    
+    "requiredValue":"Required",    
+    "save":"save",    
 
     "######################################Login":"",
     "login":"Login",
@@ -23,5 +25,8 @@
     "######################################City":"",
     "addNewPlace":"Add New Place",
     "noPhotos":"No photos added yet",
+    "placeName":"Place Name",
+    "placelocation":"Place Location",
+    "placeDescription":"Place Description",
     "addPhotosToPalace":"Add Photos to the place"
 }

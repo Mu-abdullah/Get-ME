@@ -23,10 +23,9 @@ class CityScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        floatingActionButton: AddNewPlaceFloatingButton(),
+        floatingActionButton: AddNewPlaceFloatingButton(city: city),
         body: CityBody(city: city),
       ),
     );
   }
 }
-
