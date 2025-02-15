@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/model/city_bio_creator.dart';
+import '../../../data/repo/city_bio_creator.dart';
 
 part 'city_bio_creator_state.dart';
 
