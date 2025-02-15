@@ -71,7 +71,7 @@ class CityItem extends StatelessWidget {
       child: ClipRRect(
         borderRadius: AppBorderRadius.mediumRadius,
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
           child: Container(
             color: Colors.transparent,
           ),

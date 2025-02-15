@@ -1,16 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/model/city_model.dart';
-import '../../../data/repo/get_cities_repo.dart';
+import '../../../data/repo/cities_repo.dart';
 
-part 'city_state.dart';
+part 'cities_state.dart';
 
-class CityCubit extends Cubit<CityState> {
+class CitiesCubit extends Cubit<CitiesState> {
   GetCitiesRepo repo;
-  CityCubit(this.repo) : super(HomeInitial()) {
-    getCities();
-  }
-  static CityCubit get(context) => BlocProvider.of(context);
+  CitiesCubit(this.repo) : super(CitiesInitial());
+  static CitiesCubit get(context) => BlocProvider.of(context);
 
   Future<void> getCities() async {
     emit(LoadingCities());

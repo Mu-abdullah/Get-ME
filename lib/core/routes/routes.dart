@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:getme/features/account_screen/presentation/views/account_screen.dart';
-import 'package:getme/features/add_new_place/presentation/views/add_new_place.dart';
-
+ 
+import '../../features/account_screen/presentation/views/account_screen.dart';
+import '../../features/add_new_place/presentation/views/add_new_place.dart';
 import '../../features/city_screen/presentation/views/city_screen.dart';
 import '../../features/home_screen/data/model/city_model.dart';
+import '../../features/home_screen/presentation/views/cities_grid_view_screen.dart';
 import '../../features/home_screen/presentation/views/home_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
 import '../app/image/image_preview.dart';
@@ -26,6 +27,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         page: CityScreen(
           city: args!['city'] as CityModel,
         ),
+      );
+    case RoutesNames.cities:
+      return BaseRoute(
+        page: CitiesGridViewScreen(),
       );
 
     case RoutesNames.policyScreen:
