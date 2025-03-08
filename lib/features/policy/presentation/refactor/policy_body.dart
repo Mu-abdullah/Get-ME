@@ -61,11 +61,11 @@ class PolicyBody extends StatelessWidget {
             style: customTextStyle(context),
             children: [
               TextSpan(
-                text: 'مرحبًا بكم في تطبيق ',
+                text: 'مرحبًا بكم في تطبيق',
                 style: customTextStyle(context, isBold: false, isTitle: false),
               ),
               TextSpan(
-                text: '"$appName"',
+                text: ' "$appName" ',
                 style: customTextStyle(context, color: ColorsLight.gray),
               ),
               TextSpan(

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/widgets/app_button.dart';
 import '../../../../core/style/widgets/app_text_form_felid.dart';
-import '../cubits/images_cubit/image_upload_cubit.dart';
+import '../cubits/images_cubit/get_image_cubit.dart';
+import '../cubits/upload_images_cubit/upload_images_cubit.dart';
 
 class PlaceInfo extends StatelessWidget {
   const PlaceInfo({
@@ -13,7 +15,7 @@ class PlaceInfo extends StatelessWidget {
     required this.cubit,
   });
 
-  final ImageUploadCubit cubit;
+  final GetImageCubit cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +74,21 @@ class PlaceInfo extends StatelessWidget {
               return null;
             },
           ),
-          AppButton(
-            onTap: () {},
-            text: LangKeys.save,
+          BlocBuilder<UploadImagesCubit, UploadImagesState>(
+            builder: (context, state) {
+              var uploadCubit = UploadImagesCubit.get(context);
+              return AppButton(
+                onTap: () {
+                  if (cubit.images.isNotEmpty) {
+                    uploadCubit.submitForm(images: cubit.images).then((c) {
+                      debugPrint("done");
+                      debugPrint("URLS: ${uploadCubit.urls.toString()}");
+                    });
+                  }
+                },
+                text: LangKeys.save,
+              );
+            },
           ),
         ],
       ),

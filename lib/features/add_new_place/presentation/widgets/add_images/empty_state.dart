@@ -6,7 +6,7 @@ import 'package:hugeicons/hugeicons.dart';
 import '../../../../../core/language/lang_keys.dart';
 import '../../../../../core/style/color/color_light.dart';
 import '../../../../../core/style/widgets/app_text.dart';
-import '../../cubits/images_cubit/image_upload_cubit.dart';
+import '../../cubits/images_cubit/get_image_cubit.dart';
 
 class EmptyState extends StatelessWidget {
   const EmptyState({super.key});
@@ -25,7 +25,7 @@ class EmptyState extends StatelessWidget {
           const SizedBox(height: 10),
           TextButton(
             onPressed: () =>
-                BlocProvider.of<ImageUploadCubit>(context).getImages(),
+                BlocProvider.of<GetImageCubit>(context).pickImages(),
             child: AppText(context.translate(LangKeys.addPhotosToPalace)),
           ),
         ],

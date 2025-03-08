@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../../core/style/color/color_light.dart';
-import '../../cubits/images_cubit/image_upload_cubit.dart';
+import '../../cubits/images_cubit/get_image_cubit.dart';
 
 class ImageCard extends StatelessWidget {
   final File image;
@@ -29,7 +29,7 @@ class ImageCard extends StatelessWidget {
           right: 5,
           child: GestureDetector(
             onTap: () =>
-                BlocProvider.of<ImageUploadCubit>(context).deleteImage(index),
+                BlocProvider.of<GetImageCubit>(context).removeImage(index),
             child: CircleAvatar(
               backgroundColor: ColorsLight.white.withValues(alpha: 0.9),
               radius: 15,

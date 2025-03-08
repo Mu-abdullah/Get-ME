@@ -5,14 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/features/home_screen/data/model/city_model.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../data/repo/get_images.dart';
-part 'image_upload_state.dart';
+part 'get_image_state.dart';
 
-class ImageUploadCubit extends Cubit<ImageUploadState> {
-  GetImagesFromGallery getImagesFromGallery = GetImagesFromGallery();
-  ImageUploadCubit({this.city}) : super(ImageUploadInitial());
+class GetImageCubit extends Cubit<GetImageState> {
+  GetImageCubit({this.city}) : super(ImageUploadInitial());
 
-  static ImageUploadCubit get(context) => BlocProvider.of(context);
+  static GetImageCubit get(context) => BlocProvider.of(context);
 
   final CityModel? city;
 
@@ -28,7 +26,7 @@ class ImageUploadCubit extends Cubit<ImageUploadState> {
     return [];
   }
 
-  Future<void> getImages() async {
+  Future<void> pickImages() async {
     emit(ImageUploadLoading());
     try {
       List<XFile> pickedFiles = await ImagePicker().pickMultiImage();
@@ -48,7 +46,7 @@ class ImageUploadCubit extends Cubit<ImageUploadState> {
     }
   }
 
-  void deleteImage(int index) {
+  void removeImage(int index) {
     if (state is ImageUploadSuccess) {
       final images = List<File?>.from((state as ImageUploadSuccess).images);
       images.removeAt(index);
