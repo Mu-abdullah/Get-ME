@@ -16,8 +16,8 @@ class ImageGridSection extends StatelessWidget {
     return BlocBuilder<GetImageCubit, GetImageState>(
       builder: (context, state) {
         var cubit = GetImageCubit.get(context);
-        if (state is ImageUploadLoading) return const LoadingIndicator();
-        if (state is ImageUploadSuccess) {
+        if (state is ImageGetLoading) return const LoadingIndicator();
+        if (state is ImageGetSuccess) {
           return Column(
             children: [
               Expanded(child: ImageGrid(images: state.images)),
@@ -25,7 +25,7 @@ class ImageGridSection extends StatelessWidget {
             ],
           );
         }
-        if (state is ImageUploadFailure) {
+        if (state is ImageGetFailure) {
           return ErrorState(error: state.error);
         }
         return const EmptyState();

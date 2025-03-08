@@ -4,20 +4,20 @@ abstract class GetImageState {}
 
 class ImageUploadInitial extends GetImageState {}
 
-class ImageUploadLoading extends GetImageState {}
+class ImageGetLoading extends GetImageState {}
 
-class ImageUploadProgress extends GetImageState {
+class ImageGetProgress extends GetImageState {
   final List<String> uploadedUrls;
   final int totalImages;
-  ImageUploadProgress(this.uploadedUrls, this.totalImages);
+  ImageGetProgress(this.uploadedUrls, this.totalImages);
 }
 
-class ImageUploadSuccess extends GetImageState {
+class ImageGetSuccess extends GetImageState {
   final List<File?> images;
-  ImageUploadSuccess(this.images);
+  ImageGetSuccess(this.images);
 }
 
-class ImageUploadFailure extends GetImageState {
+class ImageGetFailure extends GetImageState {
   final String error;
-  ImageUploadFailure(this.error);
+  ImageGetFailure(this.error);
 }

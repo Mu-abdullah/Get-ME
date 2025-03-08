@@ -20,65 +20,65 @@ class GetImageCubit extends Cubit<GetImageState> {
   var placeDescription = TextEditingController();
 
   List<File?> get images {
-    if (state is ImageUploadSuccess) {
-      return List.from((state as ImageUploadSuccess).images);
+    if (state is ImageGetSuccess) {
+      return List.from((state as ImageGetSuccess).images);
     }
     return [];
   }
 
   Future<void> pickImages() async {
-    emit(ImageUploadLoading());
+    emit(ImageGetLoading());
     try {
       List<XFile> pickedFiles = await ImagePicker().pickMultiImage();
       List<File?> newImages =
           pickedFiles.take(8).map((xFile) => File(xFile.path)).toList();
-      if (state is ImageUploadSuccess) {
+      if (state is ImageGetSuccess) {
         List<File?> currentImages =
-            List.from((state as ImageUploadSuccess).images);
+            List.from((state as ImageGetSuccess).images);
         currentImages.addAll(newImages);
         currentImages = currentImages.take(8).toList();
-        emit(ImageUploadSuccess(currentImages));
+        emit(ImageGetSuccess(currentImages));
       } else {
-        emit(ImageUploadSuccess(newImages.take(8).toList()));
+        emit(ImageGetSuccess(newImages.take(8).toList()));
       }
     } catch (e) {
-      emit(ImageUploadFailure(e.toString()));
+      emit(ImageGetFailure(e.toString()));
     }
   }
 
   void removeImage(int index) {
-    if (state is ImageUploadSuccess) {
-      final images = List<File?>.from((state as ImageUploadSuccess).images);
+    if (state is ImageGetSuccess) {
+      final images = List<File?>.from((state as ImageGetSuccess).images);
       images.removeAt(index);
-      emit(ImageUploadSuccess(images));
+      emit(ImageGetSuccess(images));
     }
   }
 
   // Optional: Add a method to pick an image from the camera
   Future<void> getImageFromCamera() async {
-    emit(ImageUploadLoading());
+    emit(ImageGetLoading());
     try {
       XFile? pickedFile = await ImagePicker().pickImage(
         source: ImageSource.camera,
       );
       if (pickedFile != null) {
         File newImage = File(pickedFile.path);
-        if (state is ImageUploadSuccess) {
+        if (state is ImageGetSuccess) {
           List<File?> currentImages =
-              List.from((state as ImageUploadSuccess).images);
+              List.from((state as ImageGetSuccess).images);
           if (currentImages.length < 8) {
             // Check limit before adding
             currentImages.add(newImage);
-            emit(ImageUploadSuccess(currentImages));
+            emit(ImageGetSuccess(currentImages));
           }
         } else {
-          emit(ImageUploadSuccess([newImage]));
+          emit(ImageGetSuccess([newImage]));
         }
       } else {
         emit(ImageUploadInitial()); // User canceled the picker
       }
     } catch (e) {
-      emit(ImageUploadFailure(e.toString()));
+      emit(ImageGetFailure(e.toString()));
     }
   }
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/functions/generate_id.dart';
+import 'package:getme/core/routes/routes_name.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/widgets/app_button.dart';
 import '../../../../core/style/widgets/app_text_form_felid.dart';
+import '../../data/model/new_place_model.dart';
 import '../cubits/images_cubit/get_image_cubit.dart';
 import '../cubits/upload_images_cubit/upload_images_cubit.dart';
 
@@ -24,22 +27,14 @@ class PlaceInfo extends StatelessWidget {
       child: Column(
         spacing: 10,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              children: [
-                Expanded(
-                    child: AppText(
-                  cubit.city?.country ?? "",
-                  isTitle: true,
-                )),
-                Expanded(
-                    child: AppText(
-                  cubit.city?.nameAr ?? "",
-                  isTitle: true,
-                )),
-              ],
-            ),
+          Row(
+            children: [
+              Expanded(
+                  child: AppText(
+                cubit.city?.nameAr ?? "",
+                isTitle: true,
+              )),
+            ],
           ),
           AppTextFormField(
             controller: cubit.placeName,
@@ -74,16 +69,29 @@ class PlaceInfo extends StatelessWidget {
               return null;
             },
           ),
-          BlocBuilder<UploadImagesCubit, UploadImagesState>(
+          BlocConsumer<UploadImagesCubit, UploadImagesState>(
+            listener: (context, state) {
+              if (state is ImageUploadRemoteSuccess) {
+                context.pushNamedAndRemoveUntil(RoutesNames.homeScreen);
+              }
+            },
             builder: (context, state) {
               var uploadCubit = UploadImagesCubit.get(context);
               return AppButton(
-                onTap: () {
+                isLoading: state is ImageUploadLoading,
+                onTap: () async {
                   if (cubit.images.isNotEmpty) {
-                    uploadCubit.submitForm(images: cubit.images).then((c) {
-                      debugPrint("done");
-                      debugPrint("URLS: ${uploadCubit.urls.toString()}");
-                    });
+                    if (cubit.formKey.currentState!.validate()) {
+                      final item = NewPlaceModel(
+                          name: cubit.placeName.text,
+                          location: cubit.placeLocation.text,
+                          description: cubit.placeDescription.text,
+                          cityId: cubit.city!.id,
+                          placeId: await GenerateId.generateDocumentId());
+                      uploadCubit.addItem(placeModel: item).then((onValue) {
+                        uploadCubit.submitForm(images: cubit.images);
+                      });
+                    }
                   }
                 },
                 text: LangKeys.save,

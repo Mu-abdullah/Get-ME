@@ -26,3 +26,12 @@ class ImageUploadRemoteSuccess extends UploadImagesState {
   final List<String> imageUrls;
   ImageUploadRemoteSuccess(this.imageUrls);
 }
+
+class AddItemLoading extends UploadImagesState {}
+
+class AddItemSuccess extends UploadImagesState {}
+
+class AddItemFailed extends UploadImagesState {
+  final String error;
+  AddItemFailed({required this.error});
+}
