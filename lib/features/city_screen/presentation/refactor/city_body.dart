@@ -26,4 +26,3 @@ class CityBody extends StatelessWidget {
     );
   }
 }
-

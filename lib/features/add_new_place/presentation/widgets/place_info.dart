@@ -92,7 +92,11 @@ class PlaceInfo extends StatelessWidget {
                         status: PlaceStatus.pending,
                       );
                       uploadCubit.addItem(placeModel: item).then((onValue) {
-                        uploadCubit.submitForm(images: cubit.images);
+                        uploadCubit.submitForm(
+                          images: cubit.images,
+                          cityName: cubit.city!.name!,
+                          country: cubit.city!.country!,
+                        );
                       });
                     }
                   }

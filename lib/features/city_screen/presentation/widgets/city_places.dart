@@ -14,50 +14,18 @@ class CityPlaces extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetCityPlacesCubit, GetCityPlacesState>(
       builder: (context, state) {
+        var city = GetCityPlacesCubit.get(context);
         if (state is GetCityPlacesLoading) {
           return LoadingCityPlaces();
         } else if (state is GetCityPlacesLoaded) {
           if (state.places.isEmpty) {
             return SliverToBoxAdapter(
-              child: NoPlaceFound(),
+              child: NoPlaceFound(
+                city: city.city,
+              ),
             );
           }
-          return SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 4 / 5,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final place = state.places.keys.elementAt(index);
-                final images = state.places[place]!;
-                return Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: AppBorderRadius.mediumRadius,
-                      ),
-                      child: Center(
-                        child: Stack(
-                          children: [
-                            _buildRotatedImage(images[0].url!, 10 / 360),
-                            _buildRotatedImage(images[0].url!, 360 / 300),
-                            _buildImage(images[0].url!),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    AppText(place.name!, color: Colors.black, fontSize: 16),
-                  ],
-                );
-              },
-              childCount: 20,
-            ),
-          );
+          return _sliverGridView(state);
         } else if (state is GetCityPlacesError) {
           return SliverToBoxAdapter(
             child: Center(
@@ -68,6 +36,45 @@ class CityPlaces extends StatelessWidget {
           return const SliverToBoxAdapter(child: SizedBox());
         }
       },
+    );
+  }
+
+  SliverGrid _sliverGridView(GetCityPlacesLoaded state) {
+    return SliverGrid(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 4 / 5,
+      ),
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          final place = state.places.keys.elementAt(index);
+          final images = state.places[place]!;
+          return Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: AppBorderRadius.mediumRadius,
+                ),
+                child: Center(
+                  child: Stack(
+                    children: [
+                      _buildRotatedImage(images[0].url!, 10 / 360),
+                      _buildRotatedImage(images[0].url!, 360 / 300),
+                      _buildImage(images[0].url!),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              AppText(place.name!, color: Colors.black, fontSize: 16),
+            ],
+          );
+        },
+        childCount: state.places.length,
+      ),
     );
   }
 

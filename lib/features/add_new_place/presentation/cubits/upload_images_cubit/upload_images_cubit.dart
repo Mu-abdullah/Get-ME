@@ -46,7 +46,11 @@ class UploadImagesCubit extends Cubit<UploadImagesState> {
     }
   }
 
-  Future<void> submitForm({List<File?>? images}) async {
+  Future<void> submitForm({
+    List<File?>? images,
+    required String cityName,
+    required String country,
+  }) async {
     if (itemId == null) {
       emit(ImageUploadFailure('Item ID is missing. Add item first.'));
       return;
@@ -65,8 +69,9 @@ class UploadImagesCubit extends Cubit<UploadImagesState> {
 
         final fileName =
             '${DateTime.now().millisecondsSinceEpoch}_${image.path.split('/').last}';
-        await storage.uploadBinary(fileName, await image.readAsBytes());
-        final url = storage.getPublicUrl(fileName);
+        final categoryPath = '$country/$cityName/$itemId/$fileName';
+        await storage.uploadBinary(categoryPath, await image.readAsBytes());
+        final url = storage.getPublicUrl(categoryPath);
         uploadedUrls.add(url);
         emit(ImageUploadProgress(uploadedUrls, totalImages));
       }

@@ -87,7 +87,7 @@ class PlaceCard extends StatelessWidget {
                   controller: pageController,
                   count: images.length,
                   effect: const ExpandingDotsEffect(
-                    activeDotColor: ColorsLight.black,
+                    activeDotColor: Colors.blueAccent,
                     dotColor: ColorsLight.white,
                     dotHeight: 8,
                     dotWidth: 8,

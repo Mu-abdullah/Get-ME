@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-
 import 'package:hugeicons/hugeicons.dart';
 
+import '../../../features/home_screen/data/model/city_model.dart';
 import '../../language/lang_keys.dart';
 import '../../routes/routes_name.dart';
 import '../statics/app_statics.dart';
@@ -11,8 +11,9 @@ import 'app_text.dart';
 class NoPlaceFound extends StatelessWidget {
   const NoPlaceFound({
     super.key,
+    this.city,
   });
-
+  final CityModel? city;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,8 +24,10 @@ class NoPlaceFound extends StatelessWidget {
         children: [
           AppText(context.translate(LangKeys.noPlaces)),
           InkWell(
-            onTap: () =>
-                Navigator.of(context).pushNamed(RoutesNames.addPlaceScreen),
+            onTap: () => Navigator.of(context)
+                .pushNamed(RoutesNames.addPlaceScreen, arguments: {
+              "city": city,
+            }),
             borderRadius: AppBorderRadius.mediumRadius,
             child: Padding(
               padding: AppPadding.mediumPadding,
@@ -34,7 +37,7 @@ class NoPlaceFound extends StatelessWidget {
                 spacing: 10,
                 children: [
                   AppText(
-                    context.translate(LangKeys.youAdd),
+                    "${context.translate(LangKeys.youAdd)} ${context.translate(LangKeys.place)}",
                     color: Colors.blue,
                   ),
                   Icon(
