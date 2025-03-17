@@ -28,5 +28,7 @@
     "placeName":"Place Name",
     "placelocation":"Place Location",
     "placeDescription":"Place Description",
-    "addPhotosToPalace":"Add Photos to the place"
+    "addPhotosToPalace":"Add Photos to the place",
+    "noPlaces":"No places added yet",
+    "youAdd":"Be the first to add"
 }

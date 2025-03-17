@@ -4,7 +4,7 @@ import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
-import '../cubits/cubit/city_bio_creator_cubit.dart';
+import '../cubits/city_bio_creator_cubit/city_bio_creator_cubit.dart';
 
 class CityBio extends StatelessWidget {
   const CityBio({

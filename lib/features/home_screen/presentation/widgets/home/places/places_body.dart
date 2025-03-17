@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../../../core/language/lang_keys.dart';
 import '../../../../../../core/style/widgets/app_space.dart';
-import '../../../../../../core/style/widgets/app_text.dart';
+import '../../../../../../core/style/widgets/no_place_found.dart';
 import '../../../cubits/home_places_cubit/home_places_cubit.dart';
 import '../home_section_header.dart';
 import '../home_section_loading.dart';
@@ -21,9 +20,7 @@ class PlacesBody extends StatelessWidget {
           return const HomeSectionLoading(title: LangKeys.places);
         } else if (state is PlacesLoaded) {
           if (state.placesWithImages.isEmpty) {
-            return Center(
-              child: AppText(context.translate(LangKeys.noDataFound)),
-            );
+            return NoPlaceFound();
           }
           return Column(
             children: [

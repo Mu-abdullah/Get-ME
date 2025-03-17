@@ -30,4 +30,6 @@ class LangKeys {
   static const String placeName = 'placeName';
   static const String placelocation = 'placelocation';
   static const String placeDescription = 'placeDescription';
+  static const String noPlaces = 'noPlaces';
+  static const String youAdd = 'youAdd';
 }

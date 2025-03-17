@@ -29,5 +29,7 @@
     "placeName":"اسم المكان",
     "placelocation":"موقع المكان",
     "placeDescription":"وصف المكان",
-    "addPhotosToPalace":"ادخل صور للمكان"
+    "addPhotosToPalace":"ادخل صور للمكان",
+    "noPlaces":"لم يتم إضافة أي مكان حتى الآن",
+    "youAdd":"كن أول من يضيف"
 }

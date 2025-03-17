@@ -1,15 +1,18 @@
 import '../../../../core/services/supabase/backend_points.dart';
 import '../../../../core/services/supabase/base_place_repo.dart';
-import '../model/get_place_image_model.dart';
-import '../model/places_model.dart';
+import '../../../home_screen/data/model/get_place_image_model.dart';
+import '../../../home_screen/data/model/places_model.dart';
 
-class PlacesRepository extends BasePlacesRepository {
-  Future<Map<PlacesModel, List<GetPlaceImageModel>>>
-      fetchPlacesWithImages() async {
+class CityPlacesRepo extends BasePlacesRepository {
+  Future<Map<PlacesModel, List<GetPlaceImageModel>>> fetchCityPlacesWithImages(
+      {required int cityId}) async {
     try {
-      // Fetch approved places
+      // Fetch approved places for the given city
       final places = await fetchPlaces(
-        filters: {'status': PlaceStatus.approved},
+        filters: {
+          'city_id': cityId,
+          'status': PlaceStatus.approved,
+        },
         orderBy: 'place_id',
         ascending: true,
       );
@@ -21,7 +24,7 @@ class PlacesRepository extends BasePlacesRepository {
       // Group images by place
       return groupPlacesWithImages(places, images);
     } catch (e) {
-      throw Exception('Failed to load places: $e');
+      throw Exception('Failed to load city places: $e');
     }
   }
 }
