@@ -49,7 +49,7 @@ dependencies:
   path_provider: ^2.1.5
   shared_preferences: ^2.5.2
   shimmer: ^3.0.0
-  smooth_page_indicator: ^1.2.0+3
+  smooth_page_indicator: ^1.2.1
   supabase: ^2.6.2
   supabase_flutter: ^2.8.0
 

@@ -6,6 +6,7 @@ import 'package:getme/core/routes/routes_name.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 import '../../../../core/language/lang_keys.dart';
+import '../../../../core/services/supabase/backend_points.dart';
 import '../../../../core/style/widgets/app_button.dart';
 import '../../../../core/style/widgets/app_text_form_felid.dart';
 import '../../data/model/new_place_model.dart';
@@ -83,11 +84,13 @@ class PlaceInfo extends StatelessWidget {
                   if (cubit.images.isNotEmpty) {
                     if (cubit.formKey.currentState!.validate()) {
                       final item = NewPlaceModel(
-                          name: cubit.placeName.text,
-                          location: cubit.placeLocation.text,
-                          description: cubit.placeDescription.text,
-                          cityId: cubit.city!.id,
-                          placeId: await GenerateId.generateDocumentId());
+                        name: cubit.placeName.text,
+                        location: cubit.placeLocation.text,
+                        description: cubit.placeDescription.text,
+                        cityId: cubit.city!.id,
+                        placeId: await GenerateId.generateDocumentId(),
+                        status: PlaceStatus.pending,
+                      );
                       uploadCubit.addItem(placeModel: item).then((onValue) {
                         uploadCubit.submitForm(images: cubit.images);
                       });

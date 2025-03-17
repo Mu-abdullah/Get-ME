@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/services/get_it/git_it.dart';
 import '../../data/repo/get_home_cities_repo.dart';
+import '../../data/repo/places_repo.dart';
 import '../cubits/bottom_bar_cubit/bottom_bar_cubit.dart';
 import '../cubits/home_city_cubit/home_city_cubit.dart';
+import '../cubits/home_places_cubit/home_places_cubit.dart';
 import '../refactor/home_body.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lactor = locator<GetHomeCitiesRepo>();
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -20,6 +23,9 @@ class HomeScreen extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeCityCubit(lactor),
+        ),
+        BlocProvider(
+          create: (context) => PlacesCubit(PlacesRepository()),
         ),
       ],
       child: HomeBody(),

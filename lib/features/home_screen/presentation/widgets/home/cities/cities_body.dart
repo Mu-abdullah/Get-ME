@@ -21,7 +21,7 @@ class Cities extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCityCubit, HomeCityState>(builder: (context, state) {
       if (state is LoadingCities) {
-        return const HomeSectionLoading();
+        return const HomeSectionLoading(title: LangKeys.cities);
       } else if (state is ErrorGetCities) {
         return Center(child: AppText(state.message));
       } else if (state is CitiesLoaded) {

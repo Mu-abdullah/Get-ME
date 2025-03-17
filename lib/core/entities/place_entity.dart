@@ -6,6 +6,7 @@ class PlaceEntity {
   final String? description;
   final int? cityId;
   final String? placeId;
+  final String? status;
 
   PlaceEntity({
     this.id,
@@ -15,5 +16,6 @@ class PlaceEntity {
     this.description,
     this.cityId,
     this.placeId,
+    this.status,
   });
 }

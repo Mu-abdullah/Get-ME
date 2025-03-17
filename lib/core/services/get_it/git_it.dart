@@ -18,6 +18,7 @@ void setupLocator() {
 void _registerRepositories() {
   locator.registerLazySingleton(() => GetCitiesRepo(locator()));
   locator.registerLazySingleton(() => GetHomeCitiesRepo(locator()));
+  // locator.registerLazySingleton(() => GetPlacesRepo(locator()));
   locator.registerLazySingleton(() => AddPlaceInfo(locator()));
   locator.registerLazySingleton(() => AddImages(locator()));
   locator.registerLazySingleton(() => PolicyRepo(locator()));

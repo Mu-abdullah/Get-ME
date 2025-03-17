@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/home/cities/cities_body.dart';
 import '../widgets/home_quote.dart';
-import '../widgets/home/places/places.dart';
+import '../widgets/home/places/places_body.dart';
 
 class CitiesHomeBody extends StatelessWidget {
   const CitiesHomeBody({super.key});
@@ -14,7 +14,7 @@ class CitiesHomeBody extends StatelessWidget {
       children: [
         HomeQuote(),
         Expanded(child: Cities()),
-        Expanded(child: Places()),
+        Expanded(child: PlacesBody()),
       ],
     );
   }

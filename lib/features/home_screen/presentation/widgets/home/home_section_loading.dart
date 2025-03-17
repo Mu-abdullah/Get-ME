@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/language/lang_keys.dart';
 import '../../../../../core/style/statics/app_statics.dart';
 import '../../../../../core/style/widgets/app_space.dart';
 import '../../../../../core/style/widgets/custom_shimmer.dart';
@@ -9,8 +8,9 @@ import 'home_section_header.dart';
 class HomeSectionLoading extends StatelessWidget {
   const HomeSectionLoading({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +23,7 @@ class HomeSectionLoading extends StatelessWidget {
           children: [
             const AppSpace(space: 5),
             HomeSectionHeader(
-              title: LangKeys.cities,
+              title: title,
               onTap: () {},
             ),
             Expanded(
