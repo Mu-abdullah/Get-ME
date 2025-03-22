@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/features/home_screen/data/model/city_model.dart';
+import 'package:getme/features/home_screen/data/model/governorates_model.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'get_image_state.dart';
@@ -12,7 +12,7 @@ class GetImageCubit extends Cubit<GetImageState> {
 
   static GetImageCubit get(context) => BlocProvider.of(context);
 
-  final CityModel? city;
+  final GovernoratesModel? city;
 
   var formKey = GlobalKey<FormState>();
   var placeName = TextEditingController();

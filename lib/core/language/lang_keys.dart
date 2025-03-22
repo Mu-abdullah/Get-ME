@@ -20,6 +20,7 @@ class LangKeys {
   static const String search = 'search';
   static const String account = 'account';
   static const String travelQuote = 'travelQuote';
+  static const String governorates = 'governorates';
   static const String cities = 'cities';
   static const String places = 'places';
 
@@ -33,4 +34,6 @@ class LangKeys {
   static const String noPlaces = 'noPlaces';
   static const String place = 'place';
   static const String youAdd = 'youAdd';
+  static const String go = 'go';
+  static const String goToLocation = 'goToLocation';
 }

@@ -13,7 +13,7 @@ class AppText extends StatelessWidget {
     this.isUnderline = false,
     this.isOverLine = false,
     this.isLineThrough = false,
-    this.textAlign,
+    this.textAlign = TextAlign.justify,
     this.maxLines = 1,
     this.color = ColorsLight.black,
     this.lineColor = ColorsLight.black,

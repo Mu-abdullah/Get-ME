@@ -19,6 +19,7 @@
     "search":"Search",
     "account":"Account",
     "travelQuote":"The travel quote is the real exchange between human and time and place",
+    "governorates":"Governorates",
     "cities":"Cities",
     "places":"Places",
     
@@ -31,5 +32,7 @@
     "addPhotosToPalace":"Add Photos to the place",
     "noPlaces":"No places added yet",
     "place":"Place",
-    "youAdd":"Be the first to add"
+    "youAdd":"Be the first to add",
+    "go":"Go to",
+    "goToLocation":"Go to location"
 }

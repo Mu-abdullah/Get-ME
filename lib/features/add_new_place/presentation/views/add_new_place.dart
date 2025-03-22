@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/services/get_it/git_it.dart';
-import 'package:getme/features/home_screen/data/model/city_model.dart';
+import 'package:getme/features/home_screen/data/model/governorates_model.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/widgets/custom_app_bar.dart';
@@ -14,9 +14,9 @@ import '../refactor/new_place_body.dart';
 class AddNewPlace extends StatelessWidget {
   const AddNewPlace({
     super.key,
-    this.city,
+    this.governorate,
   });
-  final CityModel? city;
+  final GovernoratesModel? governorate;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class AddNewPlace extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GetImageCubit(city: city),
+          create: (context) => GetImageCubit(city: governorate),
         ),
         BlocProvider(
           create: (context) =>

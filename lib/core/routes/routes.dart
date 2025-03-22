@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:getme/features/place_screen/presentation/views/place_screen.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
-import '../../features/city_screen/presentation/views/city_screen.dart';
-import '../../features/home_screen/data/model/city_model.dart';
-import '../../features/home_screen/presentation/views/cities_grid_view_screen.dart';
+import '../../features/governorate_screen/presentation/views/city_screen.dart';
+import '../../features/home_screen/data/model/governorates_model.dart';
+import '../../features/home_screen/data/model/places_model.dart';
+import '../../features/home_screen/presentation/views/governorates_grid_view_screen.dart';
 import '../../features/home_screen/presentation/views/home_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
 import '../app/image/image_preview.dart';
@@ -18,19 +20,22 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.imagePreview:
       return BaseRoute(
         page: PreviewImage(
-          imageUrl: args!['imageUrl'] as String,
-          title: args['title'] as String?,
+          imageUrl: args?['imageUrl'] as String?,
+          title: args?['title'] as String?,
+          imagesList:
+              (args?['imagesList'] as List?)?.whereType<String>().toList(),
         ),
       );
-    case RoutesNames.cityScreen:
+
+    case RoutesNames.governorateScreen:
       return BaseRoute(
-        page: CityScreen(
-          city: args!['city'] as CityModel,
+        page: GovernorateScreen(
+          governorate: args!['governorate'] as GovernoratesModel,
         ),
       );
-    case RoutesNames.cities:
+    case RoutesNames.governorate:
       return BaseRoute(
-        page: CitiesGridViewScreen(),
+        page: GovernoratesGridViewScreen(),
       );
 
     case RoutesNames.policyScreen:
@@ -40,13 +45,20 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.addPlaceScreen:
       return BaseRoute(
         page: AddNewPlace(
-          city: args?['city'] as CityModel?,
+          governorate: args?['governorate'] as GovernoratesModel?,
         ),
       );
 
     case RoutesNames.homeScreen:
       return BaseRoute(
         page: HomeScreen(),
+      );
+    case RoutesNames.placeScreen:
+      return BaseRoute(
+        page: PlaceScreen(
+          images: args!['images'],
+          place: args['place'] as PlacesModel,
+        ),
       );
 
     case RoutesNames.accountScreen:

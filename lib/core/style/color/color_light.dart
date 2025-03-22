@@ -6,4 +6,5 @@ class ColorsLight {
   static const black = Color(0xFF000000);
   static const white = Color(0xFFFFFFFF);
   static const red = Color(0xFFFF0000);
+  static const blueAccent = Color(0xFF448AFF);
 }

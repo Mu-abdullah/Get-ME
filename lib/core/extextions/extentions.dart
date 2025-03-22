@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/language/app_localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 extension ContextExt on BuildContext {
   //Media Query methods
@@ -43,6 +44,17 @@ extension ContextExt on BuildContext {
   // translations
   String translate(String langkey) {
     return AppLocalizations.of(this)!.translate(langkey).toString();
+  }
+
+  Future<void> openUrl({required String url}) async {
+    var uri = Uri.parse(url);
+    if (!await canLaunchUrl(uri)) return;
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
   }
 
   // Theme methods for TextTheme

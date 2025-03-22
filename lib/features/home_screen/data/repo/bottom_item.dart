@@ -7,7 +7,7 @@ import 'package:hugeicons/hugeicons.dart';
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../account_screen/presentation/views/account_screen.dart';
-import '../../presentation/refactor/cities_home_body.dart';
+import '../../presentation/refactor/governorates_home_body.dart';
 
 class BottomItem {
   static List<FlashyTabBarItem> items(BuildContext context) {
@@ -34,7 +34,7 @@ class BottomItem {
   }
 
   static List<Widget> screenItems = [
-    CitiesHomeBody(),
+    GovernoratesHomeBody(),
     Center(
       child: AppText('search'),
     ),

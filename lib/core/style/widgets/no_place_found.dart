@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../features/home_screen/data/model/city_model.dart';
+import '../../../features/home_screen/data/model/governorates_model.dart';
 import '../../language/lang_keys.dart';
 import '../../routes/routes_name.dart';
 import '../statics/app_statics.dart';
@@ -13,7 +13,7 @@ class NoPlaceFound extends StatelessWidget {
     super.key,
     this.city,
   });
-  final CityModel? city;
+  final GovernoratesModel? city;
   @override
   Widget build(BuildContext context) {
     return Padding(
