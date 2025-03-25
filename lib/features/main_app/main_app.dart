@@ -11,6 +11,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>(),
       debugShowCheckedModeBanner: false,
       locale: Locale('ar'),
       supportedLocales: AppLocalizationsSetup.supportedLocales,

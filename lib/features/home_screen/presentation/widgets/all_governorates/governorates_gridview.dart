@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/style/statics/app_statics.dart';
 
 import '../../../data/model/governorates_model.dart';
 import 'governorates_gridview_item.dart';
@@ -18,6 +19,7 @@ class GovernoratesGridView extends StatelessWidget {
         mainAxisSpacing: 10,
         childAspectRatio: 1,
       ),
+      padding: AppPadding.mediumPadding,
       itemCount: governorates.length,
       itemBuilder: (context, index) {
         final governorate = governorates[index];

@@ -20,7 +20,7 @@ class GovernoratesGridViewScreen extends StatelessWidget {
         appBar: CustomAppBar(
           translatedTitle: LangKeys.governorates,
         ),
-        body: CitiesGridviewBody(),
+        body: GovernoratesGridGridviewBody(),
       ),
     );
   }

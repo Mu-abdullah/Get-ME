@@ -10,6 +10,7 @@ class LangKeys {
   static const String tryAgain = 'tryAgain';
   static const String requiredValue = 'requiredValue';
   static const String save = 'save';
+  static const String copied = 'copied';
 
   // Auth Keys
   static const String login = 'login';

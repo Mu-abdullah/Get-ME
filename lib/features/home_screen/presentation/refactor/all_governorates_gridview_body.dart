@@ -5,8 +5,8 @@ import '../cubits/governorates_cubit/cities_cubit.dart';
 import '../widgets/all_governorates/all_governorates_loading.dart';
 import '../widgets/all_governorates/governorates_gridview.dart';
 
-class CitiesGridviewBody extends StatelessWidget {
-  const CitiesGridviewBody({
+class GovernoratesGridGridviewBody extends StatelessWidget {
+  const GovernoratesGridGridviewBody({
     super.key,
   });
 
