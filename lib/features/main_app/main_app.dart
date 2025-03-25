@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:getme/core/style/color/color_light.dart';
 
 import '../../core/routes/routes.dart';
 import '../../core/routes/routes_name.dart';
 import '../../core/language/app_localizations_setup.dart';
+import '../../core/style/color/color_light.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
