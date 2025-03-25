@@ -31,13 +31,13 @@ class CustomDivider extends StatelessWidget {
       ),
       child: veratical
           ? VerticalDivider(
-              color: color.withOpacity(opacity),
+              color: color.withValues(alpha: opacity),
               endIndent: endIndent,
               indent: indent,
               thickness: thickness,
             )
           : Divider(
-              color: color.withOpacity(opacity),
+              color: color.withValues(alpha: opacity),
               endIndent: endIndent,
               indent: indent,
               thickness: thickness,
