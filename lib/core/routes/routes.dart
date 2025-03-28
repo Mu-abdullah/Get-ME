@@ -40,7 +40,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case RoutesNames.allPlaces:
       return BaseRoute(
-        page: PlacesGridViewScreen(),
+        page: AllPlacesScreen(),
       );
 
     case RoutesNames.policyScreen:

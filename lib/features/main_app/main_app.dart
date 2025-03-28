@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>(),
       debugShowCheckedModeBanner: false,
-      locale: Locale('ar'),
+      locale: Locale('en'),
       supportedLocales: AppLocalizationsSetup.supportedLocales,
       localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
       localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,

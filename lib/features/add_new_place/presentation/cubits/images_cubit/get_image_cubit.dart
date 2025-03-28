@@ -8,11 +8,11 @@ import 'package:image_picker/image_picker.dart';
 part 'get_image_state.dart';
 
 class GetImageCubit extends Cubit<GetImageState> {
-  GetImageCubit({this.city}) : super(ImageUploadInitial());
+  GetImageCubit({this.governorate}) : super(ImageUploadInitial());
 
   static GetImageCubit get(context) => BlocProvider.of(context);
 
-  final GovernoratesModel? city;
+  final GovernoratesModel? governorate;
 
   var formKey = GlobalKey<FormState>();
   var placeName = TextEditingController();

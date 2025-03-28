@@ -4,8 +4,9 @@ class NewPlaceModel extends PlaceEntity {
   NewPlaceModel({
     required super.name,
     required super.description,
-    required super.cityId,
+    required super.governoratesId,
     required super.location,
+    required super.governorateNameAr,
     super.placeId,
     super.status,
   });
@@ -14,7 +15,8 @@ class NewPlaceModel extends PlaceEntity {
     return NewPlaceModel(
       name: json['name'],
       description: json['description'],
-      cityId: json['city_id'],
+      governoratesId: json['governorates_id'],
+      governorateNameAr: json['governorate_name_ar'],
       location: json['location'],
       placeId: json['place_id'],
       status: json['status'],
@@ -25,7 +27,8 @@ class NewPlaceModel extends PlaceEntity {
     return {
       'name': name,
       'description': description,
-      'city_id': cityId,
+      'governorates_id': governoratesId,
+      'governorate_name_ar': governorateNameAr,
       'location': location,
       'place_id': placeId,
     };

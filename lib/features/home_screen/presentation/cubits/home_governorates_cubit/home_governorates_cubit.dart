@@ -21,7 +21,8 @@ class HomeGovernoratesCubit extends Cubit<HomeGovernoratesState> {
       }
     }, (r) {
       if (!isClosed) {
-        r.shuffle();
+        // r.shuffle();
+        r.sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
         emit(GovernoratesLoaded(r));
       }
     });

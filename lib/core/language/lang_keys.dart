@@ -13,6 +13,7 @@ class LangKeys {
   static const String copied = 'copied';
   static const String addedSuccess = 'addedSuccess';
   static const String addedFailed = 'addedFailed';
+  static const String seeAll = 'seeAll';
 
   // Auth Keys
   static const String login = 'login';

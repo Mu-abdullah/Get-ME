@@ -17,7 +17,8 @@ class PlacesCubit extends Cubit<PlacesState> {
     emit(PlacesLoading());
     try {
       final placesWithImages = await repository.fetchPlacesWithImages();
-
+      // shuffle the places
+      
       emit(PlacesLoaded(placesWithImages));
     } catch (e) {
       emit(PlacesError(e.toString()));

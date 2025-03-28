@@ -2,11 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/routes/routes_name.dart';
-import 'package:getme/core/style/color/color_light.dart';
-import 'package:getme/core/style/widgets/app_text.dart';
 
+import '../../../../../../core/routes/routes_name.dart';
+import '../../../../../../core/style/color/color_light.dart';
+import '../../../../../../core/style/font/fonts_helper.dart';
 import '../../../../../../core/style/statics/app_statics.dart';
+import '../../../../../../core/style/widgets/app_text.dart';
 import '../../../../data/model/governorates_model.dart';
 
 class GovernoratesItem extends StatelessWidget {
@@ -19,6 +20,7 @@ class GovernoratesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isArabic = FontsHelper.isArabic(context);
     return InkWell(
       onTap: () {
         context.pushNamed(RoutesNames.governorateScreen, arguments: {
@@ -40,7 +42,7 @@ class GovernoratesItem extends StatelessWidget {
           children: [
             _buildGradientOverlay(),
             _buildBlurEffect(),
-            _buildCityInfo(),
+            _buildCityInfo(isArabic),
           ],
         ),
       ),
@@ -80,7 +82,7 @@ class GovernoratesItem extends StatelessWidget {
     );
   }
 
-  Widget _buildCityInfo() {
+  Widget _buildCityInfo(isArabic) {
     return Positioned(
       bottom: 16,
       left: 16,
@@ -89,7 +91,7 @@ class GovernoratesItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppText(
-            governorate.nameAr!,
+            isArabic ? governorate.nameAr! : governorate.name!,
             color: ColorsLight.white,
             isTitle: true,
           ),

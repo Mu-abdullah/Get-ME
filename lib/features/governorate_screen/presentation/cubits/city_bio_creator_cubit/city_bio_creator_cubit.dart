@@ -9,10 +9,14 @@ class CityBioCreatorCubit extends Cubit<CityBioCreatorState> {
   CityBioCreator cityBioCreator = CityBioCreator();
   static CityBioCreatorCubit get(context) => BlocProvider.of(context);
 
-  Future<void> generateCityBio(String city) async {
+  Future<void> generateCityBio(
+      {required String city, required String lang}) async {
     emit(LoadingCityBio());
     try {
-      String bio = await cityBioCreator.generateCityBio(city);
+      String bio = await cityBioCreator.generateCityBio(
+        city: city,
+        lang: lang,
+      );
       if (!isClosed) {
         emit(CityBioGenerated(bio));
       }

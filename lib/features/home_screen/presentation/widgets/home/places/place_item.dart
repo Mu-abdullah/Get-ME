@@ -12,35 +12,43 @@ import '../../../../data/model/places_model.dart';
 class PlaceCard extends StatelessWidget {
   final PlacesModel place;
   final List<GetPlaceImageModel> images;
+  final bool needMargin;
 
-  const PlaceCard({super.key, required this.place, required this.images});
+  const PlaceCard({
+    super.key,
+    required this.place,
+    required this.images,
+    this.needMargin = true,
+  });
 
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController();
-    return InkWell(
-      onTap: () {
-        context.pushNamed(
-          RoutesNames.placeScreen,
-          arguments: {
-            'images': images,
-            'place': place,
-          },
-        );
-      },
-      child: Container(
-        width: 250,
-        margin: AppPadding.smallPadding,
-        decoration: BoxDecoration(
-          borderRadius: AppBorderRadius.mediumRadius,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.2),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
-          ],
-        ),
+
+    return Container(
+      width: 250,
+      margin: needMargin ? AppPadding.smallPadding : null,
+      decoration: BoxDecoration(
+        borderRadius: AppBorderRadius.mediumRadius,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: InkWell(
+        onTap: () {
+          context.pushNamed(
+            RoutesNames.placeScreen,
+            arguments: {
+              'images': images,
+              'place': place,
+            },
+          );
+        },
+        borderRadius: AppBorderRadius.mediumRadius,
         child: ClipRRect(
           borderRadius: AppBorderRadius.mediumRadius,
           child: Stack(
@@ -59,55 +67,12 @@ class PlaceCard extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: Stack(
-                          children: [
-                            _buildGradientOverlay(),
-                            _buildBlurEffect(),
-                          ],
-                        ),
                       );
                     },
                   ),
                 ),
-              // Text Information
-              Positioned(
-                bottom: 40,
-                left: 10,
-                right: 10,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AppText(
-                      place.name!,
-                      color: ColorsLight.white,
-                      isTitle: true,
-                    ),
-                    AppText(
-                      place.description!,
-                      color: ColorsLight.white,
-                      isTitle: false,
-                    ),
-                  ],
-                ),
-              ),
-              // Page Indicator
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SmoothPageIndicator(
-                    controller: pageController,
-                    count: images.length,
-                    effect: const ExpandingDotsEffect(
-                      activeDotColor: Colors.blueAccent,
-                      dotColor: ColorsLight.white,
-                      dotHeight: 8,
-                      dotWidth: 8,
-                      spacing: 4,
-                    ),
-                  ),
-                ),
-              ),
+              // Information Section with Frosted Glass Effect
+              _buildInfoSection(pageController),
               // Favorite Button
               Positioned(
                 top: 10,
@@ -129,30 +94,52 @@ class PlaceCard extends StatelessWidget {
     );
   }
 
-  Widget _buildGradientOverlay() {
-    return Positioned.fill(
-      child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.center,
-            colors: [
-              Colors.black,
-              Colors.transparent,
-            ],
-            stops: [0, 1],
+  Widget _buildInfoSection(PageController pageController) {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.3),
+              borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(15), bottom: Radius.circular(15)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AppText(
+                  place.name!,
+                  color: ColorsLight.white,
+                  isTitle: true,
+                ),
+                AppText(
+                  place.governorateNameAr,
+                  color: ColorsLight.white,
+                  isTitle: false,
+                ),
+                const SizedBox(height: 8),
+                Center(
+                  child: SmoothPageIndicator(
+                    controller: pageController,
+                    count: images.length,
+                    effect: ExpandingDotsEffect(
+                      activeDotColor: Colors.white,
+                      dotColor: Colors.white.withValues(alpha: 0.5),
+                      dotHeight: 8,
+                      dotWidth: 8,
+                      spacing: 4,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBlurEffect() {
-    return Positioned.fill(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-        child: Container(
-          color: Colors.transparent,
         ),
       ),
     );

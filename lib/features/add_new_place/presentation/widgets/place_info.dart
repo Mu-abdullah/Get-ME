@@ -33,7 +33,7 @@ class PlaceInfo extends StatelessWidget {
             children: [
               Expanded(
                   child: AppText(
-                cubit.city?.nameAr ?? "",
+                cubit.governorate?.nameAr ?? "",
                 isTitle: true,
               )),
             ],
@@ -107,15 +107,16 @@ class PlaceInfo extends StatelessWidget {
                         name: cubit.placeName.text,
                         location: cubit.placeLocation.text,
                         description: cubit.placeDescription.text,
-                        cityId: cubit.city!.id,
+                        governoratesId: cubit.governorate!.id,
+                        governorateNameAr: cubit.governorate!.nameAr!,
                         placeId: await GenerateId.generateDocumentId(),
                         status: PlaceStatus.pending,
                       );
                       uploadCubit.addItem(placeModel: item).then((onValue) {
                         uploadCubit.submitForm(
                           images: cubit.images,
-                          cityName: cubit.city!.name!,
-                          country: cubit.city!.country!,
+                          cityName: cubit.governorate!.name!,
+                          country: cubit.governorate!.country!,
                         );
                       });
                     }

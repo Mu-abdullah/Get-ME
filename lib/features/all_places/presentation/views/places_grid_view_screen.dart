@@ -7,8 +7,8 @@ import '../../../../core/style/widgets/custom_app_bar.dart';
 import '../cubits/places_cubit/places_cubit.dart';
 import '../refactor/all_places_gridview_body.dart';
 
-class PlacesGridViewScreen extends StatelessWidget {
-  const PlacesGridViewScreen({super.key});
+class AllPlacesScreen extends StatelessWidget {
+  const AllPlacesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

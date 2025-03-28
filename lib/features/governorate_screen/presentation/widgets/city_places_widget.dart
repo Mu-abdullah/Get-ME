@@ -23,7 +23,7 @@ class CityPlaces extends StatelessWidget {
           if (state.places.isEmpty) {
             return SliverToBoxAdapter(
               child: NoPlaceFound(
-                city: city.city,
+                city: city.gov,
               ),
             );
           }
@@ -31,7 +31,11 @@ class CityPlaces extends StatelessWidget {
         } else if (state is GetCityPlacesError) {
           return SliverToBoxAdapter(
             child: Center(
-              child: AppText(state.message, color: Colors.red),
+              child: AppText(
+                state.message,
+                color: Colors.red,
+                maxLines: 5,
+              ),
             ),
           );
         } else {
@@ -55,13 +59,10 @@ class CityPlaces extends StatelessWidget {
           final images = state.places[place]!;
           return InkWell(
             onTap: () {
-              context.pushNamed(
-                RoutesNames.placeScreen,
-                arguments: {
-                  'images': images,
-                  'place': place,
-                }
-              );
+              context.pushNamed(RoutesNames.placeScreen, arguments: {
+                'images': images,
+                'place': place,
+              });
             },
             child: Column(
               children: [

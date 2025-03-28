@@ -13,7 +13,7 @@ class CityPlacesRepo extends BasePlacesRepository {
           .from(BackendPoint.places)
           .select()
           .eq('status', PlaceStatus.approved)
-          .eq('city_id', cityId);
+          .eq('governorates_id', cityId);
 
       if (placesData.isEmpty) return {};
 

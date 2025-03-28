@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/style/color/color_light.dart';
 
-import '../../../../../core/style/color/color_light.dart';
+import '../../../../../core/language/lang_keys.dart';
 import '../../../../../core/style/widgets/app_space.dart';
 import '../../../../../core/style/widgets/app_text.dart';
 
@@ -28,10 +29,16 @@ class HomeSectionHeader extends StatelessWidget {
           AppSpace(space: 5),
           InkWell(
             onTap: onTap,
-            child: Icon(
-              Icons.arrow_forward_ios_outlined,
-              color: ColorsLight.black,
-              size: 20,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              decoration: BoxDecoration(
+                color: ColorsLight.black.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: AppText(
+                context.translate(LangKeys.seeAll),
+                color: ColorsLight.black.withValues(alpha: 0.5),
+              ),
             ),
           ),
         ],

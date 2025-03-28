@@ -4,7 +4,8 @@ class PlaceEntity {
   final String? name;
   final String? location;
   final String? description;
-  final int? cityId;
+  final int? governoratesId;
+  final String governorateNameAr;
   final String? placeId;
   final String? status;
 
@@ -14,8 +15,9 @@ class PlaceEntity {
     this.name,
     this.location,
     this.description,
-    this.cityId,
+    this.governoratesId,
     this.placeId,
     this.status,
+    required this.governorateNameAr,
   });
 }

@@ -26,7 +26,7 @@ class AddNewPlace extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => GetImageCubit(city: governorate),
+          create: (context) => GetImageCubit(governorate: governorate),
         ),
         BlocProvider(
           create: (context) =>

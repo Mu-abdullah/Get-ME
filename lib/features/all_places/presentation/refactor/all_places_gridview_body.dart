@@ -23,14 +23,18 @@ class AllPlacesGridviewBody extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              childAspectRatio: 1,
+              childAspectRatio: 9 / 10,
             ),
             padding: AppPadding.mediumPadding,
             itemCount: state.placesWithImages.length,
             itemBuilder: (context, index) {
               final place = state.placesWithImages.keys.elementAt(index);
               final images = state.placesWithImages[place]!;
-              return PlaceCard(place: place, images: images);
+              return PlaceCard(
+                place: place,
+                images: images,
+                needMargin: false,
+              );
             },
           );
         } else {

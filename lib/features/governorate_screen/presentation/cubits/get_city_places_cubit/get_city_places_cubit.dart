@@ -9,11 +9,11 @@ part 'get_city_places_state.dart';
 
 class GetCityPlacesCubit extends Cubit<GetCityPlacesState> {
   CityPlacesRepo repo;
-  final GovernoratesModel city;
-  GetCityPlacesCubit({required this.repo, required this.city})
+  final GovernoratesModel gov;
+  GetCityPlacesCubit({required this.repo, required this.gov})
       : super(GetCityPlacesInitial()) {
     getCityPlaces(
-      city.id!,
+      gov.id!,
     );
   }
   static GetCityPlacesCubit get(context) => BlocProvider.of(context);
