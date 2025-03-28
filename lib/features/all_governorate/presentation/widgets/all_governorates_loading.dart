@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/style/widgets/custom_shimmer.dart';
+import '../../../../core/style/widgets/custom_shimmer.dart';
 
 class AllCitiesLoading extends StatelessWidget {
   const AllCitiesLoading({

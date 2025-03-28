@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/services/get_it/git_it.dart';
 import '../../data/repo/get_home_city_repo.dart';
 import '../../data/repo/get_home_governorates_repo.dart';
-import '../../data/repo/places_repo.dart';
+import '../../data/repo/home_places_repo.dart';
 import '../cubits/bottom_bar_cubit/bottom_bar_cubit.dart';
 import '../cubits/home_cities_cubit/home_cities_cubit.dart';
 import '../cubits/home_governorates_cubit/home_governorates_cubit.dart';

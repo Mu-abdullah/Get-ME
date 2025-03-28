@@ -4,6 +4,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/functions/generate_id.dart';
 import 'package:getme/core/routes/routes_name.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
+import 'package:getme/core/style/widgets/custom_snack_bar.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/services/supabase/backend_points.dart';
@@ -72,14 +73,33 @@ class PlaceInfo extends StatelessWidget {
           ),
           BlocConsumer<UploadImagesCubit, UploadImagesState>(
             listener: (context, state) {
+              if (state is AddItemSuccess) {
+              } else if (state is AddItemFailed) {
+                CustomSnackbar.showTopSnackBar(
+                  context,
+                  message:
+                      "${context.translate(LangKeys.addedFailed)} ${state.error}",
+                );
+              }
               if (state is ImageUploadRemoteSuccess) {
+                CustomSnackbar.showTopSnackBar(context,
+                    message: context.translate(LangKeys.addedSuccess));
+                context.pushNamedAndRemoveUntil(RoutesNames.homeScreen);
+              }
+              if (state is ImageUploadFailure) {
+                CustomSnackbar.showTopSnackBar(
+                  context,
+                  message:
+                      "${context.translate(LangKeys.addedFailed)} ${state.error}",
+                );
                 context.pushNamedAndRemoveUntil(RoutesNames.homeScreen);
               }
             },
             builder: (context, state) {
               var uploadCubit = UploadImagesCubit.get(context);
               return AppButton(
-                isLoading: state is ImageUploadLoading,
+                isLoading:
+                    state is ImageUploadLoading || state is AddItemLoading,
                 onTap: () async {
                   if (cubit.images.isNotEmpty) {
                     if (cubit.formKey.currentState!.validate()) {

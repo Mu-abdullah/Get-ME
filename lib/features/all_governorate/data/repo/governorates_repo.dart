@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/error/custom_errors.dart';
 import '../../../../core/services/supabase/backend_points.dart';
 import '../../../../core/services/supabase/data_services.dart';
-import '../model/governorates_model.dart';
+import '../../../home_screen/data/model/governorates_model.dart';
 
 class GetGovernoratesRepo {
   final DataService dataService;

@@ -8,20 +8,20 @@ abstract class BasePlacesRepository {
   final supabase = Supabase.instance.client;
 
   Future<List<PlacesModel>> fetchPlaces({
-    Map<String, dynamic>? filters,
-    required String orderBy,
+     String? orderBy,
+    required String status,
+    int? limit,
     bool ascending = true,
   }) async {
     try {
-      final query = supabase.from(BackendPoint.places).select();
-
-      // Apply filters if provided
-      filters?.forEach((key, value) {
-        query.eq(key, value);
-      });
-
+      final query =
+          supabase.from(BackendPoint.places).select().eq("status", status);
+      // Apply limit if provided
+      if (limit != null) {
+        query.limit(limit);
+      }
       // Order the results
-      query.order(orderBy, ascending: ascending);
+      query.order(orderBy ?? 'created_at', ascending: ascending);
 
       final placesResponse = await query;
       return (placesResponse as List<dynamic>)
@@ -56,54 +56,5 @@ abstract class BasePlacesRepository {
           allImages.where((img) => img.placeId == place.placeId).toList();
     }
     return result;
-  }
-}
-
-class CityPlacesRepo extends BasePlacesRepository {
-  Future<Map<PlacesModel, List<GetPlaceImageModel>>> fetchCityPlacesWithImages(
-      {required String cityId}) async {
-    try {
-      // Fetch approved places for the given city
-      final places = await fetchPlaces(
-        filters: {
-          'city_id': cityId,
-          'status': PlaceStatus.approved,
-        },
-        orderBy: 'place_id',
-        ascending: true,
-      );
-
-      // Fetch images for the retrieved places
-      final images =
-          await fetchImagesForPlaces(places.map((p) => p.placeId!).toList());
-
-      // Group images by place
-      return groupPlacesWithImages(places, images);
-    } catch (e) {
-      throw Exception('Failed to load city places: $e');
-    }
-  }
-}
-
-class PlacesRepository extends BasePlacesRepository {
-  Future<Map<PlacesModel, List<GetPlaceImageModel>>>
-      fetchPlacesWithImages() async {
-    try {
-      // Fetch approved places
-      final places = await fetchPlaces(
-        filters: {'status': PlaceStatus.approved},
-        orderBy: 'place_id',
-        ascending: true,
-      );
-
-      // Fetch images for the retrieved places
-      final images =
-          await fetchImagesForPlaces(places.map((p) => p.placeId!).toList());
-
-      // Group images by place
-      return groupPlacesWithImages(places, images);
-    } catch (e) {
-      throw Exception('Failed to load places: $e');
-    }
   }
 }

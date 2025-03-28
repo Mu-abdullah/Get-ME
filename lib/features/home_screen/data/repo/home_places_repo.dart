@@ -9,9 +9,10 @@ class PlacesRepository extends BasePlacesRepository {
     try {
       // Fetch approved places
       final places = await fetchPlaces(
-        filters: {'status': PlaceStatus.approved},
+        status: PlaceStatus.approved,
         orderBy: 'place_id',
         ascending: true,
+        limit: 15,
       );
 
       // Fetch images for the retrieved places

@@ -21,7 +21,7 @@ class AddNewPlaceFloatingButton extends StatelessWidget {
       backGroundColor: Colors.lightBlueAccent,
       onTap: () {
         context.pushNamed(RoutesNames.addPlaceScreen, arguments: {
-          'Governorate': governorate,
+          'governorate': governorate,
         });
       },
     );

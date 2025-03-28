@@ -10,6 +10,8 @@
     "requiredValue":"Required",    
     "save":"save",    
     "copied":"Copied",    
+    "addedSuccess":"Added successfully",
+    "addedFailed":"Adding failed",
 
     "######################################Login":"",
     "login":"Login",
@@ -33,7 +35,7 @@
     "addPhotosToPalace":"Add Photos to the place",
     "noPlaces":"No places added yet",
     "place":"Place",
-    "youAdd":"Be the first to add",
+    "beFirst":"Be the first to add",
     "go":"Go to",
     "goToLocation":"Go to location"
 }

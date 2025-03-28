@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/style/statics/app_statics.dart';
 
-import '../../../data/model/governorates_model.dart';
+import '../../../home_screen/data/model/governorates_model.dart';
 import 'governorates_gridview_item.dart';
 
 class GovernoratesGridView extends StatelessWidget {

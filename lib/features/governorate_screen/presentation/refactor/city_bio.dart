@@ -41,7 +41,7 @@ class CityBio extends StatelessWidget {
           } else {
             await Clipboard.setData(ClipboardData(text: state.bio));
             if (context.mounted) {
-              CustomSnackbar().showTopSnackBar(
+              CustomSnackbar.showTopSnackBar(
                 context,
                 message: context.translate(LangKeys.copied),
               );

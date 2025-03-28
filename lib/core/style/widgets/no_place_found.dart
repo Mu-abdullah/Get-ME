@@ -37,7 +37,7 @@ class NoPlaceFound extends StatelessWidget {
                 spacing: 10,
                 children: [
                   AppText(
-                    "${context.translate(LangKeys.youAdd)} ${context.translate(LangKeys.place)}",
+                    "${context.translate(LangKeys.beFirst)} ${context.translate(LangKeys.place)}",
                     color: Colors.blue,
                   ),
                   Icon(

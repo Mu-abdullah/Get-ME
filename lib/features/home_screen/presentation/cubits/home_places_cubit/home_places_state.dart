@@ -1,18 +1,18 @@
 part of 'home_places_cubit.dart';
 
-abstract class PlacesState {}
+abstract class HomePlacesState {}
 
-class PlacesInitial extends PlacesState {}
+class PlacesInitial extends HomePlacesState {}
 
-class PlacesLoading extends PlacesState {}
+class PlacesLoading extends HomePlacesState {}
 
-class PlacesLoaded extends PlacesState {
+class PlacesLoaded extends HomePlacesState {
   final Map<PlacesModel, List<GetPlaceImageModel>> placesWithImages;
-  
+
   PlacesLoaded(this.placesWithImages);
 }
 
-class PlacesError extends PlacesState {
+class PlacesError extends HomePlacesState {
   final String message;
 
   PlacesError(this.message);

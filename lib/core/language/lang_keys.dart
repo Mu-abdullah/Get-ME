@@ -11,6 +11,8 @@ class LangKeys {
   static const String requiredValue = 'requiredValue';
   static const String save = 'save';
   static const String copied = 'copied';
+  static const String addedSuccess = 'addedSuccess';
+  static const String addedFailed = 'addedFailed';
 
   // Auth Keys
   static const String login = 'login';
@@ -34,7 +36,7 @@ class LangKeys {
   static const String placeDescription = 'placeDescription';
   static const String noPlaces = 'noPlaces';
   static const String place = 'place';
-  static const String youAdd = 'youAdd';
+  static const String beFirst = 'beFirst';
   static const String go = 'go';
   static const String goToLocation = 'goToLocation';
 }

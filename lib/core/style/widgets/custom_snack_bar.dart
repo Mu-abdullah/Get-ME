@@ -3,7 +3,7 @@ import 'package:getme/core/style/widgets/app_text.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class CustomSnackbar {
-  void showTopSnackBar(
+ static void showTopSnackBar(
     BuildContext context, {
     required String message,
     Duration duration = const Duration(seconds: 2),

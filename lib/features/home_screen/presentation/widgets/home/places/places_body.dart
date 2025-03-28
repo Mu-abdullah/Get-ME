@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../../../core/language/lang_keys.dart';
+import '../../../../../../core/routes/routes_name.dart';
 import '../../../../../../core/style/widgets/app_space.dart';
 import '../../../../../../core/style/widgets/no_place_found.dart';
 import '../../../cubits/home_places_cubit/home_places_cubit.dart';
@@ -14,7 +16,7 @@ class PlacesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PlacesCubit, PlacesState>(
+    return BlocBuilder<PlacesCubit, HomePlacesState>(
       builder: (context, state) {
         if (state is PlacesLoading) {
           return const HomeSectionLoading(title: LangKeys.places);
@@ -27,7 +29,9 @@ class PlacesBody extends StatelessWidget {
               const AppSpace(space: 5),
               HomeSectionHeader(
                 title: LangKeys.places,
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(RoutesNames.allPlaces);
+                },
               ),
               Expanded(
                 child: ListView.builder(
