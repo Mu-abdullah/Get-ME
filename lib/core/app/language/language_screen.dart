@@ -30,48 +30,30 @@ class LanguageScreen extends StatelessWidget {
             Expanded(
               child: BlocBuilder<LanguageCubit, String>(
                 builder: (context, selectedLanguage) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20),
-                      elevation: 8,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: ColorsLight.scaffoldBackground
-                              .withValues(alpha: 0.9),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: ListView.separated(
-                          padding: EdgeInsets.all(16),
-                          itemCount: 2,
-                          separatorBuilder: (_, __) => Divider(
-                            color: ColorsLight.black.withValues(alpha: 0.1),
-                            height: 24,
-                          ),
-                          itemBuilder: (context, index) {
-                            final languages = [
-                              {
-                                'name': LangKeys.english,
-                                'code': 'en',
-                                'flag': '🇬🇧'
-                              },
-                              {
-                                'name': LangKeys.arabic,
-                                'code': 'ar',
-                                'flag': '🇸🇦'
-                              },
-                            ];
-                            return _buildLanguageTile(
-                              context,
-                              languages[index]['name']!,
-                              languages[index]['code']!,
-                              languages[index]['flag']!,
-                              selectedLanguage,
-                            );
-                          },
-                        ),
-                      ),
+                  return ListView.separated(
+                    padding: EdgeInsets.all(16),
+                    itemCount: 2,
+                    separatorBuilder: (_, __) => Divider(
+                      color: ColorsLight.black.withValues(alpha: 0.1),
+                      height: 24,
                     ),
+                    itemBuilder: (context, index) {
+                      final languages = [
+                        {
+                          'name': LangKeys.english,
+                          'code': 'en',
+                          'flag': '🇬🇧'
+                        },
+                        {'name': LangKeys.arabic, 'code': 'ar', 'flag': '🇸🇦'},
+                      ];
+                      return _buildLanguageTile(
+                        context,
+                        languages[index]['name']!,
+                        languages[index]['code']!,
+                        languages[index]['flag']!,
+                        selectedLanguage,
+                      );
+                    },
                   );
                 },
               ),
