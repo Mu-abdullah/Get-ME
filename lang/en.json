@@ -18,6 +18,7 @@
     "changeLanguage":"Change Language",
     "arabic":"Arabic",
     "english":"English",  
+    "noInternet":"No internet connection",  
 
     "######################################Login":"",
     "login":"Login",

@@ -46,7 +46,7 @@ class CitiesItem extends StatelessWidget {
 
   Widget _buildBackgroundImage() {
     return Image.asset(
-      ImageStatics.logo,
+      AppImages.logo,
       fit: BoxFit.cover,
       width: double.infinity,
       height: double.infinity,

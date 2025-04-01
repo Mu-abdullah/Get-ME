@@ -17,10 +17,13 @@ class PlacesCubit extends Cubit<HomePlacesState> {
     emit(PlacesLoading());
     try {
       final placesWithImages = await repository.fetchPlacesWithImages();
-
-      emit(PlacesLoaded(placesWithImages));
+      if (!isClosed) {
+        emit(PlacesLoaded(placesWithImages));
+      }
     } catch (e) {
-      emit(PlacesError(e.toString()));
+      if (!isClosed) {
+        emit(PlacesError(e.toString()));
+      }
     }
   }
 }

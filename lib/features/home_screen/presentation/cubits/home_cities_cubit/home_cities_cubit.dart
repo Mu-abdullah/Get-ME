@@ -8,12 +8,12 @@ part 'home_cities_state.dart';
 class HomeCitiesCubit extends Cubit<HomeCitiesState> {
   GetHomeCityRepo repo;
   HomeCitiesCubit(this.repo) : super(HomeCitiesInitial()) {
-    getGovernorates();
+    getCities();
   }
 
   static HomeCitiesCubit get(context) => BlocProvider.of(context);
 
-  Future<void> getGovernorates() async {
+  Future<void> getCities() async {
     emit(LoadingCity());
     final result = await repo.getCity();
     result.fold((l) {

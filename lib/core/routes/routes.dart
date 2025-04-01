@@ -12,6 +12,7 @@ import '../../features/all_places/presentation/views/places_grid_view_screen.dar
 import '../../features/place_screen/presentation/views/place_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
 import '../app/image/image_preview.dart';
+import '../app/no_internet/no_internet_screen.dart';
 import 'base_routes.dart';
 import 'routes_name.dart';
 
@@ -32,6 +33,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.language:
       return BaseRoute(
         page: LanguageScreen(),
+      );
+    case RoutesNames.noInternet:
+      return BaseRoute(
+        page: NoInternetScreen(),
       );
 
     case RoutesNames.governorateScreen:

@@ -4,7 +4,7 @@ import 'package:getme/core/extextions/extentions.dart';
 
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../features/main_app/main_app.dart';
+import '../../../main_app/main_app.dart';
 import '../../language/lang_keys.dart';
 import '../../style/color/color_light.dart';
 import '../../style/statics/app_statics.dart';

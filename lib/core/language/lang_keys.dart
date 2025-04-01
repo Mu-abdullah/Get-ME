@@ -19,6 +19,7 @@ class LangKeys {
   static const String changeLanguage = 'changeLanguage';
   static const String arabic = 'arabic';
   static const String english = 'english';
+  static const String noInternet = 'noInternet';
   
   // Auth Keys
   static const String login = 'login';

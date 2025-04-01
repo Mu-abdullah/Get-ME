@@ -6,7 +6,7 @@ import 'core/app/env_variable.dart';
 import 'core/routes/bloc_observer.dart';
 import 'core/services/get_it/git_it.dart';
 import 'core/services/supabase/supabase_init.dart';
-import 'features/main_app/main_app.dart';
+import 'main_app/main_app.dart';
 
 Future<void> main() async {
   await EnvVariable.instance.init(envType: EnvTypeEnum.prod);
