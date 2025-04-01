@@ -1,33 +1,109 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/color/color_light.dart';
-import 'package:getme/core/style/statics/app_statics.dart';
-import 'package:getme/core/style/widgets/app_text.dart';
+import 'package:getme/core/style/widgets/custom_shimmer.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../../../../../core/app/language/language_cubit/language_cubit.dart';
 import '../../../../../../core/routes/routes_name.dart';
+import '../../../../../../core/services/translate_services.dart';
+import '../../../../../../core/style/color/color_light.dart';
+import '../../../../../../core/style/statics/app_statics.dart';
+import '../../../../../../core/style/widgets/app_text.dart';
 import '../../../../data/model/get_place_image_model.dart';
 import '../../../../data/model/places_model.dart';
 
-class PlaceCard extends StatelessWidget {
+class PlaceCard extends StatefulWidget {
   final PlacesModel place;
   final List<GetPlaceImageModel> images;
   final bool needMargin;
+  final String sourceLanguage; // Add source language parameter
 
   const PlaceCard({
     super.key,
     required this.place,
     required this.images,
     this.needMargin = true,
+    this.sourceLanguage = 'auto', // Default to auto-detect
   });
 
   @override
+  State<PlaceCard> createState() => _PlaceCardState();
+}
+
+class _PlaceCardState extends State<PlaceCard> {
+  String _translatedName = '';
+  String _translatedGovernorate = '';
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _translateContent();
+  }
+
+  Future<void> _translateContent() async {
+    final currentLanguage = context.read<LanguageCubit>().state;
+
+    if (widget.sourceLanguage != currentLanguage) {
+      try {
+        final translatedName = await TranslationService.translateText(
+          widget.place.name!,
+          currentLanguage,
+          sourceLanguage: widget.sourceLanguage,
+        );
+        final translatedGovernorate = await TranslationService.translateText(
+          widget.place.governorateNameAr,
+          currentLanguage,
+          sourceLanguage: widget.sourceLanguage,
+        );
+
+        if (mounted) {
+          setState(() {
+            _translatedName = translatedName;
+            _translatedGovernorate = translatedGovernorate;
+            _isLoading = false;
+          });
+        }
+      } catch (e) {
+        // Fallback to original text if translation fails
+        setState(() {
+          _translatedName = widget.place.name!;
+          _translatedGovernorate = widget.place.governorateNameAr;
+          _isLoading = false;
+        });
+      }
+    } else {
+      setState(() {
+        _translatedName = widget.place.name!;
+        _translatedGovernorate = widget.place.governorateNameAr;
+        _isLoading = false;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return CustomShimmer(
+        child: Container(
+          width: 250,
+          height: 300,
+          margin: AppPadding.smallPadding,
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: AppBorderRadius.mediumRadius,
+          ),
+        ),
+      );
+    }
+
     PageController pageController = PageController();
 
     return Container(
       width: 250,
-      margin: needMargin ? AppPadding.smallPadding : null,
+      margin: widget.needMargin ? AppPadding.smallPadding : null,
       decoration: BoxDecoration(
         borderRadius: AppBorderRadius.mediumRadius,
         boxShadow: [
@@ -43,8 +119,8 @@ class PlaceCard extends StatelessWidget {
           context.pushNamed(
             RoutesNames.placeScreen,
             arguments: {
-              'images': images,
-              'place': place,
+              'images': widget.images,
+              'place': widget.place,
             },
           );
         },
@@ -53,17 +129,16 @@ class PlaceCard extends StatelessWidget {
           borderRadius: AppBorderRadius.mediumRadius,
           child: Stack(
             children: [
-              // Image Layer with PageView
-              if (images.isNotEmpty)
+              if (widget.images.isNotEmpty)
                 Positioned.fill(
                   child: PageView.builder(
                     controller: pageController,
-                    itemCount: images.length,
+                    itemCount: widget.images.length,
                     itemBuilder: (context, index) {
                       return Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(images[index].url!),
+                            image: NetworkImage(widget.images[index].url!),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -71,9 +146,7 @@ class PlaceCard extends StatelessWidget {
                     },
                   ),
                 ),
-              // Information Section with Frosted Glass Effect
               _buildInfoSection(pageController),
-              // Favorite Button
               Positioned(
                 top: 10,
                 right: 10,
@@ -107,19 +180,21 @@ class PlaceCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black.withValues(alpha: 0.3),
               borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(15), bottom: Radius.circular(15)),
+                top: Radius.circular(15),
+                bottom: Radius.circular(15),
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 AppText(
-                  place.name!,
+                  _translatedName,
                   color: ColorsLight.white,
                   isTitle: true,
                 ),
                 AppText(
-                  place.governorateNameAr,
+                  _translatedGovernorate,
                   color: ColorsLight.white,
                   isTitle: false,
                 ),
@@ -127,13 +202,13 @@ class PlaceCard extends StatelessWidget {
                 Center(
                   child: SmoothPageIndicator(
                     controller: pageController,
-                    count: images.length,
+                    count: widget.images.length,
                     effect: ExpandingDotsEffect(
                       activeDotColor: Colors.white,
                       dotColor: Colors.white.withValues(alpha: 0.5),
                       dotHeight: 8,
                       dotWidth: 8,
-                      spacing: 4,
+                      spacing: 8,
                     ),
                   ),
                 ),

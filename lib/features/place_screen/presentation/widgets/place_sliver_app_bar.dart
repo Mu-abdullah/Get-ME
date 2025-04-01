@@ -7,16 +7,15 @@ import '../../../../core/style/color/color_light.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/back_screen_button.dart';
 import '../../../home_screen/data/model/get_place_image_model.dart';
-import '../../../home_screen/data/model/places_model.dart';
 
 class PlaceSliverAppBar extends StatelessWidget {
   const PlaceSliverAppBar({
     super.key,
-    required this.place,
+    required this.placeName,
     required this.images,
   });
 
-  final PlacesModel place;
+  final String placeName;
   final List<GetPlaceImageModel> images;
 
   @override
@@ -30,7 +29,7 @@ class PlaceSliverAppBar extends StatelessWidget {
       backgroundColor: ColorsLight.black,
       flexibleSpace: FlexibleSpaceBar(
         title: AppText(
-          place.name!,
+          placeName,
           color: ColorsLight.white,
         ),
         background: InkWell(
@@ -38,7 +37,7 @@ class PlaceSliverAppBar extends StatelessWidget {
             context.pushNamed(RoutesNames.imagePreview, arguments: {
               'imagesList':
                   images.map((e) => e.url).whereType<String>().toList(),
-              'title': place.name!,
+              'title': placeName,
             });
           },
           child: Stack(

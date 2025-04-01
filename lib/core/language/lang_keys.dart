@@ -20,6 +20,11 @@ class LangKeys {
   static const String arabic = 'arabic';
   static const String english = 'english';
   static const String noInternet = 'noInternet';
+  static const String translated = 'translated';
+  static const String translatedByGoogle = 'translatedByGoogle';
+  static const String showOriginal = 'showOriginal';
+  static const String hideOriginal = 'hideOriginal';
+  
   
   // Auth Keys
   static const String login = 'login';

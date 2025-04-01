@@ -19,6 +19,10 @@
     "arabic":"Arabic",
     "english":"English",  
     "noInternet":"No internet connection",  
+    "showOriginal":"Show original",  
+    "hideOriginal":"Hide original",
+    "translatedByGoogle":"Translated by Google",
+    "translated":"Translated",
 
     "######################################Login":"",
     "login":"Login",
