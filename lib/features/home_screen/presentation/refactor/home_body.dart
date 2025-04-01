@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/style/widgets/custom_divider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/app/language/language_cubit/language_cubit.dart';
@@ -53,11 +54,22 @@ class _HomeBodyState extends State<HomeBody> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              CustomDivider(),
               ListTile(
-                title: const AppText(
-                  'English',
-                  fontSize: 16,
-                  textAlign: TextAlign.center,
+                title: Row(
+                  spacing: 10,
+                  children: [
+                    AppText(
+                      '🇬🇧',
+                      fontSize: 24,
+                      textAlign: TextAlign.center,
+                    ),
+                    const AppText(
+                      'English',
+                      fontSize: 16,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
                 onTap: () async {
                   await languageCubit.changeLanguage('en');
@@ -68,10 +80,20 @@ class _HomeBodyState extends State<HomeBody> {
                 },
               ),
               ListTile(
-                title: const AppText(
-                  'العربية',
-                  fontSize: 16,
-                  textAlign: TextAlign.center,
+                title: Row(
+                  spacing: 10,
+                  children: [
+                    AppText(
+                      '🇸🇦',
+                      fontSize: 24,
+                      textAlign: TextAlign.center,
+                    ),
+                    const AppText(
+                      'العربية',
+                      fontSize: 16,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
                 onTap: () async {
                   await languageCubit.changeLanguage('ar');

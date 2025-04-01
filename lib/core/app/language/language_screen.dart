@@ -44,7 +44,11 @@ class LanguageScreen extends StatelessWidget {
                           'code': 'en',
                           'flag': '🇬🇧'
                         },
-                        {'name': LangKeys.arabic, 'code': 'ar', 'flag': '🇸🇦'},
+                        {
+                          'name': LangKeys.arabic,
+                          'code': 'ar',
+                          'flag': '🇸🇦',
+                        },
                       ];
                       return _buildLanguageTile(
                         context,
