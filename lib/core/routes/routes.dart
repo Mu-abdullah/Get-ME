@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/core/app/language/language_screen.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
@@ -26,6 +27,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           imagesList:
               (args?['imagesList'] as List?)?.whereType<String>().toList(),
         ),
+      );
+
+    case RoutesNames.language:
+      return BaseRoute(
+        page: LanguageScreen(),
       );
 
     case RoutesNames.governorateScreen:

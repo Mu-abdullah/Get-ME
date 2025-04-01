@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/routes/routes_name.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../core/language/lang_keys.dart';
+import '../../../core/routes/routes_name.dart';
 import 'model/account_button_model.dart';
 
 class AccountListview {
@@ -21,6 +21,13 @@ class AccountListview {
         title: LangKeys.policy,
         onTap: () {
           context.pushNamed(RoutesNames.policyScreen);
+        },
+      ),
+      AccountButtonModel(
+        icon: HugeIcons.strokeRoundedLanguageSquare,
+        title: LangKeys.language,
+        onTap: () {
+          context.pushNamed(RoutesNames.language);
         },
       ),
     ];

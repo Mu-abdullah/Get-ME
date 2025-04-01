@@ -38,6 +38,8 @@ class AccountButtonItem extends StatelessWidget {
               Expanded(
                 child: AppText(
                   context.translate(item.title!),
+                  isBold: true,
+                  fontSize: context.bodyLarge!.fontSize,
                 ),
               ),
             ],

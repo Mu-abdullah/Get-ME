@@ -4,6 +4,7 @@ class LangKeys {
   static const String policy = 'policy';
   static const String acceptPolicy = 'acceptPolicy';
   static const String done = 'done';
+  static const String cancel = 'cancel';
   static const String error = 'error';
   static const String noDataFound = 'noDataFound';
   static const String loading = 'loading';
@@ -14,7 +15,11 @@ class LangKeys {
   static const String addedSuccess = 'addedSuccess';
   static const String addedFailed = 'addedFailed';
   static const String seeAll = 'seeAll';
-
+  static const String language = 'language';
+  static const String changeLanguage = 'changeLanguage';
+  static const String arabic = 'arabic';
+  static const String english = 'english';
+  
   // Auth Keys
   static const String login = 'login';
   static const String register = 'register';

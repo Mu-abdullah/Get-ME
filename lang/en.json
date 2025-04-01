@@ -3,6 +3,7 @@
     "policy":"Privacy Policy",
     "acceptPolicy":"Accept Policy",
     "done":"Done",
+    "cancel":"Cancel",
     "error":"Error",
     "noDataFound":"No data",
     "loading":"loading",    
@@ -13,6 +14,10 @@
     "addedSuccess":"Added successfully",
     "addedFailed":"Adding failed",
     "seeAll":"See all",
+    "language":"Language",  
+    "changeLanguage":"Change Language",
+    "arabic":"Arabic",
+    "english":"English",  
 
     "######################################Login":"",
     "login":"Login",
