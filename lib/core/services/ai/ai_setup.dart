@@ -7,7 +7,16 @@ class AiSetup {
   static GenerativeModel get generativeAI => GenerativeModel(
         apiKey: AiSetup.apiKey,
         model: 'gemini-2.0-flash-exp',
-        generationConfig: GenerationConfig(),
+        generationConfig: GenerationConfig(
+          temperature: 0.9,
+          maxOutputTokens: 500,
+        ),
+        systemInstruction: Content.text(
+          'You are Rahaali, a friendly and enthusiastic travel assistant for a tourist app. '
+          'Your goal is to help users explore destinations, plan trips, and learn about places. '
+          'Use a warm, welcoming tone and offer practical travel tips or fun facts when relevant. '
+          'Start responses with "Hello, traveler!" in language that the user is asking in, unless it’s a follow-up in a conversation.',
+        ),
       );
 
   static Future<String> aiGenerate({required String promot}) async {
@@ -19,5 +28,10 @@ class AiSetup {
     final response = await generativeAI.generateContent(content);
 
     return response.text!;
+  }
+
+  // Start a chat session
+  static ChatSession startChat() {
+    return generativeAI.startChat();
   }
 }

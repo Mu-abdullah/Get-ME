@@ -4,6 +4,7 @@ import '../../../../core/services/shared_pref/pref_keys.dart';
 import '../../../../core/services/shared_pref/shared_pref.dart';
 import '../../../../core/style/widgets/custom_bottom_sheet.dart';
 import '../widgets/ai_show_bottom_sheet.dart';
+import '../widgets/chat_screen.dart';
 
 class AIScreenBody extends StatefulWidget {
   const AIScreenBody({super.key});
@@ -39,10 +40,6 @@ class _AIScreenBodyState extends State<AIScreenBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [],
-    );
+    return ChatScreen();
   }
 }

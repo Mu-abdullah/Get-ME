@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../cubits/chat_cubit/chat_cubit.dart';
 import '../refactor/ai_screen_body.dart';
 
 class AiScreen extends StatelessWidget {
@@ -7,6 +9,9 @@ class AiScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AIScreenBody();
+    return BlocProvider(
+      create: (context) => ChatCubit(),
+      child: const AIScreenBody(),
+    );
   }
 }

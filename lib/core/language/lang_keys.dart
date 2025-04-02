@@ -53,4 +53,8 @@ class LangKeys {
   static const String beFirst = 'beFirst';
   static const String go = 'go';
   static const String goToLocation = 'goToLocation';
+
+  // chat Keys
+  static const String noMassagesYet = 'noMassagesYet';
+  static const String typeYourMessage = 'typeYourMessage';
 }

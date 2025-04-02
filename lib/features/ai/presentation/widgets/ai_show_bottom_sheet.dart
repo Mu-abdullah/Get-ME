@@ -72,7 +72,6 @@ class AIBottomSheet extends StatelessWidget {
                         ),
                         value: cubit.showAgain,
                         onChanged: (value) {
-                          cubit.saveShowAgainValue();
                           cubit.toggleButton();
                         },
                       ),
