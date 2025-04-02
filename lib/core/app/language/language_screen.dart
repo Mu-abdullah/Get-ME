@@ -8,6 +8,7 @@ import '../../../main_app/main_app.dart';
 import '../../language/lang_keys.dart';
 import '../../style/color/color_light.dart';
 import '../../style/statics/app_statics.dart';
+import '../../style/statics/strings_static.dart';
 import '../../style/widgets/app_text.dart';
 import '../../style/widgets/custom_app_bar.dart';
 import 'language_cubit/language_cubit.dart';
@@ -40,12 +41,12 @@ class LanguageScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final languages = [
                         {
-                          'name': 'English',
+                          'name': StringsStatic.english,
                           'code': 'en',
                           'flag': '🇬🇧',
                         },
                         {
-                          'name': 'عربي',
+                          'name': StringsStatic.arabic,
                           'code': 'ar',
                           'flag': '🇸🇦',
                         },

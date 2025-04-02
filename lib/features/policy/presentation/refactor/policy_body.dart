@@ -5,7 +5,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/color/color_light.dart';
 import '../../../../core/style/font/fonts_helper.dart';
-import '../../../../core/style/statics/policy_static.dart';
+import '../../../../core/style/statics/strings_static.dart';
 import '../../../../core/style/widgets/app_button.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
@@ -55,7 +55,7 @@ class PolicyBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppText(
-          '${isArabic ? PolicyStatic.arPrivacyPolicy : PolicyStatic.enPrivacyPolicy} "$appName"',
+          '${isArabic ? StringsStatic.arPrivacyPolicy : StringsStatic.enPrivacyPolicy} "$appName"',
           isTitle: true,
           maxLines: 3,
         ),
@@ -65,8 +65,9 @@ class PolicyBody extends StatelessWidget {
             style: customTextStyle(context),
             children: [
               TextSpan(
-                text:
-                    isArabic ? PolicyStatic.arWelcome : PolicyStatic.enWelcome,
+                text: isArabic
+                    ? StringsStatic.arWelcome
+                    : StringsStatic.enWelcome,
                 style: customTextStyle(context, isBold: false, isTitle: false),
               ),
               TextSpan(
@@ -75,8 +76,8 @@ class PolicyBody extends StatelessWidget {
               ),
               TextSpan(
                 text: isArabic
-                    ? PolicyStatic.arIntroduction
-                    : PolicyStatic.enIntroduction,
+                    ? StringsStatic.arIntroduction
+                    : StringsStatic.enIntroduction,
                 style: customTextStyle(context),
               ),
             ],

@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/app/language/language_cubit/language_cubit.dart';
 import '../../../../core/language/lang_keys.dart';
+import '../../../../core/style/statics/strings_static.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_app_bar.dart';
 import '../../../../main_app/main_app.dart';
@@ -65,7 +66,7 @@ class _HomeBodyState extends State<HomeBody> {
                       textAlign: TextAlign.center,
                     ),
                     const AppText(
-                      'English',
+                      StringsStatic.english,
                       fontSize: 16,
                       textAlign: TextAlign.center,
                     ),
@@ -89,7 +90,7 @@ class _HomeBodyState extends State<HomeBody> {
                       textAlign: TextAlign.center,
                     ),
                     const AppText(
-                      'عربي',
+                      StringsStatic.arabic,
                       fontSize: 16,
                       textAlign: TextAlign.center,
                     ),
