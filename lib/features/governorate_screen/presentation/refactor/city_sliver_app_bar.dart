@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/routes/routes_name.dart';
 
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/back_screen_button.dart';
 
@@ -21,11 +21,11 @@ class CitySliverAppBar extends StatelessWidget {
       floating: true,
       pinned: true,
       leading: BackScreenButton(),
-      backgroundColor: ColorsLight.black,
+      backgroundColor: AppColors.black,
       flexibleSpace: FlexibleSpaceBar(
         title: AppText(
           name,
-          color: ColorsLight.white,
+          color: AppColors.white,
         ),
         background: InkWell(
           onTap: () => context.pushNamed(RoutesNames.imagePreview,

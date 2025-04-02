@@ -3,7 +3,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/statics/app_statics.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../color/color_light.dart';
+import '../color/app_color.dart';
 import 'app_space.dart';
 import 'app_text.dart';
 import 'custom_shimmer.dart';
@@ -12,9 +12,9 @@ class AppButton extends StatelessWidget {
   const AppButton({
     required this.onTap,
     this.text,
-    this.btnColor = ColorsLight.white,
-    this.backGroundColor = ColorsLight.black,
-    this.borderColor = ColorsLight.black,
+    this.btnColor = AppColors.white,
+    this.backGroundColor = AppColors.black,
+    this.borderColor = AppColors.black,
     this.isBorderd = false,
     this.fontSize = 16,
     this.isLoading = false,
@@ -22,7 +22,7 @@ class AppButton extends StatelessWidget {
     this.boxShadow = false,
     this.isDisabled = false,
     this.icon,
-    this.iconColor = ColorsLight.white,
+    this.iconColor = AppColors.white,
     this.circleSize = 50,
     this.borderWidth = 1,
     super.key,
@@ -118,7 +118,7 @@ class AppButton extends StatelessWidget {
       boxShadow: boxShadow
           ? [
               BoxShadow(
-                color: ColorsLight.black.withValues(alpha: 0.5),
+                color: AppColors.black.withValues(alpha: 0.5),
                 blurRadius: 5,
                 offset: const Offset(0, 2),
               ),
@@ -128,7 +128,7 @@ class AppButton extends StatelessWidget {
   }
 
   Color get _getButtonColor {
-    if (isDisabled && !isLoading) return ColorsLight.gray;
+    if (isDisabled && !isLoading) return AppColors.gray;
     return isBorderd ? Colors.white : backGroundColor;
   }
 

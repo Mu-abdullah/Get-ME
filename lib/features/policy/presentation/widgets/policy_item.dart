@@ -4,7 +4,7 @@ import 'package:getme/core/style/widgets/custom_shimmer.dart';
 
 import '../../../../core/app/language/language_cubit/language_cubit.dart';
 import '../../../../core/services/translate_services.dart';
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../data/model/plicy_model.dart';
 
@@ -97,7 +97,7 @@ class _PolicyItemState extends State<PolicyItem> {
           height: 200,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: ColorsLight.scaffoldBackground.withValues(alpha: 0.9),
+            color: AppColors.scaffoldBackground.withValues(alpha: 0.9),
             borderRadius: BorderRadius.circular(10),
           ),
         ),
@@ -111,7 +111,7 @@ class _PolicyItemState extends State<PolicyItem> {
         AppText(
           "${widget.index + 1}. $_translatedTitle:",
           maxLines: 5,
-          color: ColorsLight.black,
+          color: AppColors.black,
           isTitle: true,
         ),
         _translatedSubTitle == null
@@ -119,13 +119,13 @@ class _PolicyItemState extends State<PolicyItem> {
             : AppText(
                 _translatedSubTitle!,
                 maxLines: 5,
-                color: ColorsLight.black.withValues(alpha: 0.8),
+                color: AppColors.black.withValues(alpha: 0.8),
               ),
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: AppText(
             _translatedBody,
-            color: ColorsLight.black.withValues(alpha: 0.6),
+            color: AppColors.black.withValues(alpha: 0.6),
             maxLines: 10,
             height: 2,
           ),

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/language/lang_keys.dart';
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/font/fonts_helper.dart';
 import '../../../../core/style/statics/strings_static.dart';
 import '../../../../core/style/widgets/app_button.dart';
@@ -72,7 +72,7 @@ class PolicyBody extends StatelessWidget {
               ),
               TextSpan(
                 text: ' "$appName" ',
-                style: customTextStyle(context, color: ColorsLight.gray),
+                style: customTextStyle(context, color: AppColors.gray),
               ),
               TextSpan(
                 text: isArabic

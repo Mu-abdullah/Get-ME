@@ -6,7 +6,7 @@ import 'package:hugeicons/hugeicons.dart';
 
 import '../../../main_app/main_app.dart';
 import '../../language/lang_keys.dart';
-import '../../style/color/color_light.dart';
+import '../../style/color/app_color.dart';
 import '../../style/statics/app_statics.dart';
 import '../../style/statics/strings_static.dart';
 import '../../style/widgets/app_text.dart';
@@ -24,7 +24,7 @@ class LanguageScreen extends StatelessWidget {
       ),
       body: DecoratedBox(
         decoration: BoxDecoration(
-          color: ColorsLight.scaffoldBackground.withValues(alpha: 0.9),
+          color: AppColors.scaffoldBackground.withValues(alpha: 0.9),
         ),
         child: Column(
           children: [
@@ -35,7 +35,7 @@ class LanguageScreen extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     itemCount: 2,
                     separatorBuilder: (_, __) => Divider(
-                      color: ColorsLight.black.withValues(alpha: 0.1),
+                      color: AppColors.black.withValues(alpha: 0.1),
                       height: 24,
                     ),
                     itemBuilder: (context, index) {
@@ -86,17 +86,17 @@ class LanguageScreen extends StatelessWidget {
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
           borderRadius: AppBorderRadius.largeRadius,
-          color: isSelected ? ColorsLight.white : Colors.transparent,
+          color: isSelected ? AppColors.white : Colors.transparent,
           border: Border.all(
             color: isSelected
-                ? ColorsLight.black
-                : ColorsLight.black.withValues(alpha: 0.1),
+                ? AppColors.black
+                : AppColors.black.withValues(alpha: 0.1),
             width: isSelected ? 1.5 : 1,
           ),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: ColorsLight.black.withValues(alpha: 0.2),
+                    color: AppColors.black.withValues(alpha: 0.2),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   )
@@ -124,7 +124,7 @@ class LanguageScreen extends StatelessWidget {
                           : context.bodyLarge!.fontSize,
                       fontWeight:
                           isSelected ? FontWeight.w700 : FontWeight.w500,
-                      color: isSelected ? ColorsLight.black : ColorsLight.gray,
+                      color: isSelected ? AppColors.black : AppColors.gray,
                     ),
                   ),
                   AnimatedSwitcher(
@@ -132,7 +132,7 @@ class LanguageScreen extends StatelessWidget {
                     child: isSelected
                         ? Icon(
                             HugeIcons.strokeRoundedCheckmarkCircle03,
-                            color: ColorsLight.black,
+                            color: AppColors.black,
                             size: 28,
                           )
                         : const SizedBox(width: 28),
@@ -153,15 +153,15 @@ class LanguageScreen extends StatelessWidget {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: ColorsLight.black,
+        backgroundColor: AppColors.black,
         content: AppText(
           '${context.translate(LangKeys.changeLanguage)} '
           '${context.translate(LangKeys.english)}',
-          color: ColorsLight.white,
+          color: AppColors.white,
         ),
         action: SnackBarAction(
           label: context.translate(LangKeys.cancel),
-          textColor: ColorsLight.white,
+          textColor: AppColors.white,
           onPressed: () {
             // Handle undo logic
           },

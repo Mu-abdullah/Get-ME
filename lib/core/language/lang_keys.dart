@@ -25,7 +25,7 @@ class LangKeys {
   static const String translatedByGoogle = 'translatedByGoogle';
   static const String showOriginal = 'showOriginal';
   static const String hideOriginal = 'hideOriginal';
-  
+  static const String dontShowAnymore = 'dontShowAnymore';
   
   // Auth Keys
   static const String login = 'login';
@@ -34,6 +34,7 @@ class LangKeys {
   // Home Keys
   static const String home = 'home';
   static const String search = 'search';
+  static const String rahaali = 'rahaali';
   static const String account = 'account';
   static const String travelQuote = 'travelQuote';
   static const String governorates = 'governorates';

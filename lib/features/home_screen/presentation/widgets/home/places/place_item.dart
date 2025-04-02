@@ -8,7 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../../core/app/language/language_cubit/language_cubit.dart';
 import '../../../../../../core/routes/routes_name.dart';
 import '../../../../../../core/services/translate_services.dart';
-import '../../../../../../core/style/color/color_light.dart';
+import '../../../../../../core/style/color/app_color.dart';
 import '../../../../../../core/style/statics/app_statics.dart';
 import '../../../../../../core/style/widgets/app_text.dart';
 import '../../../../data/model/get_place_image_model.dart';
@@ -190,12 +190,12 @@ class _PlaceCardState extends State<PlaceCard> {
               children: [
                 AppText(
                   _translatedName,
-                  color: ColorsLight.white,
+                  color: AppColors.white,
                   isTitle: true,
                 ),
                 AppText(
                   _translatedGovernorate,
-                  color: ColorsLight.white,
+                  color: AppColors.white,
                   isTitle: false,
                 ),
                 const SizedBox(height: 8),

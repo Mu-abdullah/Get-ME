@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/statics/app_statics.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../data/model/account_button_model.dart';
@@ -24,7 +24,7 @@ class AccountButtonItem extends StatelessWidget {
           height: Statics.buttonsHeight,
           decoration: BoxDecoration(
             borderRadius: AppBorderRadius.mediumRadius,
-            color: item.backgroundColor ?? ColorsLight.white,
+            color: item.backgroundColor ?? AppColors.white,
           ),
           child: Row(
             spacing: 20,
@@ -32,7 +32,7 @@ class AccountButtonItem extends StatelessWidget {
               SizedBox(),
               HugeIcon(
                 icon: item.icon!,
-                color: item.iconColor ?? ColorsLight.black,
+                color: item.iconColor ?? AppColors.black,
                 size: 20,
               ),
               Expanded(

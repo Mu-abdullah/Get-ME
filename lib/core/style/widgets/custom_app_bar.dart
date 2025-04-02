@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/color/color_light.dart';
+import 'package:getme/core/style/color/app_color.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title = '',
     this.isBack = true,
     this.actions,
-    this.backgroundColor = ColorsLight.white,
+    this.backgroundColor = AppColors.white,
   });
   final String? translatedTitle;
   final String title;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../color/color_light.dart';
+import '../color/app_color.dart';
 
 class BackScreenButton extends StatelessWidget {
   const BackScreenButton({
@@ -17,11 +17,11 @@ class BackScreenButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: ColorsLight.black.withValues(alpha: 0.7),
+            color: AppColors.black.withValues(alpha: 0.7),
           ),
           child: Icon(
             HugeIcons.strokeRoundedCancel01,
-            color: ColorsLight.white,
+            color: AppColors.white,
             size: 25,
           ),
         ),

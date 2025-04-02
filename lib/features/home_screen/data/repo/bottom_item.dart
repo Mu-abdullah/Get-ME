@@ -1,12 +1,13 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/color/color_light.dart';
+import 'package:getme/core/style/color/app_color.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../account_screen/presentation/views/account_screen.dart';
+import '../../../ai/presentation/views/ai_screen.dart';
 import '../../presentation/refactor/governorates_home_body.dart';
 
 class BottomItem {
@@ -15,35 +16,33 @@ class BottomItem {
       FlashyTabBarItem(
         icon: Icon(HugeIcons.strokeRoundedHome01),
         title: AppText(context.translate(LangKeys.home)),
-        activeColor: ColorsLight.black,
-        inactiveColor: ColorsLight.gray,
+        activeColor: AppColors.black,
+        inactiveColor: AppColors.gray,
       ),
       FlashyTabBarItem(
-        icon: Icon(HugeIcons.strokeRoundedSearch01),
-        title: AppText(context.translate(LangKeys.search)),
-        activeColor: ColorsLight.black,
-        inactiveColor: ColorsLight.gray,
+        icon: Icon(HugeIcons.strokeRoundedRobot01),
+        title: AppText(context.translate(LangKeys.rahaali)),
+        activeColor: AppColors.black,
+        inactiveColor: AppColors.gray,
       ),
       FlashyTabBarItem(
         icon: Icon(HugeIcons.strokeRoundedUser),
         title: AppText(context.translate(LangKeys.account)),
-        activeColor: ColorsLight.black,
-        inactiveColor: ColorsLight.gray,
+        activeColor: AppColors.black,
+        inactiveColor: AppColors.gray,
       ),
     ];
   }
 
   static List<Widget> screenItems = [
     GovernoratesHomeBody(),
-    Center(
-      child: AppText('search'),
-    ),
+    AiScreen(),
     AccountScreen(),
   ];
 
   static List<String> titles = [
     LangKeys.home,
-    LangKeys.search,
+    LangKeys.rahaali,
     LangKeys.account,
   ];
 }

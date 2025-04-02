@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/color/color_light.dart';
+import 'package:getme/core/style/color/app_color.dart';
 import 'package:getme/core/style/font/fonts_helper.dart';
 
 class AppText extends StatelessWidget {
@@ -15,8 +15,8 @@ class AppText extends StatelessWidget {
     this.isLineThrough = false,
     this.textAlign = TextAlign.justify,
     this.maxLines = 1,
-    this.color = ColorsLight.black,
-    this.lineColor = ColorsLight.black,
+    this.color = AppColors.black,
+    this.lineColor = AppColors.black,
     this.height = 1.5,
     this.fontSize,
     this.fontWeight,
@@ -68,7 +68,7 @@ class AppText extends StatelessWidget {
 TextStyle customTextStyle(
   BuildContext context, {
   TextAlign? textAlign,
-  Color color = ColorsLight.black,
+  Color color = AppColors.black,
   Color? lineColor,
   bool isTitle = false,
   bool isBold = false,

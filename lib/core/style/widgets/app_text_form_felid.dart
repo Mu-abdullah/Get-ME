@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
-import '../color/color_light.dart';
+import '../color/app_color.dart';
 
 class AppTextFormField extends StatefulWidget {
   const AppTextFormField({
@@ -119,7 +119,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       context,
       isBold: !isError,
       fontSize: !isError ? 14 : 16,
-      color: isError ? ColorsLight.red : ColorsLight.black,
+      color: isError ? AppColors.red : AppColors.black,
     );
   }
 
@@ -141,7 +141,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   OutlineInputBorder _focuseOutLineBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(
-        color: ColorsLight.black,
+        color: AppColors.black,
       ),
       borderRadius: BorderRadius.circular(15),
     );

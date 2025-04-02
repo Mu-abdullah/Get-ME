@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../../../core/style/color/color_light.dart';
+import '../../../../../core/style/color/app_color.dart';
 import '../../cubits/images_cubit/get_image_cubit.dart';
 
 class ImageCard extends StatelessWidget {
@@ -31,10 +31,10 @@ class ImageCard extends StatelessWidget {
             onTap: () =>
                 BlocProvider.of<GetImageCubit>(context).removeImage(index),
             child: CircleAvatar(
-              backgroundColor: ColorsLight.white.withValues(alpha: 0.9),
+              backgroundColor: AppColors.white.withValues(alpha: 0.9),
               radius: 15,
               child: Icon(HugeIcons.strokeRoundedImageDelete01,
-                  size: 18, color: ColorsLight.red),
+                  size: 18, color: AppColors.red),
             ),
           ),
         ),

@@ -7,7 +7,7 @@ import '../core/app/no_internet/no_internet_screen.dart';
 import '../core/routes/routes.dart';
 import '../core/routes/routes_name.dart';
 import '../core/language/app_localizations_setup.dart';
-import '../core/style/color/color_light.dart';
+import '../core/style/color/app_color.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
@@ -22,7 +22,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  Locale _locale = const Locale('en');
+  Locale _locale = const Locale('ar');
 
   void setLocale(Locale locale) {
     setState(() {
@@ -59,7 +59,7 @@ class _MainAppState extends State<MainApp> {
                       AppLocalizationsSetup.localeResolutionCallback,
                   theme: ThemeData(
                     primarySwatch: Colors.blue,
-                    scaffoldBackgroundColor: ColorsLight.scaffoldBackground,
+                    scaffoldBackgroundColor: AppColors.scaffoldBackground,
                   ),
                   builder: (context, child) {
                     return GestureDetector(

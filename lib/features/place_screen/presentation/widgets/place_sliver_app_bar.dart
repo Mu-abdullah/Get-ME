@@ -3,7 +3,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/routes/routes_name.dart';
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/back_screen_button.dart';
 import '../../../home_screen/data/model/get_place_image_model.dart';
@@ -26,11 +26,11 @@ class PlaceSliverAppBar extends StatelessWidget {
       floating: true,
       pinned: true,
       leading: BackScreenButton(),
-      backgroundColor: ColorsLight.black,
+      backgroundColor: AppColors.black,
       flexibleSpace: FlexibleSpaceBar(
         title: AppText(
           placeName,
-          color: ColorsLight.white,
+          color: AppColors.white,
         ),
         background: InkWell(
           onTap: () {
@@ -61,7 +61,7 @@ class PlaceSliverAppBar extends StatelessWidget {
                     count: images.length,
                     effect: const ExpandingDotsEffect(
                       activeDotColor: Colors.blueAccent,
-                      dotColor: ColorsLight.white,
+                      dotColor: AppColors.white,
                       dotHeight: 8,
                       dotWidth: 8,
                       spacing: 4,

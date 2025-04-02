@@ -22,7 +22,7 @@ class SharedPref {
   static dynamic getData({
     required String key,
   }) {
-    return shared!.get(key);
+    return shared?.get(key);
   }
 
   static Future<bool> removeData({

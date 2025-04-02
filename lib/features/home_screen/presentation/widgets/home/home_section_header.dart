@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/color/color_light.dart';
+import 'package:getme/core/style/color/app_color.dart';
 
 import '../../../../../core/language/lang_keys.dart';
 import '../../../../../core/style/widgets/app_space.dart';
@@ -32,12 +32,12 @@ class HomeSectionHeader extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
-                color: ColorsLight.black.withValues(alpha: 0.1),
+                color: AppColors.black.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: AppText(
                 context.translate(LangKeys.seeAll),
-                color: ColorsLight.black.withValues(alpha: 0.5),
+                color: AppColors.black.withValues(alpha: 0.5),
               ),
             ),
           ),

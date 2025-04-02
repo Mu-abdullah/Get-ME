@@ -4,7 +4,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../../core/language/lang_keys.dart';
-import '../../../../../core/style/color/color_light.dart';
+import '../../../../../core/style/color/app_color.dart';
 import '../../../../../core/style/widgets/app_text.dart';
 import '../../cubits/images_cubit/get_image_cubit.dart';
 
@@ -18,10 +18,9 @@ class EmptyState extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(HugeIcons.strokeRoundedImageAdd01,
-              size: 80, color: ColorsLight.gray.withValues(alpha: 0.3)),
+              size: 80, color: AppColors.gray.withValues(alpha: 0.3)),
           const SizedBox(height: 20),
-          AppText(context.translate(LangKeys.noPhotos),
-              color: ColorsLight.gray),
+          AppText(context.translate(LangKeys.noPhotos), color: AppColors.gray),
           const SizedBox(height: 10),
           TextButton(
             onPressed: () =>

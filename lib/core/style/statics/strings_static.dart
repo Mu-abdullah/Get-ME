@@ -10,4 +10,9 @@ class StringsStatic {
 
   static const String arabic = 'عربي';
   static const String english = 'English';
+
+  static const String enAiIntro =
+      'Rahaali is an AI-powered assistant built into Rahaal that helps you choose travel destinations based on your preferences. It provides personalized recommendations for places, activities, and hotels, plans trips, and provides real-time information such as weather and events, enhancing and facilitating your travel experience.';
+  static const String arAiIntro =
+      '"رحالي" هو مساعد ذكاء اصطناعي مدمج في رحال يساعدك في اختيار الوجهات السياحية بناءً على تفضيلاتك. يقدملك توصيات مخصصة للأماكن، الأنشطة، والفنادق، ويخططلك الرحلات ويوفر معلومات لحظية مثل الطقس والأحداث، مما يعزز تجربة السفر ويسهلها.';
 }

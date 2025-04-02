@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getme/core/style/widgets/app_space.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../style/color/color_light.dart';
+import '../../style/color/app_color.dart';
 import '../../style/widgets/custom_app_bar.dart';
 
 class PreviewImage extends StatelessWidget {
@@ -71,7 +71,7 @@ class PreviewImage extends StatelessWidget {
                       count: imagesList!.length,
                       effect: const ExpandingDotsEffect(
                         activeDotColor: Colors.blueAccent,
-                        dotColor: ColorsLight.black,
+                        dotColor: AppColors.black,
                         dotHeight: 8,
                         dotWidth: 8,
                         spacing: 4,

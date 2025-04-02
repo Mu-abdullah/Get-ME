@@ -5,7 +5,7 @@ import 'package:getme/core/extextions/extentions.dart';
 import '../../../../core/app/language/language_cubit/language_cubit.dart';
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/services/translate_services.dart';
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/statics/app_statics.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
@@ -82,18 +82,18 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
               Container(
                 height: 500,
                 width: double.infinity,
-                color: ColorsLight.black.withValues(alpha: 0.5),
+                color: AppColors.black.withValues(alpha: 0.5),
               ),
               Container(
                 height: 50,
                 width: double.infinity,
-                color: ColorsLight.black.withValues(alpha: 0.5),
+                color: AppColors.black.withValues(alpha: 0.5),
               ),
               Expanded(
                 child: Container(
                   height: 50,
                   width: double.infinity,
-                  color: ColorsLight.black.withValues(alpha: 0.5),
+                  color: AppColors.black.withValues(alpha: 0.5),
                 ),
               ),
             ],
@@ -147,12 +147,12 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
                         "${context.translate(LangKeys.go)} $_translatedName",
                         isUnderline: true,
                         fontSize: context.labelLarge!.fontSize,
-                        color: ColorsLight.blueAccent,
-                        lineColor: ColorsLight.blueAccent,
+                        color: AppColors.blueAccent,
+                        lineColor: AppColors.blueAccent,
                       ),
                       Icon(
                         Icons.location_on,
-                        color: ColorsLight.blueAccent,
+                        color: AppColors.blueAccent,
                       ),
                     ],
                   ),

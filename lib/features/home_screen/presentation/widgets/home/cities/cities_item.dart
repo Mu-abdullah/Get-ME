@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/style/color/color_light.dart';
+import '../../../../../../core/style/color/app_color.dart';
 import '../../../../../../core/style/statics/image_test.dart';
 import '../../../../../../core/style/widgets/app_text.dart';
 import '../../../../data/model/home_get_cities_model.dart';
@@ -101,12 +101,12 @@ class CitiesItem extends StatelessWidget {
           children: [
             AppText(
               city.cityNameAr ?? 'Unknown City',
-              color: ColorsLight.white,
+              color: AppColors.white,
               isTitle: true,
             ),
             AppText(
               city.governoratesAr ?? 'Unknown City',
-              color: ColorsLight.white,
+              color: AppColors.white,
             ),
           ],
         ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../color/color_light.dart';
+import '../color/app_color.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
     super.key,
     this.thickness = 2,
-    this.color = ColorsLight.black,
+    this.color = AppColors.black,
     this.endIndent = 20,
     this.indent = 20,
     this.veratical = false,

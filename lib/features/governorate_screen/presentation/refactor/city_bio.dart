@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/language/lang_keys.dart';
-import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
 import '../../../../core/style/widgets/custom_snack_bar.dart';
@@ -85,7 +85,7 @@ class CityBio extends StatelessWidget {
           style: customTextStyle(
             context,
             fontSize: context.bodySmall!.fontSize,
-            color: ColorsLight.black.withValues(alpha: 0.6),
+            color: AppColors.black.withValues(alpha: 0.6),
             height: 2,
           ),
         ));
@@ -111,7 +111,7 @@ class CityBio extends StatelessWidget {
         style: customTextStyle(
           context,
           fontSize: context.bodySmall!.fontSize,
-          color: ColorsLight.black.withValues(alpha: 0.6),
+          color: AppColors.black.withValues(alpha: 0.6),
           height: 2,
         ),
       ));

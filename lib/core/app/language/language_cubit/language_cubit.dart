@@ -2,13 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguageCubit extends Cubit<String> {
-  LanguageCubit() : super('en') {
+  LanguageCubit() : super('ar') {
     _loadLanguage();
   }
 
   Future<void> _loadLanguage() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedLanguage = prefs.getString('language') ?? 'en';
+    final savedLanguage = prefs.getString('language') ?? 'ar';
     emit(savedLanguage);
   }
 

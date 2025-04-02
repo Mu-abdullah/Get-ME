@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../../../core/routes/routes_name.dart';
-import '../../../../../../core/style/color/color_light.dart';
+import '../../../../../../core/style/color/app_color.dart';
 import '../../../../../../core/style/font/fonts_helper.dart';
 import '../../../../../../core/style/statics/app_statics.dart';
 import '../../../../../../core/style/widgets/app_text.dart';
@@ -92,7 +92,7 @@ class GovernoratesItem extends StatelessWidget {
         children: [
           AppText(
             isArabic ? governorate.nameAr! : governorate.name!,
-            color: ColorsLight.white,
+            color: AppColors.white,
             isTitle: true,
           ),
         ],
