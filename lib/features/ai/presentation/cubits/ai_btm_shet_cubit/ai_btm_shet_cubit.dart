@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../../../core/services/shared_pref/pref_keys.dart';
+import '../../../../../core/services/shared_pref/shared_pref.dart';
 
 part 'ai_btm_shet_state.dart';
 
@@ -15,9 +18,9 @@ class AiBtmShetCubit extends Cubit<AiBtmShetState> {
     emit(ToggleButton());
   }
 
-  // saved value to shared preferences
   void saveShowAgainValue() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('showAgain', showAgain);
+    SharedPref.saveData(key: PrefKeys.showAiIntroduction, value: showAgain);
+    debugPrint('showAgain: $showAgain');
+    emit(ShowAgainState(showAgain));
   }
 }

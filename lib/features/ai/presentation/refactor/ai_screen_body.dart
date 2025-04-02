@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/services/shared_pref/pref_keys.dart';
 import '../../../../core/services/shared_pref/shared_pref.dart';
 import '../../../../core/style/widgets/custom_bottom_sheet.dart';
-import 'ai_show_bottom_sheet.dart';
+import '../widgets/ai_show_bottom_sheet.dart';
 
 class AIScreenBody extends StatefulWidget {
   const AIScreenBody({super.key});
@@ -19,10 +19,10 @@ class _AIScreenBodyState extends State<AIScreenBody> {
     getShowAgainValue();
   }
 
-  // get shared value
   void getShowAgainValue() async {
-    bool? showAgain = SharedPref.getData(key: PrefKeys.showAiIntroduction);
-    if (showAgain == null || !showAgain) {
+    var showAgain = await SharedPref.getData(key: PrefKeys.showAiIntroduction);
+    debugPrint('showAgain: $showAgain');
+    if (showAgain == null || showAgain == false) {
       _showBottomSheet();
     }
   }

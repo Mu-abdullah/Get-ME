@@ -87,6 +87,7 @@ class AIBottomSheet extends StatelessWidget {
                   ),
                   AppButton(
                     onTap: () {
+                      cubit.saveShowAgainValue();
                       Navigator.pop(context);
                     },
                     text: LangKeys.done,
