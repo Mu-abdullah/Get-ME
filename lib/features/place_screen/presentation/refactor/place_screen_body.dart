@@ -16,13 +16,13 @@ import '../widgets/place_sliver_app_bar.dart';
 class PlaceScreenBody extends StatefulWidget {
   final PlacesModel place;
   final List<GetPlaceImageModel> images;
-  final String sourceLanguage;
+  final String sourceLanguage; // Add source language of the content
 
   const PlaceScreenBody({
     super.key,
     required this.place,
     required this.images,
-    this.sourceLanguage = 'auto',
+    this.sourceLanguage = 'auto', // Default to auto-detect
   });
 
   @override
@@ -32,11 +32,8 @@ class PlaceScreenBody extends StatefulWidget {
 class _PlaceScreenBodyState extends State<PlaceScreenBody> {
   String _translatedName = '';
   String _translatedDescription = '';
-  String _originalName = '';
-  String _originalDescription = '';
   bool _isLoading = true;
   bool _isTranslated = false;
-  bool _needsTranslation = false;
 
   @override
   void initState() {
@@ -46,61 +43,31 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
 
   Future<void> _translateContent() async {
     final currentLanguage = context.read<LanguageCubit>().state;
-    _originalName = widget.place.name!;
-    _originalDescription = widget.place.description!;
 
-    // Always attempt translation if source is 'auto' or different from current
-    final attemptTranslate = widget.sourceLanguage == 'auto' ||
-        widget.sourceLanguage != currentLanguage;
+    // Only translate if the app language differs from source language
+    if (widget.sourceLanguage != currentLanguage) {
+      final translated = await TranslationService.translatePlace(
+        name: widget.place.name!,
+        description: widget.place.description!,
+        targetLanguage: currentLanguage,
+        sourceLanguage: widget.sourceLanguage,
+      );
 
-    if (attemptTranslate) {
-      try {
-        final translated = await TranslationService.translatePlace(
-          name: widget.place.name!,
-          description: widget.place.description!,
-          targetLanguage: currentLanguage,
-          sourceLanguage: widget.sourceLanguage,
-        );
-
-        // Extract detected source language from translation result
-        final detectedSource =
-            translated['detectedSourceLanguage'] ?? widget.sourceLanguage;
-        final actuallyNeedsTranslation = detectedSource != currentLanguage;
-
-        if (mounted) {
-          setState(() {
-            _translatedName = translated['name']!;
-            _translatedDescription = translated['description']!;
-            _isTranslated = actuallyNeedsTranslation;
-            _needsTranslation = actuallyNeedsTranslation;
-            _isLoading = false;
-          });
-        }
-      } catch (e) {
+      if (mounted) {
         setState(() {
-          _translatedName = _originalName;
-          _translatedDescription = _originalDescription;
-          _isTranslated = false;
-          _needsTranslation = false;
+          _translatedName = translated['name']!;
+          _translatedDescription = translated['description']!;
           _isLoading = false;
+          _isTranslated = true;
         });
       }
     } else {
-      // No translation needed
       setState(() {
-        _translatedName = _originalName;
-        _translatedDescription = _originalDescription;
-        _isTranslated = false;
-        _needsTranslation = false;
+        _translatedName = widget.place.name!;
+        _translatedDescription = widget.place.description!;
         _isLoading = false;
       });
     }
-  }
-
-  void _toggleTranslation() {
-    setState(() {
-      _isTranslated = !_isTranslated;
-    });
   }
 
   @override
@@ -135,14 +102,10 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
       );
     }
 
-    final displayName = _isTranslated ? _translatedName : _originalName;
-    final displayDescription =
-        _isTranslated ? _translatedDescription : _originalDescription;
-
     return CustomScrollView(
       slivers: [
         PlaceSliverAppBar(
-          placeName: displayName,
+          placeName: _translatedName,
           images: widget.images,
         ),
         SliverToBoxAdapter(
@@ -152,23 +115,13 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               spacing: 10,
               children: [
-                Row(
-                  spacing: 10,
-                  children: [
-                    Expanded(
-                      child: AppText(
-                        displayDescription,
-                        maxLines: 10,
-                        fontSize: context.labelLarge!.fontSize,
-                      ),
-                    ),
-                  ],
+                AppText(
+                  _translatedDescription,
+                  maxLines: 10,
+                  fontSize: context.labelLarge!.fontSize,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    if (_needsTranslation && _isTranslated)
-                      Padding(
+                !_isTranslated
+                    ? Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -182,18 +135,8 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
                             color: Colors.grey,
                           ),
                         ),
-                      ),
-                    if (_needsTranslation)
-                      TextButton(
-                        onPressed: _toggleTranslation,
-                        child: AppText(
-                          _isTranslated
-                              ? context.translate(LangKeys.showOriginal)
-                              : context.translate(LangKeys.translated),
-                        ),
-                      ),
-                  ],
-                ),
+                      )
+                    : SizedBox(),
                 InkWell(
                   onTap: () => context.openUrl(url: widget.place.location!),
                   child: Row(
@@ -201,7 +144,7 @@ class _PlaceScreenBodyState extends State<PlaceScreenBody> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       AppText(
-                        "${context.translate(LangKeys.go)} $displayName",
+                        "${context.translate(LangKeys.go)} $_translatedName",
                         isUnderline: true,
                         fontSize: context.labelLarge!.fontSize,
                         color: ColorsLight.blueAccent,

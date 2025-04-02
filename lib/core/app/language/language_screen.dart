@@ -40,12 +40,12 @@ class LanguageScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final languages = [
                         {
-                          'name': LangKeys.english,
+                          'name': 'English',
                           'code': 'en',
-                          'flag': '🇬🇧'
+                          'flag': '🇬🇧',
                         },
                         {
-                          'name': LangKeys.arabic,
+                          'name': 'عربي',
                           'code': 'ar',
                           'flag': '🇸🇦',
                         },
@@ -117,7 +117,7 @@ class LanguageScreen extends StatelessWidget {
                   const SizedBox(width: 16),
                   Expanded(
                     child: AppText(
-                      context.translate(languageName),
+                      languageName,
                       fontSize: isSelected
                           ? context.titleLarge!.fontSize
                           : context.bodyLarge!.fontSize,

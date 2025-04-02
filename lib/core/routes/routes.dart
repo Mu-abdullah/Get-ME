@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getme/core/app/language/language_screen.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
@@ -12,6 +11,7 @@ import '../../features/all_places/presentation/views/places_grid_view_screen.dar
 import '../../features/place_screen/presentation/views/place_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
 import '../app/image/image_preview.dart';
+import '../app/language/language_screen.dart';
 import '../app/no_internet/no_internet_screen.dart';
 import 'base_routes.dart';
 import 'routes_name.dart';

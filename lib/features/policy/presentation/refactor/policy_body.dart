@@ -4,6 +4,8 @@ import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/style/color/color_light.dart';
+import '../../../../core/style/font/fonts_helper.dart';
+import '../../../../core/style/statics/policy_static.dart';
 import '../../../../core/style/widgets/app_button.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
@@ -16,6 +18,7 @@ class PolicyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appName = context.translate(LangKeys.appName);
+    var isArabic = FontsHelper.isArabic(context);
     return BlocBuilder<PolicyCubit, PolicyState>(
       builder: (context, state) {
         if (state is PolicyLoaded) {
@@ -26,7 +29,7 @@ class PolicyBody extends StatelessWidget {
                 spacing: 20,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildHeader(context, appName: appName),
+                  _buildHeader(context, appName: appName, isArabic: isArabic),
                   PolicyListview(policyList: state.policy),
                   AppButton(
                     text: LangKeys.acceptPolicy,
@@ -46,12 +49,13 @@ class PolicyBody extends StatelessWidget {
   }
 
   // بناء العنوان الرئيسي
-  Widget _buildHeader(BuildContext context, {required String appName}) {
+  Widget _buildHeader(BuildContext context,
+      {required String appName, required bool isArabic}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppText(
-          'سياسة الخصوصية لتطبيق "$appName"',
+          '${isArabic ? PolicyStatic.arPrivacyPolicy : PolicyStatic.enPrivacyPolicy} "$appName"',
           isTitle: true,
           maxLines: 3,
         ),
@@ -61,7 +65,8 @@ class PolicyBody extends StatelessWidget {
             style: customTextStyle(context),
             children: [
               TextSpan(
-                text: 'مرحبًا بكم في تطبيق',
+                text:
+                    isArabic ? PolicyStatic.arWelcome : PolicyStatic.enWelcome,
                 style: customTextStyle(context, isBold: false, isTitle: false),
               ),
               TextSpan(
@@ -69,8 +74,9 @@ class PolicyBody extends StatelessWidget {
                 style: customTextStyle(context, color: ColorsLight.gray),
               ),
               TextSpan(
-                text:
-                    'نلتزم بحماية خصوصيتك وبياناتك الشخصية أثناء استخدامك لخدماتنا. تهدف هذه السياسة إلى توضيح كيفية جمع واستخدام وحماية المعلومات التي تقدمها أثناء استخدامك لتطبيقنا.',
+                text: isArabic
+                    ? PolicyStatic.arIntroduction
+                    : PolicyStatic.enIntroduction,
                 style: customTextStyle(context),
               ),
             ],

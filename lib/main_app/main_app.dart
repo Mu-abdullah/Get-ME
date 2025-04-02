@@ -11,6 +11,7 @@ import '../core/style/color/color_light.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
   static void updateAppLocale(BuildContext context, Locale locale) {
     final state = context.findAncestorStateOfType<_MainAppState>();
     state?.setLocale(locale);
@@ -32,57 +33,62 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: ConnectionController.instance.isConnected,
-        builder: (_, value, __) {
-          if (value) {
-            return MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (_) => LanguageCubit(),
-                ),
-              ],
-              child: BlocBuilder<LanguageCubit, String>(
-                builder: (context, language) {
-                  return MaterialApp(
-                    scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>(),
-                    debugShowCheckedModeBanner: false,
-                    locale: _locale,
-                    supportedLocales: AppLocalizationsSetup.supportedLocales,
-                    localizationsDelegates:
-                        AppLocalizationsSetup.localizationsDelegates,
-                    localeResolutionCallback:
-                        AppLocalizationsSetup.localeResolutionCallback,
-                    theme: ThemeData(
-                      primarySwatch: Colors.blue,
-                      scaffoldBackgroundColor: ColorsLight.scaffoldBackground,
-                    ),
-                    builder: (context, child) {
-                      return GestureDetector(
-                        onTap: () {
-                          FocusManager.instance.primaryFocus?.unfocus();
-                        },
-                        child: Scaffold(
-                          body: Builder(
-                            builder: (context) {
-                              ConnectionController.instance.init();
-                              return child!;
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                    onGenerateRoute: onGenerateRoute,
-                    initialRoute: RoutesNames.homeScreen,
-                  );
-                },
+      valueListenable: ConnectionController.instance.isConnected,
+      builder: (_, value, __) {
+        if (value) {
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => LanguageCubit(),
               ),
-            );
-          } else {
-            return const MaterialApp(
-              debugShowCheckedModeBanner: false,
-              home: NoInternetScreen(),
-            );
-          }
-        });
+            ],
+            child: BlocBuilder<LanguageCubit, String>(
+              builder: (context, language) {
+                // Update _locale when language changes, but only if different
+                if (_locale.languageCode != language) {
+                  _locale = Locale(language);
+                }
+                return MaterialApp(
+                  scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>(),
+                  debugShowCheckedModeBanner: false,
+                  locale: _locale,
+                  supportedLocales: AppLocalizationsSetup.supportedLocales,
+                  localizationsDelegates:
+                      AppLocalizationsSetup.localizationsDelegates,
+                  localeResolutionCallback:
+                      AppLocalizationsSetup.localeResolutionCallback,
+                  theme: ThemeData(
+                    primarySwatch: Colors.blue,
+                    scaffoldBackgroundColor: ColorsLight.scaffoldBackground,
+                  ),
+                  builder: (context, child) {
+                    return GestureDetector(
+                      onTap: () {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      child: Scaffold(
+                        body: Builder(
+                          builder: (context) {
+                            ConnectionController.instance.init();
+                            return child!;
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                  onGenerateRoute: onGenerateRoute,
+                  initialRoute: RoutesNames.homeScreen,
+                );
+              },
+            ),
+          );
+        } else {
+          return const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: NoInternetScreen(),
+          );
+        }
+      },
+    );
   }
 }

@@ -21,6 +21,7 @@ class LangKeys {
   static const String english = 'english';
   static const String noInternet = 'noInternet';
   static const String translated = 'translated';
+  static const String translate = 'translate';
   static const String translatedByGoogle = 'translatedByGoogle';
   static const String showOriginal = 'showOriginal';
   static const String hideOriginal = 'hideOriginal';

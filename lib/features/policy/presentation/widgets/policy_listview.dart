@@ -17,7 +17,7 @@ class PolicyListview extends StatelessWidget {
       itemCount: policyList.length,
       itemBuilder: (context, index) {
         final policy = policyList[index];
-        return PlicyItem(policy: policy, index: index);
+        return PolicyItem(policy: policy, index: index);
       },
       separatorBuilder: (context, index) => SizedBox(
         height: 30,

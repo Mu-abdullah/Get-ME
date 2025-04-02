@@ -89,7 +89,7 @@ class _HomeBodyState extends State<HomeBody> {
                       textAlign: TextAlign.center,
                     ),
                     const AppText(
-                      'العربية',
+                      'عربي',
                       fontSize: 16,
                       textAlign: TextAlign.center,
                     ),
