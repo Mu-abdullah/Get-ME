@@ -3,12 +3,13 @@ import 'package:getme/core/style/widgets/app_text.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class CustomSnackbar {
- static void showTopSnackBar(
+  static void showTopSnackBar(
     BuildContext context, {
     required String message,
     Duration duration = const Duration(seconds: 2),
     Color backgroundColor = Colors.green,
     Color textColor = Colors.white,
+    IconData icon = HugeIcons.strokeRoundedCheckmarkCircle01,
   }) {
     final overlay = Overlay.of(context);
     final entry = OverlayEntry(
@@ -39,8 +40,7 @@ class CustomSnackbar {
                     color: textColor,
                   ),
                 ),
-                Icon(HugeIcons.strokeRoundedCheckmarkCircle01,
-                    color: textColor),
+                Icon(icon, color: textColor),
               ],
             ),
           ),

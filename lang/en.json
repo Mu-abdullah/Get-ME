@@ -24,6 +24,10 @@
     "translate":"Translate",
     "dontShowAnymore":"Don't show again",
 
+    "######################################no internet screen":"",
+    "tryToConnect":"Try to connect",
+    "stillNotConnected":"Still not connected",
+
     "######################################Onboarding":"",
     "skip":"Skip",
     "next":"Next",

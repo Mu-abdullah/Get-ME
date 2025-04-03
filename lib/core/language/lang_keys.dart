@@ -32,6 +32,12 @@ class LangKeys {
   static const String acceptPolicy = 'acceptPolicy';
   static const String logout = 'logout';
 
+  // no internet screen
+  static const String tryToConnect = 'tryToConnect';
+  static const String stillNotConnected = 'stillNotConnected';
+  
+
+
   // onboarding keys
   static const String skip = 'skip';
   static const String next = 'next';

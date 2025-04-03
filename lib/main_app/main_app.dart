@@ -85,8 +85,14 @@ class _MainAppState extends State<MainApp> {
             ),
           );
         } else {
-          return const MaterialApp(
+          return MaterialApp(
             debugShowCheckedModeBanner: false,
+            locale: _locale,
+            supportedLocales: AppLocalizationsSetup.supportedLocales,
+            localizationsDelegates:
+                AppLocalizationsSetup.localizationsDelegates,
+            localeResolutionCallback:
+                AppLocalizationsSetup.localeResolutionCallback,
             home: NoInternetScreen(),
           );
         }
