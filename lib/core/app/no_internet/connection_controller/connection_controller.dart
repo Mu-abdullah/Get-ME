@@ -7,21 +7,23 @@ class ConnectionController {
   ValueNotifier<bool> isConnected = ValueNotifier(true);
 
   static final ConnectionController instance = ConnectionController._();
+
   Future<void> init() async {
     final result = await Connectivity().checkConnectivity();
     isInternetConnected(result);
     Connectivity().onConnectivityChanged.listen(isInternetConnected);
   }
 
-  bool isInternetConnected(ConnectivityResult? result) {
-    if (result == ConnectivityResult.none) {
+  bool isInternetConnected(List<ConnectivityResult> results) {
+    if (results.contains(ConnectivityResult.none) && results.length == 1) {
       isConnected.value = false;
       return false;
-    } else if (result == ConnectivityResult.mobile ||
-        result == ConnectivityResult.wifi) {
+    } else if (results.contains(ConnectivityResult.mobile) ||
+        results.contains(ConnectivityResult.wifi)) {
       isConnected.value = true;
       return true;
     }
+    isConnected.value = false;
     return false;
   }
 }
