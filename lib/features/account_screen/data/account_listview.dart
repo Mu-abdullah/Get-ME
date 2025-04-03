@@ -17,11 +17,9 @@ class AccountListview {
         },
       ),
       AccountButtonModel(
-        icon: HugeIcons.strokeRoundedNotebook02,
-        title: LangKeys.policy,
-        onTap: () {
-          context.pushNamed(RoutesNames.policyScreen);
-        },
+        icon: HugeIcons.strokeRoundedFavourite,
+        title: LangKeys.favorites,
+        onTap: () {},
       ),
       AccountButtonModel(
         icon: HugeIcons.strokeRoundedLanguageSquare,
@@ -29,6 +27,20 @@ class AccountListview {
         onTap: () {
           context.pushNamed(RoutesNames.language);
         },
+      ),
+      AccountButtonModel(
+        icon: HugeIcons.strokeRoundedNotebook02,
+        title: LangKeys.policy,
+        onTap: () {
+          context.pushNamed(RoutesNames.policyScreen);
+        },
+      ),
+      AccountButtonModel(
+        icon: HugeIcons.strokeRoundedDelete03,
+        title: LangKeys.deleteAccount,
+        iconColor: Colors.red,
+        titleColor: Colors.red,
+        onTap: () {},
       ),
     ];
   }

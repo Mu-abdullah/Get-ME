@@ -1,7 +1,5 @@
 {   "######################################Genral":"",
     "appName":"Rahaal",    
-    "policy":"Privacy Policy",
-    "acceptPolicy":"Accept Policy",
     "done":"Done",
     "cancel":"Cancel",
     "error":"Error",
@@ -25,6 +23,14 @@
     "translated":"Translated",
     "translate":"Translate",
     "dontShowAnymore":"Don't show again",
+
+
+    "######################################Account":"",
+    "policy":"Privacy Policy",
+    "acceptPolicy":"Accept Policy",
+    "favorites":"Favorites",
+    "deleteAccount":"Delete Account",
+    "logout":"Logout",
 
     "######################################Login":"",
     "login":"Login",
@@ -53,6 +59,7 @@
     "go":"Go to",
     "goToLocation":"Go to location",
     "createdByAi":"Created by AI",
+    "poweredByAi":"Powered by AI",
 
     "#######################################Chat":"",
     "noMassagesYet":"No messages yet. Start chatting!",

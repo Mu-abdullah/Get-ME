@@ -109,19 +109,19 @@ class LanguageScreen extends StatelessWidget {
             borderRadius: AppBorderRadius.largeRadius,
             onTap: () => _handleLanguageChange(context, languageCode),
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Row(
+                spacing: 16,
                 children: [
                   AppText(
                     flag,
                   ),
-                  const SizedBox(width: 16),
                   Expanded(
                     child: AppText(
                       languageName,
                       fontSize: isSelected
-                          ? context.titleLarge!.fontSize
-                          : context.bodyLarge!.fontSize,
+                          ? context.titleMedium!.fontSize
+                          : context.bodyMedium!.fontSize,
                       fontWeight:
                           isSelected ? FontWeight.w700 : FontWeight.w500,
                       color: isSelected ? AppColors.black : AppColors.gray,

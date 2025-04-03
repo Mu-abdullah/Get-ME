@@ -5,6 +5,7 @@ class ImageTest {
 
 class AppImages {
   static const String logo = 'assets/images/rahaal.png';
+  static const String whiteLogo = 'assets/images/rahaal_white.png';
   static const String noInternet = 'assets/images/no_internet.jpeg';
 }
 

@@ -1,8 +1,6 @@
 class LangKeys {
   //Genral Keys
   static const String appName = 'appName';
-  static const String policy = 'policy';
-  static const String acceptPolicy = 'acceptPolicy';
   static const String done = 'done';
   static const String cancel = 'cancel';
   static const String error = 'error';
@@ -26,7 +24,14 @@ class LangKeys {
   static const String showOriginal = 'showOriginal';
   static const String hideOriginal = 'hideOriginal';
   static const String dontShowAnymore = 'dontShowAnymore';
-  
+
+  //account keys
+  static const String deleteAccount = 'deleteAccount';
+  static const String favorites = 'favorites';
+  static const String policy = 'policy';
+  static const String acceptPolicy = 'acceptPolicy';
+  static const String logout = 'logout';
+
   // Auth Keys
   static const String login = 'login';
   static const String register = 'register';
@@ -58,4 +63,5 @@ class LangKeys {
   // chat Keys
   static const String noMassagesYet = 'noMassagesYet';
   static const String typeYourMessage = 'typeYourMessage';
+  static const String poweredByAi = 'poweredByAi';
 }

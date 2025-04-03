@@ -24,7 +24,7 @@ class AccountButtonItem extends StatelessWidget {
           height: Statics.buttonsHeight,
           decoration: BoxDecoration(
             borderRadius: AppBorderRadius.mediumRadius,
-            color: item.backgroundColor ?? AppColors.white,
+            color: AppColors.white,
           ),
           child: Row(
             spacing: 20,
@@ -39,6 +39,7 @@ class AccountButtonItem extends StatelessWidget {
                 child: AppText(
                   context.translate(item.title!),
                   isBold: true,
+                  color: item.titleColor ?? AppColors.black,
                   fontSize: context.bodyLarge!.fontSize,
                 ),
               ),

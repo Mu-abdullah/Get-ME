@@ -6,6 +6,6 @@ class AccountButtonModel extends ButtonsEntity {
     super.onTap,
     super.icon,
     super.iconColor,
-    super.backgroundColor,
+    super.titleColor,
   });
 }

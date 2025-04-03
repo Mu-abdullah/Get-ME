@@ -9,17 +9,21 @@ import '../../../../core/style/widgets/app_text.dart';
 class AIBadge extends StatelessWidget {
   const AIBadge({
     super.key,
+    this.text = LangKeys.createdByAi,
+    this.color = AppColors.blueAccent,
+    this.borderColor = AppColors.black,
   });
-
+  final String text;
+  final Color color;
+  final Color borderColor;
   @override
   Widget build(BuildContext context) {
-    var aiColor = AppColors.blueAccent;
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.black.withValues(alpha: 0.2)),
+            border: Border.all(color: borderColor.withValues(alpha: 0.2)),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
@@ -28,12 +32,12 @@ class AIBadge extends StatelessWidget {
               spacing: 5,
               children: [
                 AppText(
-                  context.translate(LangKeys.createdByAi),
-                  color: aiColor,
+                  context.translate(text),
+                  color: color,
                 ),
                 HugeIcon(
                   icon: HugeIcons.strokeRoundedAiMagic,
-                  color: aiColor,
+                  color: color,
                 ),
               ],
             ),

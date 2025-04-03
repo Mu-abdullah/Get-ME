@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ButtonsEntity {
   final String? title;
-  final Color? backgroundColor;
+  final Color? titleColor;
   final IconData? icon;
   final Color? iconColor;
   final Function()? onTap;
@@ -10,7 +10,7 @@ class ButtonsEntity {
   ButtonsEntity({
     this.title,
     this.icon,
-    this.backgroundColor,
+    this.titleColor,
     this.iconColor,
     this.onTap,
   });
