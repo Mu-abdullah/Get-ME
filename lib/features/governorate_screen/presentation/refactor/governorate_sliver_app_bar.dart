@@ -6,8 +6,8 @@ import '../../../../core/style/color/app_color.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/back_screen_button.dart';
 
-class CitySliverAppBar extends StatelessWidget {
-  const CitySliverAppBar({
+class GovernorateSliverAppBar extends StatelessWidget {
+  const GovernorateSliverAppBar({
     super.key,
     required this.imageUrl,
     required this.name,

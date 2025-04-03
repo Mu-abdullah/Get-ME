@@ -9,9 +9,10 @@ import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_shimmer.dart';
 import '../../../../core/style/widgets/custom_snack_bar.dart';
 import '../cubits/city_bio_creator_cubit/city_bio_creator_cubit.dart';
+import '../widgets/ai_badge.dart';
 
-class CityBio extends StatelessWidget {
-  const CityBio({
+class GovernorateBio extends StatelessWidget {
+  const GovernorateBio({
     super.key,
   });
 
@@ -50,31 +51,28 @@ class CityBio extends StatelessWidget {
         },
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                height: 2,
+          child: Column(
+            children: [
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    height: 2,
+                  ),
+                  children: _parseBoldText(state.bio, context),
+                ),
               ),
-              children: _parseBoldText(state.bio, context),
-            ),
+              AIBadge(),
+            ],
           ),
-
-          // AppText(
-          //   state.bio.trim(),
-          //   maxLines: 40,
-          //   textAlign: TextAlign.justify,
-          //   height: 2,
-          //   fontSize: context.bodySmall!.fontSize,
-          // ),
         ),
       ),
     );
   }
 
   List<TextSpan> _parseBoldText(String text, BuildContext context) {
-    final RegExp boldPattern = RegExp(r'\*\*(.*?)\*\*'); // البحث عن النص بين **
+    final RegExp boldPattern = RegExp(r'\*\*(.*?)\*\*');
     List<TextSpan> spans = [];
     int lastMatchEnd = 0;
 

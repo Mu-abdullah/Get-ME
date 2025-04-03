@@ -6,7 +6,7 @@ import '../../../home_screen/data/model/governorates_model.dart';
 import '../../data/repo/city_places.dart';
 import '../cubits/city_bio_creator_cubit/city_bio_creator_cubit.dart';
 import '../cubits/get_city_places_cubit/get_city_places_cubit.dart';
-import '../refactor/city_body.dart';
+import '../refactor/governorate_body.dart';
 import '../widgets/add_new_palce_floating_button.dart';
 
 class GovernorateScreen extends StatelessWidget {
@@ -38,7 +38,7 @@ class GovernorateScreen extends StatelessWidget {
       child: Scaffold(
         floatingActionButton:
             AddNewPlaceFloatingButton(governorate: governorate),
-        body: CityBody(city: governorate),
+        body: GovernorateBody(city: governorate),
       ),
     );
   }

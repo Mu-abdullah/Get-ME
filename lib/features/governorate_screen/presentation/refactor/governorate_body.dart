@@ -5,11 +5,11 @@ import '../../../../core/style/widgets/custom_divider.dart';
 import '../../../home_screen/data/model/governorates_model.dart';
 import '../widgets/city_places_widget.dart';
 import '../widgets/city_places_title.dart';
-import 'city_bio.dart';
-import 'city_sliver_app_bar.dart';
+import 'governorate_bio.dart';
+import 'governorate_sliver_app_bar.dart';
 
-class CityBody extends StatelessWidget {
-  const CityBody({
+class GovernorateBody extends StatelessWidget {
+  const GovernorateBody({
     super.key,
     required this.city,
   });
@@ -22,11 +22,11 @@ class CityBody extends StatelessWidget {
     double divider = 20;
     return CustomScrollView(
       slivers: [
-        CitySliverAppBar(
+        GovernorateSliverAppBar(
           imageUrl: city.image!,
           name: isArabic ? city.nameAr! : city.name!,
         ),
-        const CityBio(),
+        const GovernorateBio(),
         SliverToBoxAdapter(
           child: CustomDivider(
             endIndent: divider,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
-import '../../features/governorate_screen/presentation/views/city_screen.dart';
+import '../../features/governorate_screen/presentation/views/governorate_screen.dart';
 import '../../features/home_screen/data/model/governorates_model.dart';
 import '../../features/home_screen/data/model/places_model.dart';
 import '../../features/all_governorate/presentation/views/governorates_grid_view_screen.dart';
