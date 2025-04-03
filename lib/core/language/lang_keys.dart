@@ -32,6 +32,19 @@ class LangKeys {
   static const String acceptPolicy = 'acceptPolicy';
   static const String logout = 'logout';
 
+  // onboarding keys
+  static const String skip = 'skip';
+  static const String next = 'next';
+  static const String discover = 'discover';
+  static const String title1 = 'title1';
+  static const String title2 = 'title2';
+  static const String title3 = 'title3';
+  static const String body1 = 'body1';
+  static const String body2 = 'body2';
+  static const String body3 = 'body3';
+  
+   
+
   // Auth Keys
   static const String login = 'login';
   static const String register = 'register';

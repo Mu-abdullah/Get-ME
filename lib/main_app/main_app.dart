@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:getme/core/services/shared_pref/pref_keys.dart';
+import 'package:getme/core/services/shared_pref/shared_pref.dart';
 
 import '../core/app/language/language_cubit/language_cubit.dart';
 import '../core/app/no_internet/connection_controller/connection_controller.dart';
@@ -77,7 +79,7 @@ class _MainAppState extends State<MainApp> {
                     );
                   },
                   onGenerateRoute: onGenerateRoute,
-                  initialRoute: RoutesNames.homeScreen,
+                  initialRoute: getInitialRoute(),
                 );
               },
             ),
@@ -90,5 +92,20 @@ class _MainAppState extends State<MainApp> {
         }
       },
     );
+  }
+
+  String getInitialRoute() {
+    final isConnected = ConnectionController.instance.isConnected.value;
+    final onBoarding = SharedPref.getData(key: PrefKeys.onBoarding);
+
+    if (isConnected) {
+      if (onBoarding != true) {
+        return RoutesNames.onBoarding;
+      } else {
+        return RoutesNames.homeScreen;
+      }
+    } else {
+      return RoutesNames.noInternet;
+    }
   }
 }

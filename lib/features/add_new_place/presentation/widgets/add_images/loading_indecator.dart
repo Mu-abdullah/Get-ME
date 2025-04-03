@@ -16,7 +16,7 @@ class LoadingIndicator extends StatelessWidget {
         children: [
           CircularProgressIndicator(color: AppColors.black),
           const SizedBox(height: 20),
-          AppText(context.translate(LangKeys.loading), color: AppColors.gray),
+          AppText(context.translate(LangKeys.loading), color: AppColors.grey),
         ],
       ),
     );

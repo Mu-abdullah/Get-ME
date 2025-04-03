@@ -18,9 +18,9 @@ class EmptyState extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(HugeIcons.strokeRoundedImageAdd01,
-              size: 80, color: AppColors.gray.withValues(alpha: 0.3)),
+              size: 80, color: AppColors.grey.withValues(alpha: 0.3)),
           const SizedBox(height: 20),
-          AppText(context.translate(LangKeys.noPhotos), color: AppColors.gray),
+          AppText(context.translate(LangKeys.noPhotos), color: AppColors.grey),
           const SizedBox(height: 10),
           TextButton(
             onPressed: () =>

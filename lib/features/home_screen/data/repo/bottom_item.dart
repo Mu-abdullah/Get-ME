@@ -17,19 +17,19 @@ class BottomItem {
         icon: Icon(HugeIcons.strokeRoundedHome01),
         title: AppText(context.translate(LangKeys.home)),
         activeColor: AppColors.black,
-        inactiveColor: AppColors.gray,
+        inactiveColor: AppColors.grey,
       ),
       FlashyTabBarItem(
         icon: Icon(HugeIcons.strokeRoundedRobot01),
         title: AppText(context.translate(LangKeys.rahaali)),
         activeColor: AppColors.black,
-        inactiveColor: AppColors.gray,
+        inactiveColor: AppColors.grey,
       ),
       FlashyTabBarItem(
         icon: Icon(HugeIcons.strokeRoundedUser),
         title: AppText(context.translate(LangKeys.account)),
         activeColor: AppColors.black,
-        inactiveColor: AppColors.gray,
+        inactiveColor: AppColors.grey,
       ),
     ];
   }

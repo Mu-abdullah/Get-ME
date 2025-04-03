@@ -128,7 +128,7 @@ class AppButton extends StatelessWidget {
   }
 
   Color get _getButtonColor {
-    if (isDisabled && !isLoading) return AppColors.gray;
+    if (isDisabled && !isLoading) return AppColors.grey;
     return isBorderd ? Colors.white : backGroundColor;
   }
 

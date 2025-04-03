@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/features/on_board/on_boarding_screen.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
@@ -34,6 +35,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return BaseRoute(
         page: LanguageScreen(),
       );
+
+    case RoutesNames.onBoarding:
+      return BaseRoute(
+        page: OnBoardingScreen(),
+      );
+
     case RoutesNames.noInternet:
       return BaseRoute(
         page: NoInternetScreen(),

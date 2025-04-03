@@ -72,7 +72,7 @@ class PolicyBody extends StatelessWidget {
               ),
               TextSpan(
                 text: ' "$appName" ',
-                style: customTextStyle(context, color: AppColors.gray),
+                style: customTextStyle(context, color: AppColors.grey),
               ),
               TextSpan(
                 text: isArabic

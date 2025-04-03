@@ -124,7 +124,7 @@ class LanguageScreen extends StatelessWidget {
                           : context.bodyMedium!.fontSize,
                       fontWeight:
                           isSelected ? FontWeight.w700 : FontWeight.w500,
-                      color: isSelected ? AppColors.black : AppColors.gray,
+                      color: isSelected ? AppColors.black : AppColors.grey,
                     ),
                   ),
                   AnimatedSwitcher(
