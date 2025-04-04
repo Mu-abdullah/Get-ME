@@ -190,12 +190,12 @@ class OnboardingPage extends StatelessWidget {
             right: 0,
             left: 0,
             child: SizedBox(
-              height: context.height(percent: 0.5),
+              height: context.height(percent: 0.8),
               child: AnimatedBuilder(
                 animation: PageController(),
                 builder: (context, child) {
                   return Transform.scale(
-                    scale: index == 0 ? 1 : 1.2,
+                    scale: index == 0 ? 0.6 : 1.2,
                     child: child,
                   );
                 },
@@ -211,11 +211,28 @@ class OnboardingPage extends StatelessWidget {
             ),
           ),
           Positioned(
+            top: 20,
+            right: 0,
+            left: 0,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppText(
+                  context.translate(title),
+                  fontSize: context.headlineLarge!.fontSize,
+                  color: AppColors.white,
+                  textAlign: TextAlign.center,
+                  maxLines: 5,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
             right: 0,
             left: 0,
             bottom: 0,
             child: Container(
-              height: context.height(percent: 0.5),
+              height: context.height(percent: 0.35),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -228,18 +245,10 @@ class OnboardingPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppText(
-                    context.translate(title),
-                    textAlign: TextAlign.start,
-                    maxLines: 5,
-                    isTitle: true,
-                    color: textColor,
-                  ),
-                  SizedBox(height: 20),
-                  AppText(
                     context.translate(description),
-                    maxLines: 5,
+                    maxLines: 20,
                     textAlign: TextAlign.start,
-                    fontSize: context.headlineMedium!.fontSize,
+                    fontSize: context.headlineSmall!.fontSize,
                   ),
                 ],
               ),
