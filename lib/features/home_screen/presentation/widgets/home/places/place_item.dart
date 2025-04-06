@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:getme/core/app/visited_places/cubit/visited_placed_cubit.dart';
+import 'package:getme/core/app/visited_places/model/visited_places.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/widgets/custom_shimmer.dart';
 
@@ -123,6 +125,18 @@ class _PlaceCardState extends State<PlaceCard> {
               'place': widget.place,
             },
           );
+          var place = VisitedPlaces(
+            name: widget.place.name!,
+            governorateNameAr: widget.place.governorateNameAr,
+          );
+          context
+              .read<VisitedPlacedCubit>()
+              .addPlaceToBox(place)
+              .then((onValue) {
+            if (context.mounted) {
+              context.read<VisitedPlacedCubit>().fetchAllPlaces();
+            }
+          });
         },
         borderRadius: AppBorderRadius.mediumRadius,
         child: ClipRRect(

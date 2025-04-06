@@ -9,10 +9,10 @@ import '../cubits/bottom_bar_cubit/bottom_bar_cubit.dart';
 import '../cubits/home_cities_cubit/home_cities_cubit.dart';
 import '../cubits/home_governorates_cubit/home_governorates_cubit.dart';
 import '../cubits/home_places_cubit/home_places_cubit.dart';
-import '../refactor/home_body.dart';
+import '../refactor/bottom_bar_body.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class BottomBarScreen extends StatelessWidget {
+  const BottomBarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
           create: (context) => PlacesCubit(PlacesRepository()),
         ),
       ],
-      child: HomeBody(),
+      child: BottomBarBody(),
     );
   }
 }

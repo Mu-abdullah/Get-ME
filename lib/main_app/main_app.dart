@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/app/language/language_cubit/language_cubit.dart';
 import '../core/app/no_internet/connection_controller/connection_controller.dart';
 import '../core/app/no_internet/no_internet_screen.dart';
+import '../core/app/visited_places/cubit/visited_placed_cubit.dart';
 import '../core/routes/routes.dart';
 import '../core/routes/routes_name.dart';
 import '../core/language/app_localizations_setup.dart';
@@ -47,6 +48,7 @@ class _MainAppState extends State<MainApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LanguageCubit()),
+        BlocProvider(create: (_) => VisitedPlacedCubit()),
       ],
       child: BlocBuilder<LanguageCubit, String>(
         builder: (context, language) {

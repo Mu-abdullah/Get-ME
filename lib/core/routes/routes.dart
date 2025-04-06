@@ -8,7 +8,7 @@ import '../../features/governorate_screen/presentation/views/governorate_screen.
 import '../../features/home_screen/data/model/governorates_model.dart';
 import '../../features/home_screen/data/model/places_model.dart';
 import '../../features/all_governorate/presentation/views/governorates_grid_view_screen.dart';
-import '../../features/home_screen/presentation/views/home_screen.dart';
+import '../../features/home_screen/presentation/views/bottom_bar_screen.dart';
 import '../../features/all_places/presentation/views/places_grid_view_screen.dart';
 import '../../features/place_screen/presentation/views/place_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
@@ -79,7 +79,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case RoutesNames.homeScreen:
       return BaseRoute(
-        page: HomeScreen(),
+        page: BottomBarScreen(),
       );
     case RoutesNames.placeScreen:
       return BaseRoute(
