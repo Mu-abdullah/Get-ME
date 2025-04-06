@@ -68,7 +68,7 @@ class MessageInput extends StatelessWidget {
   }
 
   void _sendMessage(BuildContext context, String text) {
-    context.read<ChatCubit>().sendMessage(text);
+    context.read<ChatCubit>().sendMessage(text, context);
     controller.clear();
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/app/visited_places/cubit/visited_placed_cubit.dart';
 import 'package:getme/core/extextions/extentions.dart';
 import 'package:hugeicons/hugeicons.dart';
 
@@ -56,12 +55,6 @@ class _BottomBarBodyState extends State<BottomBarBody> {
           ),
           bottomNavigationBar: HomeBottomNavigationBar(cubit: cubit),
           body: SafeArea(child: cubit.screens[cubit.currentIndex]),
-          floatingActionButton: FloatingActionButton(onPressed: () {
-            var place = context.read<VisitedPlacedCubit>().places;
-            debugPrint(
-              'place: ${place.length}',
-            );
-          }),
         );
       },
     );
