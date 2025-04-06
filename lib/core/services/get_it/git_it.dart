@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import '../../../auth/data/repo/create_user_repo.dart';
 import '../../../features/add_new_place/data/repo/add_images.dart';
 import '../../../features/add_new_place/data/repo/add_place_info.dart';
 import '../../../features/home_screen/data/repo/get_home_city_repo.dart';
@@ -24,6 +25,7 @@ void _registerRepositories() {
   locator.registerLazySingleton(() => AddPlaceInfo(locator()));
   locator.registerLazySingleton(() => AddImages(locator()));
   locator.registerLazySingleton(() => PolicyRepo(locator()));
+  locator.registerLazySingleton(() => CreateUserRepo(locator()));
 }
 
 void _registerServices() {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:getme/core/extextions/extentions.dart';
 import 'package:getme/core/style/widgets/app_text.dart';
 
 import '../color/app_color.dart';
@@ -25,6 +27,7 @@ class AppTextFormField extends StatefulWidget {
     this.enabled = true,
     this.capitalization = TextCapitalization.none,
     this.underlineColor = Colors.grey,
+    this.inputFormatters,
   });
 
   final String? hint;
@@ -47,6 +50,7 @@ class AppTextFormField extends StatefulWidget {
   final void Function(String?)? onSubmitted;
   final FormFieldValidator<String> validate;
   final Color underlineColor;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   State<AppTextFormField> createState() => _AppTextFormFieldState();
@@ -86,6 +90,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       maxLines: widget.maxLines,
       focusNode: _focusNode,
       decoration: _decoration(context),
+      inputFormatters: widget.inputFormatters,
     );
   }
 
@@ -118,7 +123,9 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return customTextStyle(
       context,
       isBold: !isError,
-      fontSize: !isError ? 14 : 16,
+      fontSize: !isError
+          ? context.bodySmall!.fontSize
+          : context.bodySmall!.fontSize! - 2,
       color: isError ? AppColors.red : AppColors.black,
     );
   }

@@ -103,12 +103,17 @@ class _MainAppState extends State<MainApp> {
   String getInitialRoute() {
     final isConnected = ConnectionController.instance.isConnected.value;
     final onBoarding = SharedPref.getData(key: PrefKeys.onBoarding);
+    final isUserExist = SharedPref.getData(key: PrefKeys.userModel);
 
     if (isConnected) {
       if (onBoarding != true) {
         return RoutesNames.onBoarding;
       } else {
-        return RoutesNames.homeScreen;
+        if (isUserExist == null) {
+          return RoutesNames.authScreen;
+        } else {
+          return RoutesNames.homeScreen;
+        }
       }
     } else {
       return RoutesNames.noInternet;

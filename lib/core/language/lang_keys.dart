@@ -35,8 +35,6 @@ class LangKeys {
   // no internet screen
   static const String tryToConnect = 'tryToConnect';
   static const String stillNotConnected = 'stillNotConnected';
-  
-
 
   // onboarding keys
   static const String skip = 'skip';
@@ -48,12 +46,19 @@ class LangKeys {
   static const String body1 = 'body1';
   static const String body2 = 'body2';
   static const String body3 = 'body3';
-  
-   
 
   // Auth Keys
   static const String login = 'login';
   static const String register = 'register';
+  static const String email = 'email';
+  static const String name = 'name';
+  static const String phone = 'phone';
+  static const String authHint = 'authHint';
+  static const String userNotFound = 'userNotFound';
+  static const String writePhoneCorrect = 'writePhoneCorrect';
+  static const String phoneStartWith = 'phoneStartWith';
+  static const String writeEmailCorrect = 'writeEmailCorrect';
+  static const String welcemeUser = 'welcemeUser';
 
   // Home Keys
   static const String home = 'home';

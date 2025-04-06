@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/auth/presentation/views/auth_screen.dart';
 import 'package:getme/features/on_board/on_boarding_screen.dart';
 
 import '../../features/account_screen/presentation/views/account_screen.dart';
@@ -34,6 +35,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.language:
       return BaseRoute(
         page: LanguageScreen(),
+      );
+    case RoutesNames.authScreen:
+      return BaseRoute(
+        page: AuthScreen(),
       );
 
     case RoutesNames.onBoarding:
