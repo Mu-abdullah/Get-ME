@@ -58,6 +58,7 @@
     "phoneStartsWith":"Must start with 010, 011, 012, or 015 followed by 11 digits",
     "writeEmailCorrect":"Write email correctly",
     "welcemeUser":"Welcome back",
+    "shouldBeLogin":"You must log in",
 
     "######################################HomeScreen":"",
     "home":"Home",

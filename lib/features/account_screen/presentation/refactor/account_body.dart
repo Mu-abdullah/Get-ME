@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/buttons_listview.dart';
+import '../widgets/user_info/user_card.dart';
 
 class AccountBody extends StatelessWidget {
   const AccountBody({
@@ -11,8 +12,10 @@ class AccountBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        UserInfoCard(),
         ButtonsListview(),
       ],
     );
   }
 }
+
