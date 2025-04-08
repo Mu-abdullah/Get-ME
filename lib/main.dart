@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/services/hive/hive_boxes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/app/env_variable.dart';
@@ -9,6 +8,7 @@ import 'core/app/no_internet/connection_controller/connection_controller.dart';
 import 'core/app/visited_places/model/visited_places.dart';
 import 'core/routes/bloc_observer.dart';
 import 'core/services/get_it/git_it.dart';
+import 'core/services/hive/hive_boxes.dart';
 import 'core/services/shared_pref/shared_pref.dart';
 import 'core/services/supabase/supabase_init.dart';
 import 'main_app/main_app.dart';

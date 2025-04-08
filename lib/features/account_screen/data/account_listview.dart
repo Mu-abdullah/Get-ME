@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:getme/core/extextions/extentions.dart';
+import 'package:getme/core/style/widgets/custom_bottom_sheet.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../core/language/lang_keys.dart';
 import '../../../core/routes/routes_name.dart';
+import '../presentation/widgets/delete_acc_btom_sheet.dart';
 import 'model/account_button_model.dart';
 
 class AccountListview {
@@ -42,7 +44,11 @@ class AccountListview {
         title: LangKeys.deleteAccount,
         iconColor: Colors.red,
         titleColor: Colors.red,
-        onTap: () {},
+        onTap: () {
+          customShowBottomSheet(
+              context: context,
+              builder: (_) => const DeleteAccountBottomSheet());
+        },
       ),
     ];
   }

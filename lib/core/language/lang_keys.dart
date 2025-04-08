@@ -24,6 +24,7 @@ class LangKeys {
   static const String showOriginal = 'showOriginal';
   static const String hideOriginal = 'hideOriginal';
   static const String dontShowAnymore = 'dontShowAnymore';
+  static const String doYouWantToDeleteAccount = 'doYouWantToDeleteAccount';
 
   //account keys
   static const String deleteAccount = 'deleteAccount';
