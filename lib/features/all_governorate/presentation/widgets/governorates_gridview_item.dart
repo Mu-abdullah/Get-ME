@@ -5,6 +5,7 @@ import '../../../../core/routes/routes_name.dart';
 import '../../../../core/style/font/fonts_helper.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../home_screen/data/model/governorates_model.dart';
+import '../cubits/governorates_cubit/governorates_cubit.dart';
 
 class GridViewGovernoratesItem extends StatelessWidget {
   const GridViewGovernoratesItem({
@@ -16,10 +17,13 @@ class GridViewGovernoratesItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = GovernoratesCubit.get(context);
     var isArabic = FontsHelper.isArabic(context);
     return InkWell(
       onTap: () => context.pushNamed(
-        RoutesNames.governorateScreen,
+        cubit.isAddedPlace
+            ? RoutesNames.addPlaceScreen
+            : RoutesNames.governorateScreen,
         arguments: {
           'governorate': governorates,
         },

@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/features/home_screen/data/model/governorates_model.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../../../../auth/data/models/user_model.dart';
+import '../../../../home_screen/data/model/governorates_model.dart';
 
 part 'get_image_state.dart';
 
@@ -80,5 +82,5 @@ class GetImageCubit extends Cubit<GetImageState> {
     } catch (e) {
       emit(ImageGetFailure(e.toString()));
     }
-  }
+  } // get user from shared preferences
 }

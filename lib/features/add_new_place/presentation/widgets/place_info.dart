@@ -111,6 +111,7 @@ class PlaceInfo extends StatelessWidget {
                         governorateNameAr: cubit.governorate!.nameAr!,
                         placeId: await GenerateId.generateDocumentId(),
                         status: PlaceStatus.pending,
+                        userId: 8,
                       );
                       uploadCubit.addItem(placeModel: item).then((onValue) {
                         uploadCubit.submitForm(

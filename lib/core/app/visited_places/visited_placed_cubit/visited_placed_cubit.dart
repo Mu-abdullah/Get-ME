@@ -1,10 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/app/visited_places/model/visited_places.dart';
+
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../../../auth/data/models/user_model.dart';
 import '../../../services/hive/hive_boxes.dart';
+
+import '../model/visited_places.dart';
 import '../repo/get_visited_places.dart';
 part 'visited_placed_state.dart';
 

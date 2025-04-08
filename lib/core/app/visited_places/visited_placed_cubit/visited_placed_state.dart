@@ -20,3 +20,15 @@ final class PlacesError extends VisitedPlacedState {
   final String message;
   const PlacesError({required this.message});
 }
+
+class UserLoading extends VisitedPlacedState {}
+
+class UserLoaded extends VisitedPlacedState {
+  final UserModel user;
+  const UserLoaded(this.user);
+}
+
+class UserError extends VisitedPlacedState {
+  final String error;
+  const UserError(this.error);
+}

@@ -12,8 +12,8 @@ import '../cubits/home_places_cubit/home_places_cubit.dart';
 import '../refactor/bottom_bar_body.dart';
 
 class BottomBarScreen extends StatelessWidget {
-  const BottomBarScreen({super.key});
-
+  const BottomBarScreen({super.key, this.phone});
+  final String? phone;
   @override
   Widget build(BuildContext context) {
     final lactor = locator<GetHomeGovernoratesRepo>();

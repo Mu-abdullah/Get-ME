@@ -35,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
           debugPrint("User found");
           debugPrint("User found ${user.first.toJson()} + ${user.length}");
           SharedPref.saveUserToPreferences(
-            user.first.toJson(),
+            user: user.first.toJson(),
             key: PrefKeys.userModel,
           );
           emit(UserFound(

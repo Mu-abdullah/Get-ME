@@ -13,7 +13,9 @@ class AccountListview {
         icon: HugeIcons.strokeRoundedImageAdd02,
         title: LangKeys.addNewPlace,
         onTap: () {
-          context.pushNamed(RoutesNames.addPlaceScreen);
+          context.pushNamed(RoutesNames.governorate, arguments: {
+            'isAddedPlace': true,
+          });
         },
       ),
       AccountButtonModel(

@@ -55,7 +55,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(GetUserDataError(error.message));
     }, (user) async {
       await SharedPref.saveUserToPreferences(
-        user.toJson(),
+        user: user.toJson(),
         key: PrefKeys.userModel,
       );
       if (!isClosed) {

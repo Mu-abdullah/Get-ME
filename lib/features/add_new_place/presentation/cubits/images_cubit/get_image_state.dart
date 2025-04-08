@@ -21,3 +21,14 @@ class ImageGetFailure extends GetImageState {
   final String error;
   ImageGetFailure(this.error);
 }
+class UserLoading extends GetImageState {}
+
+class UserLoaded extends GetImageState {
+  final UserModel user;
+  UserLoaded(this.user);
+}
+
+class UserError extends GetImageState {
+  final String error;
+  UserError(this.error);
+}

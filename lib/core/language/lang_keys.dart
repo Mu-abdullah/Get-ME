@@ -84,6 +84,7 @@ class LangKeys {
   static const String go = 'go';
   static const String goToLocation = 'goToLocation';
   static const String createdByAi = 'createdByAi';
+  static const String chooseGovernorate = 'chooseGovernorate';
 
   // chat Keys
   static const String noMassagesYet = 'noMassagesYet';

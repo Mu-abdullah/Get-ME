@@ -7,8 +7,13 @@ part 'governorates_state.dart';
 
 class GovernoratesCubit extends Cubit<GovernoratesState> {
   GetGovernoratesRepo repo;
-  GovernoratesCubit(this.repo) : super(GovernoratesInitial());
+  GovernoratesCubit(
+    this.repo, {
+    required this.isAddedPlace,
+  }) : super(GovernoratesInitial());
   static GovernoratesCubit get(context) => BlocProvider.of(context);
+
+  final bool isAddedPlace;
 
   Future<void> getGovernorates() async {
     emit(LoadingGovernorates());

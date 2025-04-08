@@ -9,16 +9,21 @@ import '../cubits/governorates_cubit/governorates_cubit.dart';
 import '../refactor/all_governorates_gridview_body.dart';
 
 class GovernoratesGridViewScreen extends StatelessWidget {
-  const GovernoratesGridViewScreen({super.key});
-
+  const GovernoratesGridViewScreen({super.key, this.isAddedPlace});
+  final bool? isAddedPlace;
   @override
   Widget build(BuildContext context) {
     final repo = locator<GetGovernoratesRepo>();
     return BlocProvider(
-      create: (context) => GovernoratesCubit(repo)..getGovernorates(),
+      create: (context) => GovernoratesCubit(
+        repo,
+        isAddedPlace: isAddedPlace ?? false,
+      )..getGovernorates(),
       child: Scaffold(
         appBar: CustomAppBar(
-          translatedTitle: LangKeys.governorates,
+          translatedTitle: isAddedPlace == true
+              ? LangKeys.chooseGovernorate
+              : LangKeys.governorates,
         ),
         body: GovernoratesGridGridviewBody(),
       ),

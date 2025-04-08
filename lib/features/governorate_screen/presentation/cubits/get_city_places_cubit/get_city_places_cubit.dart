@@ -27,9 +27,13 @@ class GetCityPlacesCubit extends Cubit<GetCityPlacesState> {
         cityId: cityId,
       );
 
-      emit(GetCityPlacesLoaded(places));
+      if (!isClosed) {
+        emit(GetCityPlacesLoaded(places));
+      }
     } catch (e) {
-      emit(GetCityPlacesError(e.toString()));
+      if (!isClosed) {
+        emit(GetCityPlacesError(e.toString()));
+      }
     }
   }
 }

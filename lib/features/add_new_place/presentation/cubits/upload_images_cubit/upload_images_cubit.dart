@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/services/supabase/backend_points.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../../../core/services/supabase/backend_points.dart';
 import '../../../data/model/new_place_model.dart';
 import '../../../data/repo/add_images.dart';
 import '../../../data/repo/add_place_info.dart';
@@ -14,8 +14,10 @@ part 'upload_images_state.dart';
 class UploadImagesCubit extends Cubit<UploadImagesState> {
   final AddPlaceInfo addItemRepo;
   final AddImages addImagesRepo;
-  UploadImagesCubit({required this.addImagesRepo, required this.addItemRepo})
-      : super(UploadImagesInitial());
+  UploadImagesCubit({
+    required this.addImagesRepo,
+    required this.addItemRepo,
+  }) : super(UploadImagesInitial());
 
   static UploadImagesCubit get(context) => BlocProvider.of(context);
   final List<String> urls = [];

@@ -5,9 +5,10 @@ class PlaceEntity {
   final String? location;
   final String? description;
   final int? governoratesId;
-  final String governorateNameAr;
+  final String? governorateNameAr;
   final String? placeId;
   final String? status;
+  final int? userId;
 
   PlaceEntity({
     this.id,
@@ -18,6 +19,7 @@ class PlaceEntity {
     this.governoratesId,
     this.placeId,
     this.status,
-    required this.governorateNameAr,
+    this.governorateNameAr,
+    this.userId,
   });
 }

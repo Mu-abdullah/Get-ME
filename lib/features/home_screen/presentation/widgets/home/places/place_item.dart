@@ -1,18 +1,19 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:getme/core/app/visited_places/cubit/visited_placed_cubit.dart';
-import 'package:getme/core/app/visited_places/model/visited_places.dart';
+
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/style/widgets/custom_shimmer.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../../core/app/language/language_cubit/language_cubit.dart';
+import '../../../../../../core/app/visited_places/visited_placed_cubit/visited_placed_cubit.dart';
+import '../../../../../../core/app/visited_places/model/visited_places.dart';
 import '../../../../../../core/routes/routes_name.dart';
 import '../../../../../../core/services/translate_services.dart';
 import '../../../../../../core/style/color/app_color.dart';
 import '../../../../../../core/style/statics/app_statics.dart';
 import '../../../../../../core/style/widgets/app_text.dart';
+import '../../../../../../core/style/widgets/custom_shimmer.dart';
 import '../../../../data/model/get_place_image_model.dart';
 import '../../../../data/model/places_model.dart';
 
@@ -56,7 +57,7 @@ class _PlaceCardState extends State<PlaceCard> {
           sourceLanguage: widget.sourceLanguage,
         );
         final translatedGovernorate = await TranslationService.translateText(
-          widget.place.governorateNameAr,
+          widget.place.governorateNameAr!,
           currentLanguage,
           sourceLanguage: widget.sourceLanguage,
         );
@@ -72,14 +73,14 @@ class _PlaceCardState extends State<PlaceCard> {
         // Fallback to original text if translation fails
         setState(() {
           _translatedName = widget.place.name!;
-          _translatedGovernorate = widget.place.governorateNameAr;
+          _translatedGovernorate = widget.place.governorateNameAr!;
           _isLoading = false;
         });
       }
     } else {
       setState(() {
         _translatedName = widget.place.name!;
-        _translatedGovernorate = widget.place.governorateNameAr;
+        _translatedGovernorate = widget.place.governorateNameAr!;
         _isLoading = false;
       });
     }
@@ -127,7 +128,7 @@ class _PlaceCardState extends State<PlaceCard> {
           );
           var place = VisitedPlaces(
             name: widget.place.name!,
-            governorateNameAr: widget.place.governorateNameAr,
+            governorateNameAr: widget.place.governorateNameAr!,
           );
           context
               .read<VisitedPlacedCubit>()

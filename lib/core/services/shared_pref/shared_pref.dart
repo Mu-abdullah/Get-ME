@@ -56,8 +56,8 @@ class SharedPref {
     }
   }
 
-  static Future<void> saveUserToPreferences(
-    Map<String, dynamic> user, {
+  static Future<void> saveUserToPreferences({
+    required Map<String, dynamic> user,
     required String key,
   }) async {
     try {

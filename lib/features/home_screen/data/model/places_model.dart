@@ -11,6 +11,7 @@ class PlacesModel extends PlaceEntity {
     required super.placeId,
     required super.status,
     required super.governorateNameAr,
+    required super.userId,
   });
 
   factory PlacesModel.fromJson(Map<String, dynamic> json) => PlacesModel(
@@ -23,6 +24,7 @@ class PlacesModel extends PlaceEntity {
         placeId: json['place_id'],
         status: json['status'],
         governorateNameAr: json['governorate_name_ar'] ?? '',
+        userId: json['user_id'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,5 +37,6 @@ class PlacesModel extends PlaceEntity {
         'place_id': placeId,
         'status': status,
         'governorate_name_ar': governorateNameAr,
+        'user_id': userId,
       };
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getme/auth/presentation/views/auth_screen.dart';
-import 'package:getme/features/on_board/on_boarding_screen.dart';
 
+import '../../auth/presentation/views/auth_screen.dart';
 import '../../features/account_screen/presentation/views/account_screen.dart';
 import '../../features/add_new_place/presentation/views/add_new_place.dart';
 import '../../features/governorate_screen/presentation/views/governorate_screen.dart';
@@ -10,6 +9,7 @@ import '../../features/home_screen/data/model/places_model.dart';
 import '../../features/all_governorate/presentation/views/governorates_grid_view_screen.dart';
 import '../../features/home_screen/presentation/views/bottom_bar_screen.dart';
 import '../../features/all_places/presentation/views/places_grid_view_screen.dart';
+import '../../features/on_board/on_boarding_screen.dart';
 import '../../features/place_screen/presentation/views/place_screen.dart';
 import '../../features/policy/presentation/views/policy_screen.dart';
 import '../app/image/image_preview.dart';
@@ -59,8 +59,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case RoutesNames.governorate:
       return BaseRoute(
-        page: GovernoratesGridViewScreen(),
+        page: GovernoratesGridViewScreen(
+          isAddedPlace: args?['isAddedPlace'] as bool? ?? false,
+        ),
       );
+
     case RoutesNames.allPlaces:
       return BaseRoute(
         page: AllPlacesScreen(),
@@ -79,7 +82,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case RoutesNames.homeScreen:
       return BaseRoute(
-        page: BottomBarScreen(),
+        page: BottomBarScreen(
+          phone: args?['phone'] as String?,
+        ),
       );
     case RoutesNames.placeScreen:
       return BaseRoute(

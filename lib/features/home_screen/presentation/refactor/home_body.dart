@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/app/visited_places/cubit/visited_placed_cubit.dart';
+import '../../../../core/app/visited_places/visited_placed_cubit/visited_placed_cubit.dart';
 import '../widgets/home/governorates/governorates_body.dart';
 import '../widgets/home/places/places_body.dart';
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
-import '../../../../../core/app/visited_places/cubit/visited_placed_cubit.dart';
+import '../../../../../core/app/visited_places/visited_placed_cubit/visited_placed_cubit.dart';
 import '../../../../../core/services/ai/ai_setup.dart';
 
 part 'chat_state.dart';
