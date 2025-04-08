@@ -5,12 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../../auth/data/models/user_model.dart';
+import '../../../../../core/services/shared_pref/pref_keys.dart';
+import '../../../../../core/services/shared_pref/shared_pref.dart';
 import '../../../../home_screen/data/model/governorates_model.dart';
 
 part 'get_image_state.dart';
 
 class GetImageCubit extends Cubit<GetImageState> {
-  GetImageCubit({this.governorate}) : super(ImageUploadInitial());
+  GetImageCubit({this.governorate}) : super(ImageUploadInitial()) {
+    getUser();
+  }
 
   static GetImageCubit get(context) => BlocProvider.of(context);
 
@@ -83,4 +87,26 @@ class GetImageCubit extends Cubit<GetImageState> {
       emit(ImageGetFailure(e.toString()));
     }
   } // get user from shared preferences
+
+  UserModel? user;
+
+  Future<UserModel?> getUser() async {
+    emit(UserLoading());
+    var userdate = await SharedPref.getUserFromPreferences(
+      key: PrefKeys.userModel,
+    );
+    if (userdate != null) {
+      var userModel = UserModel.fromJson(userdate);
+
+      user = userModel;
+
+      emit(UserLoaded(UserModel.fromJson(userdate)));
+      debugPrint("User found ${user!.id!}");
+      return UserModel.fromJson(userdate);
+    } else {
+      debugPrint("No user found");
+      emit(UserError("No user found"));
+      return null;
+    }
+  }
 }

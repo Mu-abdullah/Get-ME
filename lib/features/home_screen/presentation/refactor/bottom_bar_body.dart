@@ -33,9 +33,8 @@ class _BottomBarBodyState extends State<BottomBarBody> {
   }
 
   Future<void> _checkUserLoginStatus() async {
-    final user =
-        await SharedPref.getUserFromPreferences(key: PrefKeys.userModel);
-    if (user != null && mounted) {
+    final user = await SharedPref.getData(key: PrefKeys.isSignedIn);
+    if (user == true) {
       setState(() {
         _isUserLoggedIn = true;
       });
@@ -125,7 +124,11 @@ class _BottomBarBodyState extends State<BottomBarBody> {
 
   void _handleLogout(BuildContext context) {
     SharedPref.removeData(key: PrefKeys.userModel);
+    SharedPref.removeData(key: PrefKeys.isSignedIn);
     context.read<BottomBarCubit>().changeIndex(0);
+    setState(() {
+      _isUserLoggedIn = false;
+    });
   }
 
   void _navigateToLanguageScreen(BuildContext context) {

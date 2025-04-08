@@ -38,6 +38,11 @@ class AuthCubit extends Cubit<AuthState> {
             user: user.first.toJson(),
             key: PrefKeys.userModel,
           );
+          SharedPref.saveData(
+            key: PrefKeys.isSignedIn,
+            value: true,
+          );
+
           emit(UserFound(
             user: user.first,
           ));

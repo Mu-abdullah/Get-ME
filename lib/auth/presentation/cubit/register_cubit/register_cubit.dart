@@ -58,6 +58,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         user: user.toJson(),
         key: PrefKeys.userModel,
       );
+      SharedPref.saveData(
+        key: PrefKeys.isSignedIn,
+        value: true,
+      );
       if (!isClosed) {
         emit(GetUserDataSuccess(user));
       }

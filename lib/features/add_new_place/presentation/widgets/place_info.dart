@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getme/core/extextions/extentions.dart';
-import 'package:getme/core/functions/generate_id.dart';
-import 'package:getme/core/routes/routes_name.dart';
-import 'package:getme/core/style/widgets/app_text.dart';
-import 'package:getme/core/style/widgets/custom_snack_bar.dart';
 
+import '../../../../core/functions/generate_id.dart';
+import '../../../../core/routes/routes_name.dart';
+import '../../../../core/style/widgets/app_text.dart';
+import '../../../../core/style/widgets/custom_snack_bar.dart';
 import '../../../../core/language/lang_keys.dart';
 import '../../../../core/services/supabase/backend_points.dart';
 import '../../../../core/style/widgets/app_button.dart';
@@ -111,7 +111,7 @@ class PlaceInfo extends StatelessWidget {
                         governorateNameAr: cubit.governorate!.nameAr!,
                         placeId: await GenerateId.generateDocumentId(),
                         status: PlaceStatus.pending,
-                        userId: 8,
+                        userId: cubit.user!.id,
                       );
                       uploadCubit.addItem(placeModel: item).then((onValue) {
                         uploadCubit.submitForm(
