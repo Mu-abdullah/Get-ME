@@ -4,6 +4,7 @@ import 'package:getme/core/extextions/extentions.dart';
 
 import '../../../../core/functions/generate_id.dart';
 import '../../../../core/routes/routes_name.dart';
+import '../../../../core/style/font/fonts_helper.dart';
 import '../../../../core/style/widgets/app_text.dart';
 import '../../../../core/style/widgets/custom_snack_bar.dart';
 import '../../../../core/language/lang_keys.dart';
@@ -24,6 +25,7 @@ class PlaceInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isArabic = FontsHelper.isArabic(context);
     return Form(
       key: cubit.formKey,
       child: Column(
@@ -33,7 +35,9 @@ class PlaceInfo extends StatelessWidget {
             children: [
               Expanded(
                   child: AppText(
-                cubit.governorate?.nameAr ?? "",
+                isArabic
+                    ? cubit.governorate!.nameAr!
+                    : cubit.governorate!.name!,
                 isTitle: true,
               )),
             ],
