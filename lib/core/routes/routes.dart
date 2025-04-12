@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getme/features/user_place/presentation/views/user_places.dart';
 
 import '../../auth/presentation/views/auth_screen.dart';
 import '../../features/account_screen/presentation/views/account_screen.dart';
@@ -39,6 +40,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case RoutesNames.authScreen:
       return BaseRoute(
         page: AuthScreen(),
+      );
+    case RoutesNames.userPlaces:
+      return BaseRoute(
+        page: UserPlaces(),
       );
 
     case RoutesNames.onBoarding:

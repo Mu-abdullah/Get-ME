@@ -7,8 +7,8 @@ import 'backend_points.dart';
 abstract class BasePlacesRepository {
   final supabase = Supabase.instance.client;
 
-  Future<List<PlacesModel>> fetchPlaces({
-     String? orderBy,
+  Future<List<PlacesModel>> fetchPlacesByStatus({
+    String? orderBy,
     required String status,
     int? limit,
     bool ascending = true,
@@ -16,6 +16,30 @@ abstract class BasePlacesRepository {
     try {
       final query =
           supabase.from(BackendPoint.places).select().eq("status", status);
+      // Apply limit if provided
+      if (limit != null) {
+        query.limit(limit);
+      }
+      // Order the results
+      query.order(orderBy ?? 'created_at', ascending: ascending);
+
+      final placesResponse = await query;
+      return (placesResponse as List<dynamic>)
+          .map((json) => PlacesModel.fromJson(json))
+          .toList();
+    } catch (e) {
+      throw Exception('Failed to fetch places: $e');
+    }
+  }
+  Future<List<PlacesModel>> fetchPlacesByUser({
+    String? orderBy,
+    required int userId,
+    int? limit,
+    bool ascending = true,
+  }) async {
+    try {
+      final query =
+          supabase.from(BackendPoint.places).select().eq("user_id", userId);
       // Apply limit if provided
       if (limit != null) {
         query.limit(limit);

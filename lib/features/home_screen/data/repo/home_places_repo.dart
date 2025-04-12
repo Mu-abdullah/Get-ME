@@ -8,7 +8,7 @@ class PlacesRepository extends BasePlacesRepository {
       fetchPlacesWithImages() async {
     try {
       // Fetch approved places
-      final places = await fetchPlaces(
+      final places = await fetchPlacesByStatus(
         status: PlaceStatus.approved,
         orderBy: 'place_id',
         ascending: true,

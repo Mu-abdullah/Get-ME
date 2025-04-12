@@ -21,6 +21,13 @@ class AccountListview {
         },
       ),
       AccountButtonModel(
+        icon: HugeIcons.strokeRoundedLocationCheck01,
+        title: LangKeys.myPlaces,
+        onTap: () {
+          context.pushNamed(RoutesNames.userPlaces);
+        },
+      ),
+      AccountButtonModel(
         icon: HugeIcons.strokeRoundedFavourite,
         title: LangKeys.favorites,
         onTap: () {},

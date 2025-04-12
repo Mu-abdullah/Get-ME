@@ -25,6 +25,9 @@
     "translate":"ترجمة",
     "dontShowAnymore":"لا تظهر مرة أخرى",
     "doYouWantToDeleteAccount":"هل تريد حذف حسابك؟",
+    "approved":"تم الموافقة",
+    "pending":"قيد المراجعة",
+    "rejected":"مرفوضة",
 
 
     "######################################no internet screen":"",
@@ -49,6 +52,7 @@
     "favorites":"المفضلة",
     "deleteAccount":"حذف الحساب",
     "logout":"تسجيل الخروج",
+    "myPlaces":"الأماكن الخاصة بي",
 
 
     "######################################Login":"", 

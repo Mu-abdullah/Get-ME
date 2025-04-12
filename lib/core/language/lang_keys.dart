@@ -25,6 +25,9 @@ class LangKeys {
   static const String hideOriginal = 'hideOriginal';
   static const String dontShowAnymore = 'dontShowAnymore';
   static const String doYouWantToDeleteAccount = 'doYouWantToDeleteAccount';
+  static const String approved = 'approved';
+  static const String rejected = 'rejected';
+  static const String pending = 'pending';
 
   //account keys
   static const String deleteAccount = 'deleteAccount';
@@ -32,6 +35,7 @@ class LangKeys {
   static const String policy = 'policy';
   static const String acceptPolicy = 'acceptPolicy';
   static const String logout = 'logout';
+  static const String myPlaces = 'myPlaces';
 
   // no internet screen
   static const String tryToConnect = 'tryToConnect';

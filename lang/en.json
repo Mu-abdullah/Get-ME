@@ -24,6 +24,9 @@
     "translate":"Translate",
     "dontShowAnymore":"Don't show again",
     "doYouWantToDeleteAccount":"Are you sure you want to delete your account?",
+    "approved":"Approved",
+    "pending":"Pending",
+    "rejected":"Rejected",
 
     "######################################no internet screen":"",
     "tryToConnect":"Try to connect",
@@ -46,6 +49,7 @@
     "favorites":"Favorites",
     "deleteAccount":"Delete Account",
     "logout":"Logout",
+    "myPlaces":"My Places",
 
     "######################################Login":"",
     "login":"Login",
