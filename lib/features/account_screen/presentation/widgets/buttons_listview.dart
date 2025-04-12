@@ -11,14 +11,14 @@ class ButtonsListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = AccountListview.accountList(context);
-    return Expanded(
-      child: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (_, index) {
-          var item = items[index];
-          return AccountButtonItem(item: item);
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      itemBuilder: (_, index) {
+        var item = items[index];
+        return AccountButtonItem(item: item);
+      },
     );
   }
 }

@@ -10,12 +10,14 @@ class AccountBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        UserInfoCard(),
-        ButtonsListview(),
-      ],
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        children: [
+          UserInfoCard(),
+          ButtonsListview(),
+        ],
+      ),
     );
   }
 }
-
