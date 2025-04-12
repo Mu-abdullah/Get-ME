@@ -13,46 +13,48 @@ abstract class BasePlacesRepository {
     int? limit,
     bool ascending = true,
   }) async {
-    try {
-      final query =
-          supabase.from(BackendPoint.places).select().eq("status", status);
-      // Apply limit if provided
-      if (limit != null) {
-        query.limit(limit);
-      }
-      // Order the results
-      query.order(orderBy ?? 'created_at', ascending: ascending);
-
-      final placesResponse = await query;
-      return (placesResponse as List<dynamic>)
-          .map((json) => PlacesModel.fromJson(json))
-          .toList();
-    } catch (e) {
-      throw Exception('Failed to fetch places: $e');
-    }
+    return _fetchPlaces(
+      filterColumn: 'status',
+      filterValue: status,
+      limit: limit,
+      ascending: ascending,
+    );
   }
+
   Future<List<PlacesModel>> fetchPlacesByUser({
     String? orderBy,
     required int userId,
     int? limit,
     bool ascending = true,
   }) async {
+    return _fetchPlaces(
+      filterColumn: 'user_id',
+      filterValue: userId,
+      limit: limit,
+      ascending: ascending,
+    );
+  }
+
+  Future<List<PlacesModel>> _fetchPlaces({
+    required String filterColumn,
+    required dynamic filterValue,
+    int? limit,
+    bool ascending = true,
+  }) async {
     try {
-      final query =
-          supabase.from(BackendPoint.places).select().eq("user_id", userId);
-      // Apply limit if provided
+      var query = supabase
+          .from(BackendPoint.places)
+          .select()
+          .eq(filterColumn, filterValue);
+
       if (limit != null) {
         query.limit(limit);
       }
-      // Order the results
-      query.order(orderBy ?? 'created_at', ascending: ascending);
 
       final placesResponse = await query;
-      return (placesResponse as List<dynamic>)
-          .map((json) => PlacesModel.fromJson(json))
-          .toList();
+      return _parsePlacesResponse(placesResponse);
     } catch (e) {
-      throw Exception('Failed to fetch places: $e');
+      throw PlacesRepositoryException('Failed to fetch places: $e');
     }
   }
 
@@ -64,21 +66,41 @@ abstract class BasePlacesRepository {
           .select()
           .inFilter('place_id', placeIds);
 
-      return (imagesResponse as List<dynamic>)
-          .map((json) => GetPlaceImageModel.fromJson(json))
-          .toList();
+      return _parseImagesResponse(imagesResponse);
     } catch (e) {
-      throw Exception('Failed to fetch images: $e');
+      throw PlacesRepositoryException('Failed to fetch images: $e');
     }
   }
 
-  Future<Map<PlacesModel, List<GetPlaceImageModel>>> groupPlacesWithImages(
-      List<PlacesModel> places, List<GetPlaceImageModel> allImages) async {
-    final Map<PlacesModel, List<GetPlaceImageModel>> result = {};
-    for (var place in places) {
+  Map<PlacesModel, List<GetPlaceImageModel>> groupPlacesWithImages(
+    List<PlacesModel> places,
+    List<GetPlaceImageModel> allImages,
+  ) {
+    final result = <PlacesModel, List<GetPlaceImageModel>>{};
+    for (final place in places) {
       result[place] =
-          allImages.where((img) => img.placeId == place.placeId).toList();
+          allImages.where((image) => image.placeId == place.placeId).toList();
     }
     return result;
   }
+
+  List<PlacesModel> _parsePlacesResponse(dynamic response) {
+    return (response as List<dynamic>)
+        .map((json) => PlacesModel.fromJson(json))
+        .toList();
+  }
+
+  List<GetPlaceImageModel> _parseImagesResponse(dynamic response) {
+    return (response as List<dynamic>)
+        .map((json) => GetPlaceImageModel.fromJson(json))
+        .toList();
+  }
+}
+
+class PlacesRepositoryException implements Exception {
+  final String message;
+  PlacesRepositoryException(this.message);
+
+  @override
+  String toString() => 'PlacesRepositoryException: $message';
 }
