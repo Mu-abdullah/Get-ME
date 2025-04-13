@@ -24,9 +24,9 @@ class NoPlaceFound extends StatelessWidget {
         children: [
           AppText(context.translate(LangKeys.noPlaces)),
           InkWell(
-            onTap: () => Navigator.of(context)
-                .pushNamed(RoutesNames.addPlaceScreen, arguments: {
-              "city": city,
+            onTap: () =>
+          context.pushNamed(RoutesNames.governorate, arguments: {
+            'isAddedPlace': true,
             }),
             borderRadius: AppBorderRadius.mediumRadius,
             child: Padding(
